@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://www.getahead.ltd.uk/dwr/dwr20.dtd"> 
+
+<dwr>
+    <allow>
+		<create creator="spring" javascript="sysMenuService">
+            <param name="beanName" value="sysMenuService"/>
+        </create>
+        
+        <create creator="spring" javascript="sysRoleService">
+            <param name="beanName" value="sysRoleService"/>
+        </create>
+        
+         <create creator="spring" javascript="sysGroupService">
+            <param name="beanName" value="sysGroupService"/>
+        </create>
+        
+         <create creator="spring" javascript="sysCityService">
+            <param name="beanName" value="sysCityService"/>
+        </create>
+        
+    </allow>
+</dwr>

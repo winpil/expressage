@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/kuaidi.css"/>
+		<script src="js/jquery.js" ></script>
+		<script src="js/zsy.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var latitude = Request["latitude"];
+			var longitude = Request["longitude"];
+        	function getCookie(name)
+			{
+			    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			    if(arr=document.cookie.match(reg))
+			        return (arr[2]);
+			    else
+			        return null;
+			}
+			var openId = getCookie("openId");
+        	if(openId == null||openId==''||openId=='undefined'){
+        		window.location.href="login.jsp";
+        	}else{
+        		submitBD();
+        	}
+			
+			function submitBD(){
+				$.ajax( {
+					url : "/expressage_api/rbac/sys/expressageUser/getUserIdByOpenid",
+					data : "openId="+openId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code=='000000'){
+							$.ajax( {
+								url : "/expressage_api/rbac/sys/sysBase/testBase",
+								data : "baseId=getComCourierByUserId&paramenter1="+data.response.userId,
+								type : "post",
+								dataType : "json",
+								success : function(data) {
+									if(data.code!='000000'){
+										alert(data.message);
+										$("#kdy").html("");
+									}else{
+										var htmlStr = "";
+				        				for(var i=0;i<data.response.length;i++){
+				        					htmlStr+="<div class='person-send' ><div class='person-radio'><img class='p1' src='img/ccb.png' onclick='changp3(this)'/></div>";
+				        					htmlStr+="<div class='person-fujin-content' onclick=\"getCourier('"+data.response[i].courierId+"');\"><div class='person-ntel'>";
+				        					htmlStr+="<div class='person-name'>"+data.response[i].courierName+"</div>";
+				        					htmlStr+="<div class='person-tel'>"+data.response[i].phone+"</div></div>";
+				        					htmlStr+="<div class='person-id' id='"+i+"' style='display: none;'>"+data.response[i].comCourierId+"</div>";
+				        					
+				        					htmlStr+="<div class='person-senddz'>评价等级:<div class='chuzhi-jz4'><img src='img/pjx.png'/ >";
+				        					htmlStr+="<img src='img/pjx.png'/><img src='img/pjx.png'/><img src='img/pjx.png'/></div></div>";
+				        					htmlStr+="</div><div class='person-gs-icon'>"+data.response[i].companyName+"</div></div><div id='line'></div>";
+				        				}	
+				        				
+				        				
+				        				$('#kdy').html(htmlStr);  
+									}
+								},error : function() {
+									//alert("错误");
+								}
+							});
+						}else{
+							window.location.href="login.jsp";
+						}
+					},error : function() {
+						alert("错误");
+					}
+				});
+			
+			}
+        	
+        	function getCourier(courierId){
+        		//window.location.href="/expressage_api/rbac/sys/expressageOrder/saveOrderByweixin?courierId="+courierId+"&type=2&openId="+openId;
+        		window.location.href="kdydata.html?courierId="+courierId+"&latitude="+latitude+"&longitude="+longitude;
+        	}
+        	function G(id){
+        	 return document.getElementById(id).innerHTML;
+        	}
+        	function deleteCourier(){
+        		var Odiv = document.getElementsByClassName("person-radio");
+        		var Osrc2 = "ccbx.png";	
+        		
+        		var arr2 = new Array();
+        		for(var i=0;i<Odiv.length;i++){
+        			var Oimg = Odiv[i].getElementsByTagName("img")[0];
+        			arr = Oimg.src.split("/");
+        			if(arr[arr.length-1]==Osrc2){ 
+        				
+        				arr2.push(G(i));
+        			}
+        			
+        		}
+        		
+        		var comcourierId = arr2;
+        		if(comcourierId != null&&comcourierId!=''&&comcourierId!='undefined'){
+        			$.ajax( {
+						url : "/expressage_api/rbac/sys/expressageUser/deleteComCourierByid",
+						data : "comCourierIds="+comcourierId+"&token="+openId+"&type=3",
+						type : "post",
+						dataType : "json",
+						success : function(data) {
+							if(data.code=='000000'){
+								submitBD();
+							}
+						},error : function() {
+							alert("错误");
+						}
+					});
+        		}
+        	}
+        	
+        </script>
+	</head>
+	<body>
+		<div class='person-id' id='comcourier' style='display: none;'></div>
+		<div style="display: none;" id="person-id"></div>
+		<div style="height: 13.7rem;overflow: scroll;" id="kdy">
+        <div class="person-send">
+			
+		</div>
+		<div id="line"></div>
+		
+		<div class="person-send">
+		</div>
+		<div id="line"></div>
+		<div class="person-send">
+		</div>
+		</div>
+		<div class="send-foot" style="position: fixed;bottom: 4%;margin-left: 0.75%;">
+			<button type="button" value="" id="delete" onclick="deleteCourier()">删除常用快递员</button>			
+		</div>
+        
+	</body>
+	<script type="text/javascript">
+			document.getElementById("delete").disabled = true; 
+		</script>
+	
+</html>

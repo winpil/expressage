@@ -1,0 +1,30 @@
+/*
+  create by wyc Date 2017/4/21
+  �˿�����gywm.html
+*/
+
+/*����*/
+.gw-container{padding-top: 62px;}
+.gw-container-t{background: url("../img/gy-bg_02.png") no-repeat;background-size:cover;width: 100%;height: 500px;text-align: center;line-height: 500px;font-size: 72px;color: #dbd8d8}
+.gw-container-z{width: 1200px;margin: 0 auto}
+.gw-container-z h1{font-size: 18px;padding: 20px 0px;text-align: center;background: url("../img/gy-bg-2_03.png") no-repeat center bottom;}
+.gw-container-z p{font-size: 18px;color: #000;margin-top: 26px;margin-bottom: 80px;line-height: 48px}
+.kd-footer{text-align: center;color: #666666;font-size: 12px}
+.gw-container-d ul{width: 100%}
+.gy-bg-color-1{background-color: #f6f6f6}
+.gw-container-d ul li{overflow: hidden;}
+.gw-container-d ul li .gw-container-d-f{width: 1200px;margin: 0 auto}
+.gw-container-d-f div{display: table-cell;vertical-align: middle}
+.gw-container-d-f-wz-t{color: #0076ca;font-size: 18px;margin-bottom: 20px}
+.gw-container-d-f-img{padding-top: 77px;padding-bottom: 36px}
+.gw-container-d-f-wz{width: 589px;padding-left: 147px;color: #a1a1a1;font-size: 14px;line-height: 30px}
+.gw-container-d-r{width: 1200px;margin: 0 auto}
+.gw-container-d-r div{display: table-cell;vertical-align: middle}
+.gw-container-d-r-wz{width: 589px;color: #a1a1a1;font-size: 14px;line-height: 30px}
+.gw-container-d-r-img{padding-left: 172px;padding-top: 90px;padding-bottom: 90px}
+.gw-container-f{overflow: hidden;width: 1200px;margin: 0 auto;margin-top: 50px;margin-bottom: 172px}
+.gw-container-f a{display: block;text-decoration: none;color: #aaaaaa;float: left;text-align: center;width: 25%;font-size: 18px}
+.gw-container-f-title{margin-top: 11px;margin-bottom: 16px;font-size: 22px}
+.kd-footer{margin-bottom: 10px}
+.kd-footer a{text-decoration: none;color: #666666}
+/*���ݽ���*/

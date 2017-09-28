@@ -1,0 +1,35 @@
+
+*{margin:0;padding:0;}
+img{border:0;}
+menu,ul,ol{list-style:none;border:0;}
+div{margin:0;padding:0;}
+iframe {border:0;}
+
+.input{border:1px #7F9DB9 solid; background-color:#fff; color:#9CACBC ; padding:2px;}
+.CCS_input2{border:1px #AEC7E2 solid; background-color:#fff; color:#595959; padding:2px 2px 1px 2px; line-height:17px;}
+
+.CCS_colorblue{color:#388FD1; font-weight:bold;}
+.CCS_colorblue2{color:#388FD1; font-size:12px; font-weight:normal;}
+.CCS_colorOrange{color:#ff6600; font-weight:normal;}
+.CCS_colorgray{color:#595959}
+.CCS_colorRed{color:#FF0000;font-weight: normal;}
+.CCS_PaddingRight{padding-right:5px;}
+
+
+a.CCS_Orange:link,a.CCS_Orange:visited{color:#ff6600; font-size:12px; text-decoration:none; }
+a.CCS_Orange:active,a.CCS_Orange:hover{color:#ff6600; font-size:12px; text-decoration:underline; }
+a.CCS_blue:link,a.CCS_blue:visited{color:#31739D; font-size:12px; text-decoration:none; }
+a.CCS_blue:active,a.CCS_blue:hover{color:#ff6600; font-size:12px; text-decoration:none; }
+
+a.CCS_White:link,a.CCS_White:visited{color:#fff; text-decoration:none;}
+a.CCS_White:hover,a.CCS_White:active{color:#fff; text-decoration:underline;}
+
+
+.CCS_loginBg{background:#EDEDEE url(../images/login/LOGObg_02.gif) top repeat-x;  text-align:center;}
+.CCS_loginBox{background:url(../images/login/login1_05.jpg) center top no-repeat; width:445px; height:255px; margin:50px auto 0px auto; padding:270px 30px 30px 160px; text-align:left; font-size:12px; font-weight:bold; color:#31739D; line-height:20px;}
+.CCS_loginCode{background:url(../images/login/login_05.gif) no-repeat; width:66px; height:20px; color:#fff; font-size:12px; text-align:center; padding-top:2px; letter-spacing:3px; float:letf;}
+.CCS_loginTip{color:#ff6600; text-align:left; font-size:12px; height:25px; line-height:25px; font-weight:normal;}
+.CCS_loginTip1{color:#31739D; text-align:left; font-size:12px; height:25px; line-height:25px; font-weight:normal;}
+.CCS_loginButton{height:40px; text-align:left; float:left; margin-right:10px;}
+.CCS_loginCopyright{color:#fff; text-align:left; margin-top:80px; font-weight:normal;}
+

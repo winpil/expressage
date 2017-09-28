@@ -1,0 +1,147 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="com.cndatacom.rbac.pojo.SysMenu" %>
+<%@ page import="com.cndatacom.rbac.pojo.SysUser"%>
+<%@ page import="com.cndatacom.rbac.system.service.ISysMenuService" %>
+<%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
+<%@ page import="org.springframework.context.ApplicationContext" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder"%>
+<%@page  import="java.util.*" %>
+<%@page import="java.text.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%
+            SysUser loginUser = null;
+            try {
+                Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                loginUser = (SysUser) principal;
+            } catch (Exception e) {
+            }
+%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>快递一哥管理平台</title>
+        <link href="style/frame/ZB.css" rel="stylesheet" type="text/css" />
+        <script>
+            var menuConfig;
+            var menuContainer;
+            function clickTopMenu(menuId){                
+                menusHtml="";
+                var currentMenuIndex=-100;
+                for(var i=0;i<menuConfig.length;i++){
+                    var li="<li>";
+                    if(i==0){li="<li class=\"CL\">";}
+                    if(menuConfig[i][0]==menuId){li="<li class=\"C\">";currentMenuIndex=i;}
+                    if(i==currentMenuIndex+1){li="<li class=\"CR\">";}
+                    menusHtml=menusHtml+li+ "<a href='javascript:clickTopMenu(\"" + menuConfig[i][0] + "\")'>" +  menuConfig[i][1] + "</a></li>";
+                }
+                if(currentMenuIndex!=menuConfig.length-1){
+                    menusHtml=menusHtml+"<li class=\"Last\"></li>";
+                }else{
+                    menusHtml=menusHtml+"<li class=\"Last2\"></li>";
+                }               
+                menuContainer.innerHTML=menusHtml;
+                top.window.frames["leftFrame"].updateLeftMenu(menuId);
+            }
+            function initTopMenu(){
+                //对数组预处理
+                menuConfig=parent.getMenuConfig();
+                for(var i=0;i<menuConfig.length;i++){
+                    if(menuConfig[i][1]==undefined||menuConfig[i][1]=="退出"||menuConfig[i].length==0){
+                            //删除空菜单和“退出”菜单
+                           //alert("splice");
+                            menuConfig.splice(i,1);
+                            i--;
+                        }
+
+                }
+                //alert(menuConfig);
+                menuContainer=document.getElementById("ZB_UL");                
+                menusHtml="";
+                for(var i=0;i<menuConfig.length;i++){
+                    if(menuConfig[i][1]==undefined||menuConfig[i][1]=="退出"||menuConfig[i].length==0){
+                            continue;
+                        }
+                    var li="<li>";
+                    if(i==0){li="<li class=\"C\">";}
+                    if(i==1){li="<li class=\"CR\">";}
+                    menusHtml=menusHtml+li+ "<a href='javascript:clickTopMenu(\"" + menuConfig[i][0] + "\")'>" +  menuConfig[i][1] + "</a></li>";
+                }
+                if(menuConfig.length>1){
+                	menusHtml=menusHtml+"<li class=\"Last\"></li>";
+                }else{
+                	menusHtml=menusHtml+"<li class=\"Last2\"></li>";
+                }
+                menuContainer.innerHTML=menusHtml;
+                //alert(menuContainer);
+            }
+        </script>
+    </head>
+    <body  scroll=no>
+        <div class="ZB_HeaderBox1">
+            <div class="ZB_HeaderBg">
+                <div class="ZB_HeaderLogo">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                <td align="left" width="650">
+                <div style="font-size: 22px;padding: 15px 0 0 20px;">
+					<span>快递一哥管理平台</span>					
+				</div>
+				</td>
+				<td align="right">
+				<div class="ZB_HeaderSystem">
+                    <div class="ZB_HeaderLink">
+                        <ul>
+                            <li><a href="./portal/index.jsp" target="_blank"><span style="cursor: pointer"  class="setup">门户首页</span></a></li>
+                            <li><a href="rbac/sys/sysUser!inputMySelf.action" target="centerpageid"><span style="cursor: pointer"  class="setup">个人设置</span></a></li>
+                            <li><a href="#"><span style="cursor: pointer" class="help">帮助</span></a></li>
+                            <li><a href="logout.jsp"><span class="exit" style="cursor: pointer">退出</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ZB_HeaderInfor">欢迎您,<span class="ZB_Font2"><%=null != loginUser ? loginUser.getName() : ""%></span>!　今天是<%
+                                Date now = new Date();
+                                SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日 E");
+                                out.print(df.format(now));
+                        %>
+
+                    </div>
+                 </div>
+                 </td>
+                 </tr>
+				</table>
+				
+                </div>
+
+                <div class="ZB_NavBox">
+                    <div class="ZB_NavBox2">
+                        <div class="ZB_Nav">
+                            <ul id="ZB_UL">
+                                <%--                                <%
+                                                                            int index = 0;
+                                                                            for (HashMap<String, Object> menu : menus) {
+                                                                                if (0 == index) {
+                                                                                    out.println("<li class=\"C\"><a href='javascript:clickTopMenu(" + menu.get("id") + ")'>" + menu.get("text") + "</a></li>");
+                                                                                } else if (1 == index) {
+                                                                                    out.println("<li class=\"CR\"><a href='javascript:clickTopMenu(" + menu.get("id") + ")'>" + menu.get("text") + "</a></li>");
+                                                                                } else {
+                                                                                    out.println("<li><a href='javascript:clickTopMenu(" + menu.get("id") + ")'>" + menu.get("text") + "</a></li>");
+                                                                                }
+                                                                                index++;
+                                                                            }
+                                                                %>   --%>
+                                <%-- <li class="Last"></li>--%>
+                            </ul>
+<!--                            <marquee direction="left" scrolldelay="150" width="100%" onmouseover="this.stop()" onmouseout="this.start()">
+                                最新公告，最新公告，最新公告................
+                            </marquee>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        initTopMenu();
+    </script>
+</html>

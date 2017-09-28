@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <script type="text/javascript" src="js/jquery.js"></script>
+    <title>快递哥</title>
+</head>
+<style type="text/css">
+	@media only screen and (max-width:480px){
+		* {
+	padding: 0;
+	margin: 0;
+		}
+		
+		li {
+			list-style: none;
+		}
+		a{text-decoration:none;color:#333;}
+		a:hover{
+			color: red;
+		}
+		body {
+			background-color: #F3F3F3;
+		}
+		
+		.index-content {
+			width:94%;
+			margin: 0 auto;
+		}
+
+		.top{
+			color: white;
+			width: 100%;
+			height: 50px;
+			text-align: center;
+			background-color: #FF9C40;
+			font: normal 24px/2em "微软雅黑";
+		}
+		.adress{
+			background-color: white;
+			padding-top: 10px;
+			position: relative;
+		}
+		input{
+			outline: none;
+			border: none;
+			font-size: 20px;
+			width: 80%;
+			padding: 10px 10px 10px 10px;
+			border-bottom: 1px solid #ccc;
+		}
+		.search{
+			width: 30px;
+			height: 30px;
+			top: 20px;
+			right: 20px;
+			position: absolute;
+		}
+		.dingwei{
+			width: 100%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			font-size: 18px;
+			font-weight: bold;
+			position: relative;
+		}
+		.citydz{
+			color: #A9A9A9;
+			font-size: 16px;
+			font-weight: normal;
+		}
+		.dq-adress{
+			position: absolute;
+			color: #FF9C40;
+			right: 10px;
+			bottom: 36px;
+			cursor: pointer;
+		}
+		.fjxg{
+			font-size: 20px;
+			padding: 10px 10px 10px 20px;
+		}
+		.kdli-name{
+			width: 100%;
+			height: 50px;
+			line-height: 40px;
+			position: relative;
+			border-bottom: 1px solid #CCCCCC;
+		}
+		.kd-name{
+			float: left;
+			font-size: 16px;
+		}
+		.kdli-name p{
+			color: #A9A9A9;
+			float: left;
+			font-weight: bold;
+			padding-left: 16px;
+		}
+		.phone-img{
+			position: absolute;
+			width: 26px;
+			height: 26px;
+			top: 5px;
+			right: 14px;
+		}
+	}
+</style>
+<body>
+	<div class="top">快找小哥</div>
+			<div class="adress">
+				<div class="index-content">
+				<input type="text" name="adress" id="adress" value="" placeholder="请输入您的地址" />
+				<img src="img/seach@2x.png" class="search"/>
+				<p class="dingwei"><br/>
+					<label class="citydz"><label id="shenfen"></label><label id="city"></label><label id="qu"></label><label id="street"></label></label>
+				</p>
+				<div class="dq-adress">
+					[当前地址]
+				</div>
+				</div>
+			</div>
+			
+			<div class="fjxg">附近小哥：</div>
+			<div class="adress kdlist">
+				<div class="index-content">
+				<ul id="kd-list">
+				</ul>
+				</div>
+			</div>
+
+</body>
+
+<script type="text/javascript">
+
+			if (navigator.geolocation){
+					navigator.geolocation.getCurrentPosition(showPosition);
+				}
+			var longitude;
+			var latitude;
+			function showPosition(position){
+			 	longitude = position.coords.longitude;
+			    latitude = position.coords.latitude;
+			    
+			    baiduApi();
+			}
+			function baiduApi(position){
+			 	$.ajax( {
+				url : "/expressage_api/rbac/sys/expressageMessage/baiduApi",
+				data : "longitude="+longitude+"&latitude="+latitude,
+				type : "post",
+				dataType : "json",
+				success : function(data) {
+					if(data.code=='000000'){
+						$('#shenfen').text(data.response.province+"省 "); 
+						$('#city').text(data.response.city+"市 "); 
+						$('#qu').text(data.response.district+"区/县 "); 
+						$('#street').text(data.response.street);
+						$('#adress').val(data.response.street);
+					}else{
+						alert(data.message);
+					}
+					
+				},error: function(XMLHttpRequest, textStatus, errorThrown) {  //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+					//alert("错误！");
+					alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus); // paser error; 
+                }
+			});
+			}
+			
+
+	//查找快递员
+			$(".search").bind().click(function(){
+				var pageSize=15;
+				var pageNum=1;
+				var adinput=$("#adress").val();
+				var sf=$("#shenfen").html();
+				var city=$("#city").html();
+				var qu=$("#qu").html();
+				
+//				var arr={pageSize:pageSize,pageNum:pageNum};
+				var arr={pageSize:pageSize,pageNum:pageNum,provinceName:sf,cityName:city,districtsName:qu,send:adinput};
+				$.ajax( {
+				url : "/expressage_api/rbac/sys/expressageCourier/findByCourierDl",
+				data : arr,
+				type : "post",
+				dataType : "json",
+				success : function(data) {
+					if(data.code=='000000'){
+						var leng = data.response.length;
+						//alert(leng);
+						$("#kd-list").text("");
+						for(var i=0;i<leng;i++){
+							var phone=data.response[i].phone;
+							var company=data.response[i].company;
+//							$("#kd-list").append("<li class='kdli-name' id='"+i+"'><label class='kd-name'>徐太宇</label><p class='kd-phone'>"+phone+"</p><p class='kd-dname'>"+company+"</p><img src='img/iconfont-dianhua@2x.png' class='phone-img'/></li>");
+
+							$("#kd-list").append("<li class='kdli-name' id='"+i+"'><p class='kd-phone'>"+phone+"</p><p class='kd-dname'>"+company+"</p><a href='tel:+"+phone+"'><img src='img/iconfont-dianhua@2x.png' class='phone-img'/></a></li>");
+						}
+						
+					}else{
+						alert(data.message);
+					}
+					
+				},error: function(XMLHttpRequest, textStatus, errorThrown) {  //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+					//alert("错误！");
+					alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus); // paser error; 
+                }
+				});
+			});
+	
+</script>
+</html>

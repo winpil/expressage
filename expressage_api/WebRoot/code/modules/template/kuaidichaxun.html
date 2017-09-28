@@ -1,0 +1,27 @@
+
+    <div class="page myForm kuaidiinquiry">
+        
+        <form action="">
+            <div class="kuaidiName pr">
+                <span></span>
+                <input type="text" ng-click="toSelectKuaiDi()" name="logisticsJc" placeholder="快递名称"/>
+            </div>
+            <div class="kuaidiOrderNo pr">
+                <span></span>
+                <input type="text" name="logisticsOrder" placeholder="快递单号"/>
+            </div>
+            <div class="cell pr sureBtn" ng-if="type==2" style="margin-top: 0.5rem;">
+                <input type="button" ng-click="inquiry()" value="确定"/>
+            </div>
+        </form>
+        
+        <ul class="content" ng-if="type==1" style="margin-top: 0.5rem;padding-left: 30px;padding-right:10px;background-color:#fff">
+        	<li ng-if="formMsg.logisticsData.length<1">暂无相关信息</li>
+            <li class="pr" ng-repeat = "item in formMsg.logisticsData">
+                <span class="pa"></span>
+                <b class="pa"></b>
+                {{item.time}}  &nbsp;&nbsp;{{item.content}}
+            </li>
+        </ul>
+        
+    </div>

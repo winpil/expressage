@@ -1,0 +1,41 @@
+BODY { 
+  margin: 0;  
+  font-size : 100%;
+}
+BODY, TD, TH {
+    font-family : arial, tahoma, helvetica, sans-serif;
+    font-size : 9pt;
+}
+A:link {
+	COLOR: #063A7F; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #8F4503; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #013AA4; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; FONT-SIZE: 9pt; TEXT-DECORATION: underline
+}
+
+
+.title {
+	font-family : tahoma, arial, helvetica, sans-serif;
+	font-size: 18px;
+	font-weight:700;	
+	color: #0000FF;
+} 
+.newbutton {
+  /*background-image: url(../images/bg1.gif);*/
+  border: 1px #333333 solid;
+  font-size: 9pt;
+  color: #004485;  
+  background-color: #eff7ff; 
+  clip:  rect(20px);
+  line-height: normal;
+  HEIGHT:13pt
+}
+
+.newinput { background-color:#ffffff;
+height:18px;BORDER: #000000 1px solid; FONT-SIZE: 9pt;COLOR:#000000}

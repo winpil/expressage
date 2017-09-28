@@ -1,0 +1,25 @@
+.add {
+    background-image:url(../extjs/resources/images/default/shared/add.gif) !important;
+}
+.modify {
+    background-image:url(../extjs/resources/images/default/shared/plugin_add.gif) !important;
+}
+.remove {
+    background-image:url(../extjs/resources/images/default/shared/delete.gif) !important;
+}
+.save {
+    background-image:url(../extjs/resources/images/default/shared/save.gif) !important;
+}
+.back {
+    background-image:url(../extjs/resources/images/default/shared/forward.gif) !important;
+}
+.user {
+    background-image:url(../extjs/resources/images/default/shared/user.gif) !important;
+}
+.function {
+    background-image:url(../extjs/resources/images/default/shared/function.png) !important;
+}
+
+.displaynone{display: none;}
+
+.bgcolor{color: #99BBE8;}

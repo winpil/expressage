@@ -1,0 +1,24 @@
+/* 
+    Document   : block
+    Created on : 2010-9-5, 14:54:15
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div.growlUI { background: url(check48.gif) no-repeat 10px 10px }
+div.growlUI h1, div.growlUI h2 { color: black; padding: 20px 5px 5px 80px; text-align: left ;font-size: 24px;}
+div.growlUI h2 { font-size: medium }
+
+div.growlErrorUI { background: url(error.png) no-repeat 10px 10px }
+div.growlErrorUI h1, div.growlErrorUI h2 { color: white; padding: 5px 5px 5px 75px; text-align: left }
+div.growlErrorUI h2 { font-size: medium }
+
+div.growlWarnUI { background: url(warn.png) no-repeat 10px 10px }
+div.growlWarnUI h1, div.growlWarnUI h2 { color: white; padding: 5px 5px 5px 75px; text-align: left }
+div.growlWarnUI h2 { font-size: medium }

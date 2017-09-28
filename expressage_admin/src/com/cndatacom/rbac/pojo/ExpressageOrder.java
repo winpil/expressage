@@ -1,0 +1,318 @@
+package com.cndatacom.rbac.pojo;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+/**
+ * ExpressageOrder entity. @author MyEclipse Persistence Tools
+ */
+@Entity
+@Table(name = "expressage_order", catalog = "expressage")
+public class ExpressageOrder implements java.io.Serializable {
+
+	// Fields
+
+	private String orderId;
+	private String packType;//包裹类别
+	private String packWeight;//包裹重量
+	private String jPhone;//寄件人手机
+	private String jAddress;//寄件人地址
+	private String jName;//寄件人姓名
+	private String sPhone;//收件人手机
+	private String sAddress;//收件人地址
+	private String sName;//收件人姓名
+	
+	private ExpressageUser userId; //用户id
+	private ExpressageCourier courierId; //快递员id
+	private String favorableId;//优惠券id
+	private String gatherDate;//收件时间
+	private Date createDate;//
+	private String status;//状态1：待接单，2为已接单待揽收，3为揽收完毕，待评价，4订单完成，5废单
+	private String type;//1为定向下单，2为快快下单
+	private String payId;//支付id
+	private String orderNumber;//运单号
+	private String reservePrice;//预定价格
+	private String orderPrice;//实际价格
+	private String longitude;
+	private String latitude;
+	
+	private ExpressageProduct productId;//积分商品id
+	private String integralNum;//兑换积分
+	private String orderNo;
+	private String area;
+	// Constructors
+
+	/** default constructor */
+	public ExpressageOrder() {
+	}
+
+	/** full constructor */
+	public ExpressageOrder(String packType, String packWeight, Date createDate,
+			String status) {
+		this.packType = packType;
+		this.packWeight = packWeight;
+		this.createDate = createDate;
+		this.status = status;
+	}
+
+	// Property accessors
+	@GenericGenerator(name = "generator", strategy = "uuid")
+	@Id
+	@GeneratedValue(generator = "generator")
+	@Column(name = "order_id", unique = true, nullable = false)
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	@Column(name = "pack_type")
+	public String getPackType() {
+		return this.packType;
+	}
+
+	public void setPackType(String packType) {
+		this.packType = packType;
+	}
+
+	@Column(name = "pack_weight")
+	public String getPackWeight() {
+		return this.packWeight;
+	}
+
+	public void setPackWeight(String packWeight) {
+		this.packWeight = packWeight;
+	}
+
+	@Column(name = "create_date", length = 19)
+	public Date getCreateDate() {
+		return this.createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	@Column(name = "status")
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
+	@Column(name = "j_phone")
+	public String getJPhone() {
+		return jPhone;
+	}
+
+	public void setJPhone(String jPhone) {
+		this.jPhone = jPhone;
+	}
+	
+	
+	@Column(name = "j_address")
+	public String getJAddress() {
+		return jAddress;
+	}
+
+	public void setJAddress(String jAddress) {
+		this.jAddress = jAddress;
+	}
+	
+	@Column(name = "j_name")
+	public String getJName() {
+		return jName;
+	}
+	
+	public void setJName(String jName) {
+		this.jName = jName;
+	}
+	
+	@Column(name = "s_phone")
+	public String getSPhone() {
+		return sPhone;
+	}
+
+	public void setSPhone(String sPhone) {
+		this.sPhone = sPhone;
+	}
+	
+	@Column(name = "s_address")
+	public String getSAddress() {
+		return sAddress;
+	}
+
+	public void setSAddress(String sAddress) {
+		this.sAddress = sAddress;
+	}
+	
+	@Column(name = "s_name")
+	public String getSName() {
+		return sName;
+	}
+
+	public void setSName(String sName) {
+		this.sName = sName;
+	}
+	
+	
+
+	@Column(name = "gather_date")
+	public String getGatherDate() {
+		return gatherDate;
+	}
+
+	public void setGatherDate(String gatherDate) {
+		this.gatherDate = gatherDate;
+	}
+	
+	@Column(name = "type")
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	@Column(name = "pay_id")
+	public String getPayId() {
+		return payId;
+	}
+
+	public void setPayId(String payId) {
+		this.payId = payId;
+	}
+	
+	@Column(name = "order_number")
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	@Column(name = "reserve_price")
+	public String getReservePrice() {
+		return reservePrice;
+	}
+
+	public void setReservePrice(String reservePrice) {
+		this.reservePrice = reservePrice;
+	}
+	
+	@Column(name = "order_price")
+	public String getOrderPrice() {
+		return orderPrice;
+	}
+
+	public void setOrderPrice(String orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+	
+	@Column(name = "longitude")
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	
+	@Column(name = "latitude")
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	public ExpressageUser getUserId() {
+		return userId;
+	}
+
+	public void setUserId(ExpressageUser userId) {
+		this.userId = userId;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "courier_id")
+	public ExpressageCourier getCourierId() {
+		return courierId;
+	}
+
+	public void setCourierId(ExpressageCourier courierId) {
+		this.courierId = courierId;
+	}
+
+	@JoinColumn(name = "favorable_id")
+	public String getFavorableId() {
+		return favorableId;
+	}
+
+	public void setFavorableId(String favorableId) {
+		this.favorableId = favorableId;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id")
+	public ExpressageProduct getProductId() {
+		return productId;
+	}
+
+	public void setProductId(ExpressageProduct productId) {
+		this.productId = productId;
+	}
+	
+	@JoinColumn(name = "integral_num")
+	public String getIntegralNum() {
+		return integralNum;
+	}
+
+	public void setIntegralNum(String integralNum) {
+		this.integralNum = integralNum;
+	}
+	
+	@JoinColumn(name = "order_no")
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+	
+	@JoinColumn(name = "area")
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+	
+	
+	
+	
+	
+}

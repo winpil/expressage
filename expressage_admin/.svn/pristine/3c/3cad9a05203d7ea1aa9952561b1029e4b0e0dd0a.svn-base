@@ -1,0 +1,170 @@
+/* 
+    Document   : iptvcss
+    Created on : 2010-11-29, 14:06:31
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+
+#toolbar button{
+
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    -x-system-font: none;
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    font-family: tahoma, verdana, helvetica;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: 0;
+    overflow: visible;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: auto;
+    font-size: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    padding: 3px 0 2px 18px;
+    padding-top: 2px;
+}
+#toolbar div{
+    float: left;
+}
+#toolbar span{
+    float: left;
+}
+#toolbar .add{
+    background-image: url(../images/rbac/database_field_add_16x16.gif) ;
+}
+#toolbar .delete{
+    background-image: url(../images/rbac/database_field_delete_16x16.gif) !important;
+}
+#toolbar .edit{
+    background-image: url(../images/rbac/database_field_edit_16x16.gif) !important;
+}
+
+#toolbar .search{
+    background-image: url(../images/rbac/search-16x16.gif) !important;
+}
+.hrow {
+    font-family: arial, tahoma, helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 150%;
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    background: #F9F9F9
+        url(../extjs/resources/images/default/grid/grid3-hrow.gif)
+        repeat-x scroll 0 bottom;
+    cursor: default;
+    padding: 1px 0 0
+}
+
+#listTB button{
+
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    -x-system-font: none;
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    font-family: tahoma, verdana, helvetica;
+    font-size: 11px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: 0;
+    overflow: visible;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: auto;
+    font-size: 12px;
+    padding-left: 0;
+    padding-right: 0;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    padding: 3px 0 2px 18px;
+    padding-top: 2px;
+}
+#listTB .edit{
+    background-image: url(../images/rbac/database_field_detail_16x16.gif) !important;
+}
+.hrow td {
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #D0D0D0;
+    line-height: 15px;
+    vertical-align: middle;
+    padding: 4px 3px 4px 5px;
+}
+
+.hdata {
+    background-color: #FAFAFA;
+    cursor: default;
+}
+
+.hdata td {
+    font-size: 12px;
+    border-bottom: 1px solid #EDEDED;
+    line-height: 150%;
+    vertical-align: middle;
+    padding: 4px 3px 4px 5px;
+}
+
+.listdata tr:hover td{
+    background-color: #DFE8F6;
+}
+.hdata-alt {
+    background-color: #ffffff;
+    cursor: default;
+}
+
+.hdata-alt td {
+    font-size: 12px;
+    border-bottom: 1px solid #EDEDED;
+    line-height: 150%;
+    vertical-align: middle;
+    padding: 4px 3px 4px 5px;
+}
+.bfoot
+{
+    /*position: relative;top: 230px;*/
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.df
+{
+
+
+}
+

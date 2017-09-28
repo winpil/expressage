@@ -1,0 +1,84 @@
+{
+    "button": [
+        {
+            "name": "马上快递",
+            "sub_button": [
+                {
+                    "type": "view",
+                    "name": "一键下单",
+                    "url": "http://www.mashso.com/expressage_api/express/yjxd.jsp"
+                },
+                {
+                    "type": "view",
+                    "name": "优惠下单",
+                    "url": "http://www.mashso.com/expressage_api/express/kkxd.jsp"
+                },
+				{
+                    "type": "view",
+                    "name": "选谁(ta)收",
+                    "url": "http://www.mashso.com/expressage_api/express/fujinkuaidiyuan.jsp"
+                },
+				{
+                    "type": "view",
+                    "name": " 输  单  号 ",
+                    "url": "http://www.mashso.com/expressage_api/express/searchOrder.jsp"
+                },
+                {
+                    "type": "view",
+                    "name": " 扫  一  扫 ",
+                    "url": "http://www.mashso.com/expressage_api/express/test.html"
+                }
+            ]
+        },
+        {
+            "name": "马上特惠",
+            "sub_button": [
+                {
+                    "type": "view",
+                    "name": "南航特惠",
+                    "url": "http://m.csair.com/touch/com.csair.mbp.index/index.html?WT.mc_id=sns-wx-yyh-flightbooking#com.csair.mbp.booking_new/bookingQuery?t=%7B%22chanel%22%3A%22scsairwx%22%7D"
+                },
+                {
+                    "type": "view",
+                    "name": "东星旅游",
+                    "url": "https://shop1260471.koudaitong.com/v2/showcase/homepage?alias=wm9qtgdl&sf=wx_sm"
+                },
+                {
+                    "type": "view",
+                    "name": "校友金融",
+                    "url": "http://www.luojiadai.com/common/Loan/Investrecord/index.do#"
+                },
+                {
+                    "type": "view",
+                    "name": "进口面膜",
+                    "url": "http://weidian.com/i/1700263768?string=b2M1b050X1pCal9hdlFOQlRhZ1lLR2l0REVYTQ"
+                },
+                {
+                    "type": "view",
+                    "name": "联展教育",
+                    "url": "http://m.thea.cn/city.htm"
+                }
+            ]
+        },
+        {
+            "name": "我的地盘",
+            "sub_button": [
+                {
+                    "type": "view",
+                    "name": "我的地盘",
+                    "url": "http://www.mashso.com/expressage_api/express/person.jsp"
+                },
+                {
+                    "type": "view",
+                    "name": "解除绑定",
+                    "url": "http://www.mashso.com/expressage_api/express/deleteCookie.jsp"
+                },
+                {
+                    "type": "view",
+                    "name": "APP下载",
+                    "url": "http://www.mashso.com/expressage_api/express/APP.html"
+                }
+            ]
+        }
+    ]
+}

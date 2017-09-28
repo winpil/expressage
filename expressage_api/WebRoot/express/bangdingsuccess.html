@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet"href="css/header.css" />
+		<link rel="stylesheet"href="css/kuaidi.css" />
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="js/zsy.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/expressage_api/express/js/jquery.js" ></script>
+	</head>
+	<script>
+			function xd()
+			{
+			   WeixinJSBridge.call('closeWindow');
+			}
+			
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var courierId;
+			userName = Request["userName"];
+			$('#userName').text(userName);  
+			
+        	
+        </script>
+	<body>
+		
+		
+		<div data-role = "content" class="content">
+			<div class="wc">
+				<img src="img/complete.png" />
+			</div>
+			<div class="bangding-jieguo">
+				<h2>您已成功绑定马上收会员</h2>
+				<p>绑定账号:<span class="bangding-zh" id="userName"></span></p>
+				<p>如果想要更换其他账号进行绑定，</p>
+				<p>需要解除绑定，再重新绑定新的账号！</p>
+			</div>
+			<div class="other-foot">
+			<button id="other-btn1" value="" onclick="a()">解除绑定</button>
+			<div class="fenge"></div>
+			<button id="other-btn2" value="" onclick="xd()">马上寄件</button>
+			</div>
+			<div class="download">
+			<a href="APP.html">下载马上收手机客户端</a>
+			</div>
+		</div>
+	</body>
+</html>

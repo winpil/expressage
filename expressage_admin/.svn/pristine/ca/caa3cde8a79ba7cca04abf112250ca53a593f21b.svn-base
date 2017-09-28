@@ -1,0 +1,36 @@
+A:link {
+	COLOR: #033F8F; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #8F4503; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #013AA4; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; FONT-SIZE: 9pt; TEXT-DECORATION: underline
+}
+TD {
+	FONT-FAMILY: ''; FONT-SIZE: 9pt; LINE-HEIGHT: 19pt
+}
+
+.leftmenubg  { background-image: url('../images/img_left02.gif'); background-repeat: no-repeat}
+.font9-15 {
+	font-size: 9pt;
+	line-height: 15px;
+}
+.box {
+	border-top-style: 1;
+	border-right-style: 1;
+	border-bottom-style: 1;
+	border-left-style: 1;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	background-color: E3E2E2;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}

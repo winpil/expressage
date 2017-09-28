@@ -1,0 +1,210 @@
+<div class="page myForm formMsg" ng-if="type==1">
+    <ul class="content" style="">
+        <!-- 待抢单 -->
+        <li>
+            <div class="send">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="sendPhone"><span class="sendName" ng-bind="formMsg.jName"></span> <span class="sendPhone" ng-bind="formMsg.jPhone"></span></div>
+                    <div class="sendAddress">地址：{{formMsg.jAddress}}</div>
+                    <div class="stars pa">
+                            	<span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="get">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="getPhone"><span class="getName" ng-bind="formMsg.sName"></span> <span class="getPhone" ng-bind="formMsg.sPhone"></span></div>
+                    <div class="getAddress">地址：{{formMsg.sAddress}}</div>
+                    
+                </div>
+            </div>
+            <div class="goods">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="goodMsg clearfix">
+                        <div>物品：{{formMsg.packType}}</div> <div>预计重量{{formMsg.packWeight}}KG</div>
+                        <div>物品名称：{{formMsg.packType}} </div><div>快递公司：{{formMsg.favorableName}}</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <div class="orderNo">订单号：<span ng-bind="formMsg.orderNo"></span></div>
+        <div class="orderTime">下单时间：<span ng-bind="formMsg.createDate"></span></div>
+        <div class="btn ac">
+            <input type="button" class="cancelBtn" ng-click="sureGet(1)" value="取消订单"/>
+        </div>
+
+    </ul>
+
+</div>
+<div class="shadow" style="display:none" ng-if="status==1">
+    <div class="pa">
+        <div class="confimMsg">
+            此操作会影响您的信誉度，是否继续取消？
+        </div>
+        <div class="confirmBtn clearfix">
+            <div class="cancel fl" ng-click="hideShow(0,formMsg.orderId,1)">取消</div>
+            <div class="sure fr" ng-click="hideShow(1,formMsg.orderId,1)">确定</div>
+        </div>
+    </div>
+</div>
+
+
+<!--代付款-->
+
+<div class="page myForm formMsg" ng-if="type==2">
+   	<p class="overplusTime">收件剩余时间：<span ng-if="status2==1">{{h}}:{{m}}:{{s}}</span><span ng-if="status2==0">已超时</span></p>
+    <ul class="content" style="">
+        <!-- 待付款 -->
+        <li>
+            <div class="send">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="sendPhone"><span class="sendName" ng-bind="formMsg.jName"></span> <span class="sendPhone" ng-bind="formMsg.jPhone"></span></div>
+                    <div class="sendAddress">地址：{{formMsg.jAddress}}</div>
+                    <div class="stars pa">
+                            	<span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="get">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="getPhone"><span class="getName" ng-bind="formMsg.sName"></span> <span class="getPhone" ng-bind="formMsg.sPhone"></span></div>
+                    <div class="getAddress">地址：{{formMsg.sAddress}}</div>
+                   
+                </div>
+            </div>
+            <div class="goods">
+                <span class="titleIcon"></span>
+                <div class="pr">
+                    <div class="goodMsg clearfix">
+                        <div>物品：{{formMsg.productName}}</div> <div>预计重量{{formMsg.packWeight}}KG</div>
+                        <div>物品名称：{{formMsg.packType}} </div><div>快递公司：{{formMsg.favorableName}}</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <div class="fastMailMan">
+            <div class="pr clearfix">
+                <span class="fastManPhoto pa"></span>
+                <div>快递员：{{formMsg.cem.courierName}} &nbsp;</div>
+                <div>快递公司：{{formMsg.cem.companyName}}</div>
+                <div>电话：{{formMsg.cem.phone}}</div>
+                <span class="phoneIcon pa"></span>
+                <span class="enterIcon pa"></span>
+            </div>
+        </div>
+        <div class="orderNo" style="margin-top: 0.38rem;">订单号：<span  ng-bind="formMsg.orderNo"></span></div>
+        <div class="orderTime">订单时间：<span ng-bind="formMsg.orderDate"></span></div>
+        <div class="btn">
+            <input type="button" class="cancelBtn" ng-click="sureGet(1)" value="取消订单"/>
+            <input type="button" class="sureGet" ng-click="sureGet(2)" value="确认收件"/>
+        </div>
+
+    </ul>
+
+</div>
+<div class="shadow" style="display:none" ng-if="status==2">
+    <div class="pa">
+        <div class="confimMsg">
+            快递是否已收件？
+        </div>
+        <div class="confirmBtn clearfix">
+            <div class="cancel fl" ng-click="hideShow(0)">取消</div>
+            <div class="sure fr" ng-click="hideShow(1,formMsg.orderId,2)">确定</div>
+        </div>
+    </div>
+</div>
+
+<!-- 代签收 -->
+ <div class="page myForm daifukMsg" ng-if="type==3">
+        <div class="pr getMsg">
+            <span class="pa addressIcon">
+                
+            </span>
+            <div class="clearfix textMsg pd8">
+                <div>收件人：<span ng-bind="formMsg.sName">张先生</span>  &nbsp;&nbsp;&nbsp;<span ng-bind="formMsg.sPhone"></span></div>
+                <div></div>
+                <div>收货地址：<span ng-bind="formMsg.sAddress"></span></div>
+            </div>
+        </div>
+        <ul class="content waitPay">
+            <li class="clearfix">
+               <a href="">
+                 <img ng-src="{{formMsg.img1}}" alt="" class="fl"/>
+                 <div class="text">
+                    <div>
+                        <p class="titleText" ng-bind="formMsg.productName"></p>
+                        <p class="integral">积分<span ng-bind="formMsg.integral"></span></p>
+                    </div>
+                    
+                 </div>
+               </a>
+            </li>
+
+        </ul>
+        <div class="orderNo">订单号：<span ng-bind="formMsg.orderNo"></span></div>
+        <div class="orderTime">下单时间：<span bg-bind="formMsg.createDate"></span></div>
+        <input type="button" style="float: right; margin-right: 1.3rem;maring-top: 30px;" class="sureGet" ng-click="getFood(formMsg.orderId)" value="确认收货"/>
+    </div>
+
+
+<div class="page myForm formMsg" ng-if="type==4">
+        <ul class="content" style="">
+            <!-- 已完成 -->
+            <li>
+                    <div class="send">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div class="sendPhone"><span class="sendName" ng-bind="formMsg.jName"></span> <span class="sendPhone" ng-bind="formMsg.jPhone"></span></div>
+                            <div class="sendAddress">地址：{{formMsg.jAddress}}</div>
+                                                        <div class="stars pa">
+                            	<span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                        	</div>
+                        </div>
+                        
+                    </div>
+                    <div class="get">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div class="getPhone"><span class="getName" ng-bind="formMsg.sName"></span> <span class="getPhone" ng-bind="formMsg.sPhone"></span></div>
+                            <div class="getAddress">地址：{{formMsg.sAddress}}</div>
+
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div class="goodMsg clearfix">
+                                <div>物品：{{formMsg.productName}}</div> <div>预计重量{{formMsg.packWeight}}KG</div>
+                                <div>物品名称：{{formMsg.packType}} </div><div>快递公司：{{formMsg.favorableName}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+            </li>
+            <div class="fastMailMan">
+                    <div class="pr clearfix">
+                        <span class="fastManPhoto pa"></span>
+                        <div>快递员：{{formMsg.cem.courierName}} &nbsp;</div>
+                        <div>快递公司：{{formMsg.cem.companyName}}</div>
+                        <div>电话：{{formMsg.cem.phone}}</div>
+                        <span class="phoneIcon pa"></span>
+                        <span class="enterIcon pa"></span>
+                    </div>
+            </div>
+            <div class="price" style="margin-top: 0.38rem;">付款金额：<span>￥{{formMsg.orderPrice}}</span></div>
+            <div class="orderNo">订单号：<span ng-bind="formMsg.orderNo"></span></div>
+            <div class="orderTime">订单时间：<span ng-bind="formMsg.orderDate"></span></div>
+            
+        </ul>
+      
+    </div>
+    

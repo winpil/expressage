@@ -1,0 +1,44 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.xiaoqu{
+	width: 100%;
+	height: auto;
+	margin-top: 2.5%;
+	
+	padding-left: 2%;
+	font-size: 0.453rem;
+	color: orange;
+}
+.xiaoqu span{
+	font-size: 0.5rem;
+	margin-right: 2%;
+}
+
+.xq-kd{
+	width: 100%;
+	height: 4.3rem;
+	overflow: scroll;
+	margin-top: 2%;
+	background-color: white;
+	font-size: 0.453rem;
+}
+.xq-line{
+	width: 96%;
+	margin-left: 2%;
+	border: 1px solid whitesmoke;
+}
+.xq-kd div{
+	display:inline-block;
+}
+.xq-kd-gs{
+	width: 50%;
+	
+	margin-top: 3.5%;
+	padding-left: 2%;
+}
+.xq-kd-tel{
+	
+  text-decoration: none;
+}

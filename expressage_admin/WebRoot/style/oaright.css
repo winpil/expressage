@@ -1,0 +1,23 @@
+.nom:link {  color: #FF0000; text-decoration: none}
+.nom:visited {  color: #FF0000; text-decoration: none}
+.nom:hover {  color: #18989E; text-decoration: underline}
+
+A:link {
+	COLOR: #063A7F; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #8F4503; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #013AA4; FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; FONT-SIZE: 9pt; TEXT-DECORATION: underline
+}
+
+TD {
+	FONT-FAMILY: ''; FONT-SIZE: 9pt; LINE-HEIGHT: 10.2pt
+}
+.font1       { font-size: 9pt; color: #133A81; font-weight: bold }
+.font2       { font-size: 9pt; line-height: 12pt; color: #808080 }
+.font3       { font-size: 9pt; line-height: 12pt; color: #FF0000 }

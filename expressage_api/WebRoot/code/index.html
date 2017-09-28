@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title" ng-bind="bigTitle"></title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+	<link rel="stylesheet" type="text/css" href="./css/swiper-3.4.2.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/time.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/layer.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+</head>
+<body>
+    <ng-view></ng-view>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=V8Ip2ilrtSfIf8y4mof2xv1R0o2NQThG&dfo5458hjhoi23lke723bhg"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="./libs/angular/angular.min.js"></script>
+<script type="text/javascript" src="./libs/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="./libs/angular/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="./modules/main.js"></script>
+<script type="text/javascript" src="./modules/controller.js"></script>
+<script type="text/javascript" src="./modules/route.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/layer.js"></script>
+<script type="text/javascript" src="js/date.js" ></script>
+<script type="text/javascript" src="js/iscroll.js" ></script>
+
+<script>
+
+//分享
+//var url=window.location.href.split('#')[0];  
+//url = url.replace(/&/g, '%26');  
+var url = "http://www.kuaidikd.com/expressage_api/code/index.html";
+$.ajax({  
+url: "/expressage_api/rbac/sys/expressageUser/wxConfig",  
+type: "POST", 
+data:"type=1",
+async:false,  
+cache: false,  
+dataType: "json",  
+success: function(data){ 
+wx.config({  
+debug: false,  
+appId: data.response.appId,  
+timestamp:data.response.timestamp,  
+nonceStr:data.response.noncestr,  
+signature:data.response.sign,  
+jsApiList: [  
+'checkJsApi',   
+'getLocation',
+'onMenuShareTimeline' 
+]  
+});  
+
+},  
+error: function() {  
+//alert('ajax request failed!!!!');  
+return;  
+}   
+});  
+
+
+</script>
+</html>

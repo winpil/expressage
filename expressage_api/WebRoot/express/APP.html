@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/kuaidi.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/zsy.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="background-color: white;">
+		<div style="display: block; ">
+		<div class="down-img"><img src="img/download.png"/></div>
+		<div class="down-title" style="padding-right: -300px;">
+			<p>马上收</p>
+			<p style="font-size: 0.45rem;color: orange;margin-top: -6%;margin-right: -30px;">手指轻点，收发自如!</p>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="down-btn" onclick="getOpenId()">APP用户版下载</div></br>
+		<div class="down-btn" onclick="getOpenId1()">APP快递员版 下载</div>
+		<div class="down-line"></div>
+		
+		<div class="down-pic">
+			<table>
+				<tr>
+					<td><img src="img/p1.png"/></td>
+					<td><img src="img/p2.png"/></td>
+					<td><img src="img/p3.png"/></td>
+				</tr>								
+			</table>					
+		</div>
+		</div>
+		<div id="heimu" style="display:none;text-align: right;" onclick="heimu()">
+		<div class="jiantou"><img src="img/jiantou.png"/></div>
+		<div class="heimu-text">请在浏览器中打开</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		function heimu(){
+			document.getElementById("heimu").style.display = "none";
+		}
+		function getOpenId(){
+			if(isWeiXin()){
+				document.getElementById("heimu").style.display = "block";	
+			}else{
+				window.location.href="http://120.24.66.27/expressage_api/upload/APK/mashangshou.apk";
+			}
+        	
+		}
+		function getOpenId1(){
+			if(isWeiXin()){
+				document.getElementById("heimu").style.display = "block";	
+			}else{
+				window.location.href="http://120.24.66.27/expressage_api/upload/APK/kuaidi.apk";
+			}
+        	
+		}
+		
+		function isWeiXin(){
+			var ua = window.navigator.userAgent.toLowerCase();
+			if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+				return true;
+			}else{
+				return false;
+			}
+		} 
+			
+	</script>
+</html>

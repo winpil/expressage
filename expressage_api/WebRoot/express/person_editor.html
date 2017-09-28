@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/header.css" />
+		<link rel="stylesheet" type="text/css" href="css/kuaidi.css"/>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="js/jquery.js" ></script>
+		<script src="js/zsy.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body>
+		<form action="#" method="post" style="display: block;">
+		<div class="user-zh">
+		<div id="user-editor"><div class="user-text">姓名</div>		
+		<input type="text"  placeholder="姓名" name="jName" id="username"></div>
+		<div id="line3"></div>
+		<div id="user-editor"><div class="user-text">联系方式</div>		
+		<input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="联系方式" name="jPhone" id="usertel"/>
+		</div>
+		<div id="line3"></div>
+		<div id="user-editor">
+			<div class="user-text">所在地区</div>		
+		<input type="text"  placeholder="请选择地区" style="width: 52%;color: dimgray;" id="diqu" readonly="readonly"/>
+		<div id="dizhi-icon">
+			<img src="img/dizhi2.png" onclick="quyuchoice()"/>
+		</div>
+		</div>
+		<div id="line3"></div>
+		<div id="user-editor">
+		<div class="user-text">详细地址</div>		
+		<input type="text"  placeholder="详细到门牌号" name="jAddress" id="userdizhi"/>
+		</div>		
+			
+		<div id="check-box2" onclick="show()">
+			<img src="img/checkbox.png" id="img1"/>		
+		</div>
+		</div>	
+		<div class="check-text">是否设置为默认发件地址</div>
+		<div class="send-foot">
+			<button id="baocun" type="button" value="" onclick="sumAddress();">保存</button>
+			
+			<button id="back" type="button" value="" onclick="history.go(-1)">返回</button>
+		</div>
+		</form>
+		<div class="quyu" style="display: none;">
+			<span>请选择所在地区</span>
+		<div class="quyu-text">
+			<div class="input-text" id="shengyu" onclick="shengyu()"></div><div class="name">省</div><div class="input-text" id="shiyu" onclick="shiyu()"></div><div class="name">市</div><div class="input-text" id="quyu" onclick="quyu()"></div><div class="name">区</div><div style="clear: both;"></div></div>
+
+		<div style="width: 30%;margin: 0 auto;margin-top: 10%;"><button type="button" onclick="sure()" style="background-color: orange;height: 0.85rem;">确定</button></div>
+		</div>
+		<div class="quyu-shengshiqu" id="quyu-sheng" style="display: none;">
+			
+			
+		</div>
+		<div class="quyu-shengshiqu" id="quyu-shi" style="display: none;">
+		
+		</div>
+		<div class="quyu-shengshiqu" id="quyu-qu" style="display: none;">
+		
+		</div>
+		<div id="heimu" style="display: none;"></div>
+		<div id="provinceid"  style="display: none;"></div>
+		<div id="cityid"  style="display: none;"></div>
+		<div id="areaid"  style="display: none;"></div>
+		<div id="isXz"  style="display: none;"></div>
+		<div id="commonId"  style="display: none;"></div>
+		<script type="text/javascript">			
+
+			var a = new Array();
+			var aa = new Array();
+			var aaa = new Array();
+			var Osheng = document.getElementById("quyu-sheng");
+			var Oshi = document.getElementById("quyu-shi");
+			var Oqu = document.getElementById("quyu-qu");
+			var pid = new Array();
+			var cid = new Array();
+			var did = new Array();
+			
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var aId = Request["aId"];
+        	function getCookie(name)
+			{
+			    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			    if(arr=document.cookie.match(reg))
+			        return (arr[2]);
+			    else
+			        return null;
+			}
+			var openId = getCookie("openId");
+        	if(openId == null||openId==''||openId=='undefined'){
+        		window.location.href="login.jsp";
+        	}else{
+        		if(aId!=null&&aId!=''){
+        			
+					$.ajax( {
+						url : "/expressage_api/rbac/sys/expressageUser/getComById",
+						data : "commonId="+aId,
+						type : "post",
+						dataType : "json",
+						success : function(data) {
+						
+							if(data.code!='000000'){
+								alert(data.message);
+							}else{
+								
+								document.getElementById("username").value = data.response.name;
+								document.getElementById("usertel").value = data.response.phone;
+								document.getElementById("diqu").value = data.response.provincialName+" "+data.response.cityName+" "+data.response.districtName;
+								document.getElementById("userdizhi").value = data.response.address;
+								document.getElementById("shengyu").innerHTML = data.response.provincialName;
+								document.getElementById("shiyu").innerHTML = data.response.cityName;
+								document.getElementById("quyu").innerHTML = data.response.districtName;
+								document.getElementById("provinceid").innerHTML = data.response.provincialId;
+								document.getElementById("cityid").innerHTML = data.response.cityId;
+								document.getElementById("areaid").innerHTML = data.response.districtId;
+								document.getElementById("commonId").innerHTML = data.response.commonId;
+								document.getElementById("isXz").innerHTML = data.response.status;
+								document.getElementById("shiyu").disabled = false;
+								document.getElementById("quyu").disabled = false;
+								moren();
+							}
+							
+						},error : function() {
+							//alert("错误");
+						}
+					});
+				}
+        	}
+			
+			function moren(){
+				 if(document.getElementById("isXz").innerHTML == 1){
+				 	document.getElementById("img1").src = "img/agreecheckbox.png"
+				 }else{
+				 	document.getElementById("img1").src = "img/checkbox.png"
+				 }
+			}
+			
+			if($("#diqu").val()!=null&&$("#diqu").val()!=''){
+				document.getElementById("shiyu").disabled = false;
+				document.getElementById("quyu").disabled = false;
+				
+			}else{}
+			
+				$.ajax( {
+					url : "/expressage_api/rbac/sys/sysBase/testBase",
+					data : "baseId=getProvincials",
+					type : "post",
+					dataType : "json",
+					success : function(data) {						
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+							
+							for(var i=0;i<data.response.length;i++){								
+								a.push(data.response[i].name);
+								pid.push(data.response[i].provincialId);								
+	        				}		        					
+	        					for(var z=0;z<a.length;z++){
+									
+								 Osheng.innerHTML += "<div class='sheng province' onclick='choose(this)' id="+z+">"+a[z]+"</div>";	
+							}
+						}
+					},error : function() {
+						alert("错误");
+					}
+				});			
+			function shengyu(){
+			
+				document.getElementById("quyu-sheng").style.display = "block";
+													
+			}
+			
+		 function choose(obj){
+				var Oprovince = document.getElementsByClassName("province");
+	
+				for(var i=0;i<Oprovince.length;i++){
+				if(obj.id==i){
+				
+				document.getElementById("shengyu").innerHTML = document.getElementById(obj.id).innerHTML;
+				document.getElementById("quyu-sheng").style.display = "none";
+				document.getElementById("provinceid").innerHTML = pid[i];
+							
+				}
+					}
+				if(document.getElementById("shengyu").innerHTML!=null&&document.getElementById("shengyu").innerHTML!=""){
+				document.getElementById("shiyu").disabled = false;
+			}
+			var provincialId = document.getElementById("provinceid").innerHTML;
+				
+				$.ajax( {
+					url : "/expressage_api/rbac/sys/sysBase/testBase",
+					data : "baseId=getCitysByProvincialId&paramenter1="+provincialId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+							aa.length = 0;
+							Oshi.innerHTML = null;
+							cid.length = null;
+							document.getElementById("shiyu").innerHTML = null;
+							document.getElementById("quyu").innerHTML = null;
+							for(var i=0;i<data.response.length;i++){
+								aa.push(data.response[i].name);
+								cid.push(data.response[i].cityId);
+	        				}		
+	        				for(var j=0;j<aa.length;j++){				
+				Oshi.innerHTML += "<div class='sheng city' onclick='choose1(this)' id="+j+'a'+">"+aa[j]+"</div>";				
+			}
+						}
+					},error : function() {
+						//alert("错误");
+					}
+				});
+			}
+			
+			function shiyu(){
+				
+				document.getElementById("quyu-shi").style.display = "block";
+				
+				}
+			function choose1(obj1){
+			var Ocity = document.getElementsByClassName("city");
+			
+			for(var i=0;i<Ocity.length;i++){
+			
+				if(obj1.id==i+'a'){
+				
+			document.getElementById("shiyu").innerHTML = document.getElementById(obj1.id).innerHTML;
+			document.getElementById("quyu-shi").style.display = "none";
+			document.getElementById("cityid").innerHTML = cid[i];
+			
+			}
+			
+				}
+			if(document.getElementById("shiyu").innerHTML!=null&&document.getElementById("shiyu").innerHTML!=""){
+				document.getElementById("quyu").disabled = false;
+			}	
+			var cityId = document.getElementById("cityid").innerHTML;
+				
+				$.ajax( {
+					url : "/expressage_api/rbac/sys/sysBase/testBase",
+					data : "baseId=getDistrictsByCityId&paramenter1="+cityId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+					
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+							aaa.length = 0;
+							Oqu.innerHTML = null;
+							did.length = 0;
+							document.getElementById("quyu").innerHTML = null;
+							for(var i=0;i<data.response.length;i++){
+								aaa.push(data.response[i].name);
+								did.push(data.response[i].districtId);
+	        				}		
+	        				
+				for(var k=0;k<aaa.length;k++){
+				Oqu.innerHTML += "<div class='sheng area' onclick='choose2(this)' id="+k+'aa'+">"+aaa[k]+"</div>";				
+				}
+						}
+					},error : function() {
+						//alert("错误");
+					}
+				});
+			}
+			
+			function quyu(){
+				document.getElementById("quyu-qu").style.display = "block";
+			
+				
+				
+			}
+			function choose2(obj2){
+			
+				var Oarea = document.getElementsByClassName("area");
+				
+				for(var i=0;i<Oarea.length;i++){
+				if(obj2.id==i+'aa'){
+			
+				document.getElementById("quyu").innerHTML = document.getElementById(obj2.id).innerHTML;
+				document.getElementById("quyu-qu").style.display = "none";
+				document.getElementById("areaid").innerHTML = did[i];
+				
+				}
+			}
+			}
+			
+			for(var i=0;i<a.length;i++){
+				Osheng.innerHTML += "<div class='sheng province' onclick='choose(this)' id="+i+">"+a[i]+"</div>";				
+			}
+			for(var j=0;j<aa.length;j++){				
+				Oshi.innerHTML += "<div class='sheng city' onclick='choose1(this)' id="+j+">"+aa[j]+"</div>";				
+			}
+			for(var k=0;k<aaa.length;k++){
+				Oqu.innerHTML += "<div class='sheng area' onclick='choose2(this)' id="+k+">"+aaa[k]+"</div>";				
+			}
+			
+			function quyuchoice(){
+						
+			document.getElementById("heimu").style.height = "100%";
+			document.getElementById("heimu").style.display = "block";
+			document.getElementsByClassName("quyu")[0].style.display = "block";
+			
+		
+			}
+			
+			function sumAddress(){
+				var jName=$("input[name='jName']").val();
+				var jPhone=$("input[name='jPhone']").val();
+				var jAddress=$("input[name='jAddress']").val();
+				var provinceid = $("#provinceid").text();
+				var cityid = $("#cityid").text();
+				var areaid = $("#areaid").text();
+				var isXz = $("#isXz").text();
+				var commonId = $("#commonId").text();
+				//alert("provinceid===="+provinceid);
+				//alert("cityid===="+cityid);
+				//alert("areaid===="+areaid);
+				//alert("isXz===="+isXz);
+				//alert("commonId===="+commonId);
+				if(jName==null||jName==''){
+					alert("请输入发件人姓名");
+					return false;
+				}
+				if(jPhone==null||jPhone==''){
+					alert("请输入发件人手机号");
+					return false;
+				}
+				if(jAddress==null||jAddress==''){
+					alert("请输入发件人地址");
+					return false;
+				}
+				if(provinceid==null||provinceid==''){
+					alert("请选择省份");
+					return false;
+				}
+				if(cityid==null||cityid==''){
+					alert("请选择城市");
+					return false;
+				}
+				if(areaid==null||areaid==''){
+					alert("请选择区县");
+					return false;
+				}
+				
+				$.ajax( {
+					url : "/expressage_api/rbac/sys/expressageUser/updateCommon",
+					data : "phone="+jPhone+"&name="+jName+"&address="+jAddress+"&provincialId="+provinceid+"&cityId="+cityid+"&districtId="+areaid+"&token="+openId+"&type=2&status="+isXz+"&commonId="+commonId+"&weixinType=3",
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+							window.location.href="person_send1.jsp";		
+						}
+					},error : function() {
+						//alert("错误");
+					}
+				});
+				
+			}
+			
+			
+</script>
+	</body>
+</html>

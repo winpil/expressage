@@ -1,0 +1,38 @@
+<div class="page productMsg">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="item2 in productMsg.imgList" track by $index><img ng-src="{{item2}}" /></div>
+               
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="productTitle">
+            <p ng-bind="productMsg.productName"></p>
+            <p>积分{{productMsg.integral}}</p>
+        </div>
+        <div class="productContent" >
+        
+            <div class="text" ng-bind-html="productMsg.productContent">
+                <h4 class="pr"><span></span> 产品详情</h4>
+                <div class="text_msg clearfix">
+                    <div class="fl">
+                        <div><span class="attribute">品牌：</span>惹我</div>
+                        <div><span class="attribute">生产日期：</span>2016年</div>
+                        <div><span class="attribute">净含量：</span>123g</div>
+                        <div><span class="attribute">储存方法：</span>防潮/避光/避热/防异味</div>
+                    </div>
+                    <div class="fr">
+                        <div><span class="attribute">等级：</span>雨前特级</div>
+                        <div><span class="attribute">保质时间：</span>18个月</div>
+                        <div><span class="attribute">茶品外形：</span>条值房间，爱开，始浪费看</div>
+                    </div>
+                </div>
+            </div>
+            <div class="duiHuanBtn">
+            	<a href="#/sureForm/{{productId}}" class="duiHuan">兑换</a>
+            </div>
+            
+            
+        </div>
+    
+    </div>

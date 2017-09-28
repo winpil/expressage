@@ -1,0 +1,157 @@
+package com.cndatacom.rbac.pojo;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "expressage_pay_log", catalog = "expressage")
+public class ExpressagePayLog implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private String payId;
+	private String type;//1为现金支付，2为微信支付，3为支付宝支付，4为提现，5为扣费,6信微充值，7扣费回退，8支付宝充值
+	private String moneyNum;//金额
+	/*private String userId;
+	private String courierId;*/
+	
+	private ExpressageUser userId;
+	private ExpressageCourier courierId;
+	private String orderId;
+	private String remark;//备注
+	private String status;//状态，1为成功，0为失败
+	private String bankName;//银行名称
+	private String bankCode;//银行帐号
+	private Date createDate;
+	
+	@GenericGenerator(name = "generator", strategy = "uuid")
+	@Id
+	@GeneratedValue(generator = "generator")
+	@Column(name = "pay_id", unique = true, nullable = false)
+	public String getPayId() {
+		return payId;
+	}
+	public void setPayId(String payId) {
+		this.payId = payId;
+	}
+	
+	@Column(name = "type")
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	@Column(name = "money_num")
+	public String getMoneyNum() {
+		return moneyNum;
+	}
+	public void setMoneyNum(String moneyNum) {
+		this.moneyNum = moneyNum;
+	}
+	
+	/*@Column(name = "user_id")
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
+	@Column(name = "courier_id")
+	public String getCourierId() {
+		return courierId;
+	}
+	public void setCourierId(String courierId) {
+		this.courierId = courierId;
+	}*/
+	
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	public ExpressageUser getUserId() {
+		return userId;
+	}
+	public void setUserId(ExpressageUser userId) {
+		this.userId = userId;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "courier_id")
+	public ExpressageCourier getCourierId() {
+		return courierId;
+	}
+	public void setCourierId(ExpressageCourier courierId) {
+		this.courierId = courierId;
+	}
+	
+	
+	
+	
+	
+	@Column(name = "order_id")
+	public String getOrderId() {
+		return orderId;
+	}
+	
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+	
+	
+	@Column(name = "remark")
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	@Column(name = "status")
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	@Column(name = "create_date")
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	
+	@Column(name = "bank_name")
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	
+	@Column(name = "bank_code")
+	public String getBankCode() {
+		return bankCode;
+	}
+	public void setBankCode(String bankCode) {
+		this.bankCode = bankCode;
+	}
+	
+	
+	
+	
+}

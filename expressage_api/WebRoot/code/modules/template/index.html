@@ -1,0 +1,65 @@
+<div class="page selfMenu">
+        <div class="mainBannerImg pr">
+            <div class="pa headPortrait">
+            	<a href="#/selfCenter">
+            	<img ng-src="{{userMsg.avatar}}" ng-if="userMsg.avatar!=''&&userMsg.avatar!=null"/>
+            	<img ng-src="./images/icon_head_sculpture.png"  ng-if="userMsg.avatar==''||userMsg.avatar==null"/>
+            	</a>
+            </div>
+            <div class="pa baseMsg">
+                <a class="newsNum" href="#/news">
+                	<b ng-if="messageNum>0" ng-bind="messageNum"></b>
+                </a>
+                <span ></span>
+                <div>昵称：{{userMsg.userName}}</div>
+                <div>电话：{{userMsg.phone}}</div>
+            </div>
+            <img src="./images/bg_integral.png" alt="" />
+        </div>
+        <ul class="menuNav1">
+            <li class="myForm">
+                <a href="#/myform"><span class="navIcon"></span>我的订单<span class="navNextIcon"></span></a>
+            </li>
+            <li class="myIntegral">
+                <a href="#/jifen"><span class="navIcon"></span>我的积分<span class="navNextIcon"></span></a>
+            </li>
+            <li class="kuaidi">
+                <a href="#/kdchaxun"><span class="navIcon"></span>快递查询<span class="navNextIcon"></span></a>
+            </li>
+            <li class="myTicket">
+                <a href="#/ticket"><span class="navIcon"></span>我的优惠券<span class="navNextIcon"></span></a>
+            </li>
+            <li class="myPrestige pr">
+                <a href="#/"><span class="navIcon"></span>信誉度<span class="navNextIcon"></span>
+                      <div class="stars2 pa">
+                           <span ng-repeat = "item1 in starsArr"></span>
+                           <span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                      </div>
+                </a>
+            </li>
+        </ul>
+        <ul class="menuNav2">
+            <li class="priceForm">
+                <a href="#/eText/3"><span class="navIcon"></span>价格表<span class="navNextIcon"></span></a>
+            </li>
+            <li class="issue">
+                <a href="#/eText/2"><span class="navIcon"></span>常见问题<span class="navNextIcon"></span></a>
+            </li>
+            <li class="fankui">
+                <a href="#/fankui/1"><span class="navIcon"></span>意见反馈<span class="navNextIcon"></span></a>
+            </li>
+            <li class="complain">
+                <a href="#/tousu/2"><span class="navIcon"></span>投诉<span class="navNextIcon"></span></a>
+            </li>
+            <li class="aboutUs">
+                <a href="#/eText/1"><span class="navIcon"></span>关于我们<span class="navNextIcon"></span></a>
+            </li>
+            <li class="layout">
+                <a href="#/sheZhi"><span class="navIcon"></span>设置<span class="navNextIcon"></span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="kd_footer">
+        <div class="fl submitFormBtn"><a href="#/downForm"><span></span><div>下单</div></a></div>
+        <div class="fr myBtn active"><a href="#/main"><span></span><div>我的</div></a></div>
+    </div>

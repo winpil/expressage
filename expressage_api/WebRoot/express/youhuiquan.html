@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/expressage_api/express/css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="/expressage_api/express/css/kuaidi.css"/>
+		<script src="/expressage_api/express/js/tanchukuang.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/expressage_api/express/js/zsy.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function getCookie(name)
+			{
+			    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			    if(arr=document.cookie.match(reg))
+			        return (arr[2]);
+			    else
+			        return null;
+			}
+			//var openId = getCookie("openId");
+			var openId = "xiaoxiaoxiaozhu1";
+        	if(openId == null||openId==''){
+        		window.location.href="login.jsp";
+        	}
+			
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var courierId;
+			jId = Request["sId"];
+			
+			submitBD(jId);
+			function submitBD(jId){
+        		$.ajax( {
+					url : "/expressage_api/rbac/sys/sysBase/testBase",
+					data : "baseId=getFavorablesByUserId&paramenter1="+jId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+	        				var htmlStr = "";
+	        				for(var i=0;i<data.response.length;i++){
+	        					alert(data.response[i]);
+	        					htmlStr+="<div class='yhq'><div class='yhq-qian' id='yhq-qian'>1.0</div>";
+	        					htmlStr+="<div class='yhq-level'>1元优惠券</div><div id='yhq-shu'>5张</div>";
+	        					htmlStr+="<div id='yhq-shu'>5张</div></div><div id='line'></div>";
+	        				}	
+	        				$('#yqhs').html(htmlStr);  
+						}
+					},error : function() {
+						alert("错误");
+					}
+				});
+			}
+			function commons(commonsId){
+				window.location.href="/expressage_api/rbac/sys/expressageOrder/saveOrderByweixin?type=1&jId="+commonsId+"&openId="+openId;
+			}
+        	
+        </script>
+	</head>
+	<body>
+		<div id="yqhs">
+		<div class="yhq">
+			
+			<div class="yhq-qian" id="yhq-qian">1.0</div>
+			
+			<div class="yhq-level">1元优惠券</div>
+			<div id="yhq-shu">5张</div>
+			
+		</div>	
+		<div id="line"></div>
+		<div class="yhq" onclick="yhq(this)" id="2">
+			
+			<div class="yhq-qian">2.0</div>
+			
+			<div class="yhq-level">2元优惠券</div>
+			<div id="yhq-shu">5张</div>
+			
+		</div>	
+		</div>
+	</body>
+</html>

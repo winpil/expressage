@@ -1,0 +1,164 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%    
+String path = request.getContextPath();    
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";    
+%> 
+<%@taglib uri="/WEB-INF/tld/struts-tags.tld" prefix="s" %>
+<%@taglib uri="/WEB-INF/tlds/webpage-tags.tld"  prefix="w" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <title>快递快滴管理平台</title>
+        <jsp:include page="/common/framecommon.jsp" />
+        <script src="../../js/frame/editform.js" ></script>
+        <!--自定义脚本-->
+        
+        <link rel="stylesheet" href="../../js/kindeditor/themes/default/default.css" />
+	<link rel="stylesheet" href="../../js/kindeditor/plugins/code/prettify.css" />
+	<script charset="utf-8" src="../../js/kindeditor/kindeditor.js">
+	</script>
+	<script charset="utf-8" src="../../js/kindeditor/lang/zh_CN.js">
+	</script>
+	<script charset="utf-8" src="../../js/kindeditor/plugins/code/prettify.js">
+	</script>
+    </head>
+    <body>
+        <form id="editForm" name="editForm" method="post" action="expressageCourier!save.action" enctype="multipart/form-data">
+            <div>
+                <!--页面内容部分 start-->
+                <div class="ZB_ListBox" style="padding-left: 4px;padding-right: 4px;">
+                    <div class="ZB_FormWarp">
+                        <!--                        导航标题-->
+                        <div class="ZB_FormNav">
+                            <ul>
+                                <li class="c"><a href="#"><span>基本信息</span></a></li>
+                            </ul>
+                        </div>
+
+                        <!--                        输入字段-->
+                        <div class="ZB_FormWarp2">
+                            <!--                            数据表格-->
+                            <table width="100%" border="0" cellspacing="1" cellpadding="0" class="ZB_FormTable">
+    
+                                 <tr>
+                                    <td class="gridtitle">名称：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	 <s:textfield name="expressageCourier.courierName" cssClass="inp ipt-normal" maxlength="20"/>
+                                        	 
+                                        </div>
+                                    </td>
+                                </tr>
+                          	  	<tr>
+                                    <td class="gridtitle">手机(登录帐号)：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                            <s:textfield name="expressageCourier.phone" cssClass="inp ipt-normal" maxlength="20"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="gridtitle">信誉度：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                            <s:textfield name="expressageCourier.rank" cssClass="inp ipt-normal" maxlength="20"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">余额：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                            <s:textfield name="expressageCourier.balance" cssClass="inp ipt-normal" maxlength="20"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">公司名称：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                            <s:textfield name="expressageCourier.companyId.companyName" cssClass="inp ipt-normal" maxlength="20"/>
+                                             <s:hidden name="expressageCourier.companyId.companyId" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">账号状态：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	<s:select list="#{'1':'正常','0':'锁定'}" listKey="key" listValue="value" name="expressageCourier.status" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">认证状态：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	<s:select list="#{'0':'待审核','1':'审核通过','2':'审核不通过','3':'未提交'}" listKey="key" listValue="value" name="expressageCourier.isAuth" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">身份证：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                            <s:textfield name="expressageCourier.icode" cssClass="inp ipt-normal" maxlength="20"/>
+                                            <s:if test="expressageCourier.courierId != null && expressageCourier.courierId != '' ">
+                                            <s:hidden name="expressageCourier.courierId"/>
+                                             </s:if>
+                                            <s:hidden name="expressageCourier.phoneNumber" />
+                                            <s:hidden name="expressageCourier.password" />  
+                                            <s:hidden name="expressageCourier.payPassword" />
+                                            <s:hidden name="expressageCourier.isPayp" />
+                                            <s:hidden name="expressageCourier.avatar" />
+                                            <s:hidden name="expressageCourier.referrerId.courierId" />
+                                            <s:hidden name="expressageCourier.longitude" />
+                                            <s:hidden name="expressageCourier.latitude" />
+                                         	<s:hidden name="expressageCourier.img1" />
+                                         	<s:hidden name="expressageCourier.img2" />
+                                         	<s:hidden name="expressageCourier.img3" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="gridtitle">证件1：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	<img src="http://120.76.194.20/expressage_api<s:property value="expressageCourier.img1" />" width="400" height="400" alt=""/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">证件2：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	<img src="http://120.76.194.20/expressage_api<s:property value="expressageCourier.img2" />" width="400" height="400" alt=""/>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="gridtitle">证件3：</td>
+                                    <td class="gridbody">
+                                        <div class="editField">
+                                        	<img src="http://120.76.194.20/expressage_api<s:property value="expressageCourier.img3" />" width="400" height="400" alt=""/>
+                                        </div>
+                                    </td>
+                                </tr>
+                               
+                            </table>
+                            <!--确定、取消按钮-->
+                            <div class="ZB_BtnBox">
+                                <input type="submit"  name="button2" id="btnSubmit" value="保存" class="ZB_Btn" />
+                                <input type="button" name="button" id="btnCancel" value="取消" onclick="javascript:history.back();" class="ZB_Btn"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--页面内容部分 end-->
+            </div>
+        </form>
+    </body>
+</html>

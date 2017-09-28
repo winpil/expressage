@@ -1,0 +1,14 @@
+<div class="page jifenMall">
+        <div class="content">
+            <ul class="clearfix">
+               <li ng-repeat="item in productList" track by $index>
+               	   <a href="#/productMsg/{{item.productId}}">
+               	        <img ng-src="{{item.img1}}" alt="" />
+                   		<p ng-bind="item.productName"></p>
+                   		<div class="singleJiFen">积分{{item.integral}}</div>
+               	   </a>
+
+               </li>
+            </ul>
+        </div>
+    </div>

@@ -1,0 +1,16 @@
+<div class="page ticketPage">
+ <ul>
+ 	<li class="pr" ng-repeat="item in ticketList"  ng-class="{able:item.status==1,disable:item.status==2,overTicket:item.status==3}">
+ 		<div class=" denomination">
+ 			<span class="unit">¥</span>
+ 			<sapn ng-bind="item.favorableName"></sapn>
+ 		</div>
+ 		<div class="overdue">
+ 			<span ng-bind="item.pastDue.slice(0,10)"></span>过期
+ 		</div>
+ 	</li>
+ 	
+ 	
+ </ul>
+ 
+</div>

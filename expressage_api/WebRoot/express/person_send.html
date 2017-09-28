@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/expressage_api/express/css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="/expressage_api/express/css/kuaidi.css"/>
+		<script src="/expressage_api/express/js/zsy.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/expressage_api/express/js/jquery.js" ></script>
+		<script>
+			function getCookie(name)
+			{
+			    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			    if(arr=document.cookie.match(reg))
+			        return (arr[2]);
+			    else
+			        return null;
+			}
+			//var openId = getCookie("openId");
+			var openId = "xiaoxiaoxiaozhu1";
+        	if(openId == null||openId==''){
+        		window.location.href="login.jsp";
+        	}
+			
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var courierId;
+			jId = Request["jId"];
+			
+			submitBD(jId);
+			function submitBD(jId){
+        		$.ajax( {
+					url : "/expressage_api/rbac/sys/sysBase/testBase",
+					data : "baseId=getUserAddress&paramenter1=2&paramenter2="+jId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+	        				var htmlStr = "";
+	        				for(var i=0;i<data.response.length;i++){
+	        					alert(data.response[i].commonId);
+	        					htmlStr+="<div class='person-send' style='padding-left: 1%;' onclick=\"commons('"+data.response[i].commonId+"');\"><div class='person-radio' >";
+	        					htmlStr+="<img src='/expressage_api/express/img/ccb.png'/></div><div class='person-ntel'>";
+	        					htmlStr+="<div class='person-name' style='margin-left: 2%;'><div class='chuizhi-jz4'>"+data.response[i].name+"</div></div>";
+	        					htmlStr+="<div class='person-tel'><div class='chuizhi-jz4'>"+data.response[i].phone+"</div></div>";
+	        					htmlStr+="<div class='person-senddz'><div class='chuizhi-jz4'>"+data.response[i].provincialName;
+	        					htmlStr+=" "+data.response[i].cityName+" "+data.response[i].districtName+" "+data.response[i].address+"</div></div>";
+	        					htmlStr+="</div><div class='person-editor-icon'><img src='/expressage_api/express/img/editor.png'/>";
+	        					htmlStr+="</div></div><div id='line'></div>";
+	        				}	
+	        				$('#commons').html(htmlStr);  
+						}
+					},error : function() {
+						alert("错误");
+					}
+				});
+			}
+			function commons(commonsId){
+				alert(commonsId);
+				window.location.href="/expressage_api/rbac/sys/expressageOrder/saveOrderByweixin?type=1&jId="+commonsId+"&openId="+openId;
+			}
+        	
+        </script>
+	</head>
+	<body>
+		<div id="commons">
+		<div class="person-send" style="padding-left: 1%;" onclick="commons();">
+			<div class="person-radio" >
+				<img src="/expressage_api/express/img/ccb.png"/>
+			</div>
+			<div class="person-ntel">
+				<div class="person-name" style="margin-left: 2%;"><div class="chuizhi-jz4"></div></div>
+				<div class="person-tel"><div class="chuizhi-jz4"></div></div>
+				<div class="person-senddz"><div class="chuizhi-jz4"></div></div>
+			</div>
+			
+			<div class="person-editor-icon">
+				<img src="/expressage_api/express/img/editor.png"/>
+			</div>
+			
+		</div>
+		
+		<div id="line"></div>
+		</div>
+		<div class="send-foot">
+			<button id="new-fhzd" value="" onclick="bd()" style="background-color: orange;">新增发货地址</button>
+			<div class="btn-fenge"></div>
+			<button class="btn" value="" onclick="zc()">删除发件地址</button>
+		</div>
+	</body>
+</html>

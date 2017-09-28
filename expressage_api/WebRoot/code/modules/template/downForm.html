@@ -1,0 +1,108 @@
+
+<div class="page main">
+    <div class="map">
+    	<a href="#/selectAddress" class="pr nowAddress">
+    		<span class="positionIcon"></span> {{currentCity}}
+    	</a>
+    </div>
+    <div class="mainBannerImg">
+        <img src="./images/banner.png" alt="" />
+    </div>
+    <div class="cell getAddress pr">
+        <span class="inputIcon"><a href="#/sendAddress/1"></a></span>
+        <input type="text" ng-model="jAddress" placeHolder="请输入寄件地址"/>
+    </div>
+    <div class="cell sendAddress pr">
+        <span class="inputIcon"><a href="#/sendAddress/2"></a></span>
+        <input type="text" ng-model="sAddress" placeHolder="请输入收件地址"/>
+    </div>
+    <div class="weight">
+        <button class="reduceIcon" ng-click="reduceWeight()"></button>
+        <div class="pr weightNum">
+        	<input type="text" ng-model="weightNum" value="1" />
+        	<span class="pa">公斤</span>
+        </div>
+        
+        <button class="addIcon" ng-click="addWeight()"></button>
+    </div>
+    <div class="cell pr">
+        <input type="button" class="nextBtn" value="下一步">
+    </div>
+</div>
+
+
+<div class="page submitForm" style="display:none">
+
+    <form id="kdForm">
+        <div class="kuaidiName pr">
+            <span></span>
+            <input type="text" name="jAddress" disabled value="{{jAddress}}"/>
+        </div>
+        <div class="kuaidiOrderNo pr">
+            <span></span>
+            <input type="text" name="sAddress" disabled value="{{sAddress}}"/>
+        </div>
+        <ul>
+            <li class="inputcell pr">
+                <span>寄货人</span>
+                <input type="text" ng-model="userMsg.userName" name="jName"/>
+            </li>
+            <li class="inputcell pr">
+                <span>寄货人电话</span>
+                <input type="text" ng-model="userMsg.phone" name="jPhone"/>
+            </li>
+            <li class="inputcell pr">
+                <span>收货人</span>
+                <input type="text" name="sName"/>
+            </li>
+            <li class="inputcell pr">
+                <span>收货人电话</span>
+                <input type="text" name="sPhone"/>
+            </li>
+            <li class="inputcell pr">
+                <span>物品名称</span>
+                <input type="text" name="packType"/>
+            </li>
+        </ul>
+        <div class="submitFormMsg">
+            <div class="pr yujiweight">
+                <span></span>
+                <div>预计重量: <div>{{weightNum}}KG</div></div>
+            </div>
+            <div class="pr getTime">
+                <span></span>
+                <div>取件时间:
+                    <div class="pr" style="margin-left: 0.1rem"><span class="active now" data-id="1"></span>立即取件</div>
+                    <div class="pr" style="width: 1.2rem"><span class="now" id="endTime" data-status="1"></span><i class="showTime">预约取件</i></div>
+                </div>
+            </div>
+            <div class="pr compony">
+                <span></span>
+                <div>快递公司:</div>
+                <ul class="clearfix pa componys">
+                    <li class="pr active" data-id="1" data-status="1" id="allKd">
+                        <div >全部</div>
+                        <span></span>
+                    </li>
+                    <li class="pr" data-status="0" data-companyid="{{item.companyId}}" ng-repeat ="item in kdList" track by $index finish-ed>
+                        <div ng-bind="item.companyName"></div>
+                        <span></span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="sureBtn">
+            <input type="button" ng-click="submit()" value="提交"/>
+        </div>
+
+        <div id="datePlugin"></div>
+    </form>
+
+</div>
+
+
+<div class="kd_footer">
+    <div class="fl submitFormBtn active"><span></span><div><a href="#/downForm"></a>下单</div></div>
+    <div class="fr myBtn"><a href="#/main"><span></span><div>我的</div></a></div>
+</div>

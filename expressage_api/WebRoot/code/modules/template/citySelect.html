@@ -1,0 +1,13 @@
+
+    <div class="page citySelect">
+       <div class="clearfix">
+       
+            <div class="pr"  ng-repeat="item in cityList" ng-class="{active:$index==0}" ng-click="selectCity($event)">
+                <input type="button"  value="{{item.name}}" />
+                <span></span>
+            </div>
+           
+           
+       </div>
+
+    </div>

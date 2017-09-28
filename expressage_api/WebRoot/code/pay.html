@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="myCtrl2" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>支付</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/layer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+</head>
+<body>
+
+    <div class="page pay">
+        <div class="payTitle">
+            支付方式
+        </div>
+        <div class="payType clearfix">
+            <div class="weixin tabPayType">
+                <span></span>
+                <p>微信支付</p>
+                <span class="clickIcon active" data-type="4" data-status="1"></span>
+            </div>
+            <div class="xianjin tabPayType">
+                <span></span>
+                <p>现金</p>
+                <span class="clickIcon" data-type="1" data-status="0"></span>
+            </div>
+        </div>
+        <div class="payNum pr">
+            <span>支付金额：</span>
+            <input type="input" ng-model="payOrderPrice" />
+        </div>
+        <div class="selectTicket pr">
+            <span>优惠券：</span>
+            <div class="fr" ng-click="toSelectTicket()">
+                <span>省{{favorableName}}元</span>
+                <span class="nextIcon"></span>
+            </div>
+
+            
+        </div>
+        <div class="payBtn">
+            <input type="button" ng-click="paying()"  value="支付"/>
+        </div>
+
+    </div>
+  <div class="tickets" style="display: none">
+  		<div class="tickets_title pr">
+  			优惠券选择	
+  			<span class="tickets_closeIcon" ng-click="closeTickets()"></span>
+  		</div>
+  		
+  		<ul>
+  			<li ng-repeat="item in ticketList" track by $index>
+  				{{item.favorableName}}元优惠券    
+  				<span ng-if="$index==0" class="active" ng-click="selectTicket($event,item.favorableName,item.favorableId)" data-status="1"></span>
+  				<span ng-if="$index!=0" ng-click="selectTicket($event,item.favorableName)" data-status = "0"></span>
+  			</li>
+  		</ul>
+  
+  
+  </div>
+
+
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+<script type="text/javascript" src="js/rem.js"></script>
+<script type="text/javascript" src="js/layer.js"></script>
+<script >
+//快递订单支付
+var app = angular.module("app",[]);
+app.controller("myCtrl2",["$scope",function($scope){
+	var urlStr = window.location.href;
+	var index1 = urlStr.indexOf("=");
+	var index2 = urlStr.indexOf("&");
+	var index3 = urlStr.lastIndexOf("=");
+	$scope.orderId = urlStr.slice(index1+1,index2);
+	$scope.orderPrice = urlStr.slice(index3+1);
+	
+	$scope.payOrderPrice = "";
+	$scope.payType="4";
+	$scope.favorableId = "";
+	$scope.favorableName = 0;
+//	切换支付方式
+	 $(".tabPayType").on('click',function(){
+		 	var payStatus = $(this).find(".clickIcon").attr("data-type");
+	        $(".clickIcon").removeClass("active");
+	        $(this).find(".clickIcon").addClass("active");
+	        $scope.payType = payStatus;
+	 });
+	 
+	
+//	获取可用优惠券
+	$.ajax({
+        url: "/expressage_api/rbac/sys/expressageUser/getFavorables",
+        type:"post",
+        data:{
+        	type:1
+        },
+        success:function(data){
+        	data = JSON.parse(data)
+        	console.log(data)
+            if(data.code == "000000"){
+            	$scope.ticketList = data.response;
+            	if($scope.ticketList.length>0){
+            		$scope.favorableName = $scope.ticketList[0].favorableName;
+            		$scope.favorableId = $scope.ticketList[0].favorableId;
+            		$scope.$apply();
+            	}
+            }else if(data.code == "100022"){
+             	window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb29f8c9e9415156f&redirect_uri=http://www.kuaidikd.com/expressage_api/code/login.html&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+            }else{
+            		layer.msg(data.message)
+            }
+        },
+        error:function(){
+        	
+        }
+    });
+
+	
+//	 选择优惠券
+	$scope.toSelectTicket = function(){
+		$(".tickets").slideDown(300);
+	}
+	$scope.selectTicket = function(event,favorableName,favorableId){
+			var currentStatus = $(event.target).attr("data-status");
+			if(currentStatus==0){
+				$(event.target).addClass("active").attr("data-status",1);
+				$scope.favorableName = favorableName;
+				//得到该优惠券的面额和id
+				$scope.favorableId = favorableId;
+			}else{
+				$(event.target).removeClass("active").attr("data-status",0);
+				$scope.favorableName=0;
+				$scope.favorableId = "";
+			}
+			
+			$(event.target).parent().siblings().find("span").removeClass("active").attr("data-status",0);
+			
+			
+	}
+	 
+//	关闭优惠券列表
+	$scope.closeTickets = function(){
+		$(".tickets").slideUp(300);
+	}
+//	 支付提交
+	 $scope.paying = function(){
+		console.log($scope.payOrderPrice)
+		console.log($scope.favorableName)
+		if($scope.payOrderPrice.trim()==""){
+			layer.msg("请输入金额");
+			return;
+		}
+		var payOrderPrice = $scope.payOrderPrice;
+		if($scope.payOrderPrice - $scope.favorableName<=0){
+			payOrderPrice = 0;
+			$scope.payType = 1;
+		}
+		 $.ajax({
+             url: "/expressage_api/rbac/sys/expressageOrder/payOrder",//支付
+             type:"post",
+             async:false,
+	             data: {
+	            	channel:"wx",
+	            	orderId:$scope.orderId,
+	            	type:$scope.payType,//1现金4微信支付
+	            	orderPrice:payOrderPrice,
+	            	favorableId:$scope.favorableId
+	             }, 
+               success:function(data){
+            	   data = JSON.parse(data);
+                   if(data.code == "000000"){
+                	    $scope.data = data;
+                	    //支付时间
+                	    var nowDate = new Date();
+                    	datestr = nowDate.getFullYear()+"-"+(nowDate.getMonth()+1)+"-"+nowDate.getDate();
+                    	$.cookie("payPrice",payOrderPrice);
+            			$.cookie("datestr",datestr);
+            			$.cookie("orderId",$scope.orderId)
+                		if($scope.payType==4){
+                			$scope.flag = true;
+                			WeixinJSBridge.invoke(
+                				       'getBrandWCPayRequest', {
+                				           "appId":data.response.appId,     //公众号名称，由商户传入     
+                				           "timeStamp":data.response.timeStamp,         //时间戳，自1970年以来的秒数     
+                				           "nonceStr":data.response.nonceStr, //随机串     
+                				           "package":data.response.packages,     
+                				           "signType":data.response.signType, //微信签名方式：     
+                				           "paySign":data.response.paySign //微信签名 
+                				       },
+                				       function(res){     
+                				           if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                				        	   
+                				        	   window.location.href="index.html#/paySuccess";
+                				        	   
+                				           }   // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                				           
+                				       }
+                				   );
+                		}else{
+                			
+                			 window.location.href="index.html#/paySuccess";
+                		}
+                	   
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                		
+                   }else if(data.code == "100022"){
+                    	window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb29f8c9e9415156f&redirect_uri=http://www.kuaidikd.com/expressage_api/code/login.html&response_type=code&scope=snsapi_base&state=1#wechat_redirect";
+                   }else{
+                   		
+                   }
+               },
+               error:function(){
+               	
+               }
+           });
+
+	 }
+	 
+    
+}]);
+
+
+
+</script>
+</html>

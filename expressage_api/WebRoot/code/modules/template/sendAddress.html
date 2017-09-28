@@ -1,0 +1,33 @@
+
+    <div class="page sendAddressPage">
+        <div class="pr addressSearch">
+            <span class="pa"></span>
+            <input type="text" id="searchAddress" ng-model="searchAddress" ng-input = "search()" placeholder="请输入地址关键字"/>
+            
+        </div>
+        <div class="pr">
+        	<div id="l-map"></div>
+        	<ul id="r-result">
+        		<li ng-repeat = "item in suggessList" track by $index ng-click="sureAddress($event)" ng-bind="item.address"></li>
+        	</ul>
+        </div>
+		
+        <div class="currentAddress pr">
+            <span></span>
+            <div>
+                <span>当前位置</span>
+                <div ng-bind="currentPosition" ng-click="toUp(currentPosition)"></div>
+            </div>
+        </div>
+        <div class="historyAddress pr">
+            <span></span>
+            <div>
+                <span>历史地址</span>
+                <div ng-repeat = "item in addressList" ng-bind="item" ng-click="oldAddress($event)"></div>
+            </div>
+        </div>
+       <div class="cell pr" style="margin-top: 1rem;">
+            <input type="button" ng-click="backDownForm()" value="确定"/>
+       </div>
+    
+    </div>

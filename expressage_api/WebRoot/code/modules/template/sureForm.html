@@ -1,0 +1,31 @@
+<div class="page myForm daifukMsg sureForm">
+        <div class="sName pr">
+            <span></span>
+            <input type="text" name="sName" placeholder="收货姓名" ng-model="userMsg.userName" />
+        </div>
+        <div class="sPhone pr">
+            <span></span>
+            <input type="" name="sPhone" ng-model="userMsg.phone" placeholder="联系电话"/>
+        </div>
+         <div class="sAddress pr">
+            <span></span>
+            <input type="text" name="sAddress" placeholder="收货地址"/>
+        </div>
+        
+        <ul class="content waitPay">
+            <li class="clearfix">
+               <a href="">
+                 <img ng-src="{{productMsg.img1}}" alt="" class="fl"/>
+                 <div class="text">
+                    <div>
+                        <p class="titleText" ng-bind="productMsg.productName"></p>
+                        <p class="integral">积分<span ng-bind="productMsg.integral"></span></p>
+                    </div>
+                    
+                 </div>
+               </a>
+            </li>
+
+        </ul>
+        <input type="button" style="float: right; margin-right: 1.3rem;margin-top: 60px;" class="sureGet" ng-click="duihuan(productMsg.productId)" value="确认"/>
+    </div>

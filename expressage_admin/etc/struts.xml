@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.convention.default.parent.package" value="crud-default" />
+	<constant name="struts.convention.package.locators" value="web,action" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.cndatacom" />
+	<constant name="struts.multipart.saveDir" value="/tmp"/><!-- 指定临时存放文件夹 -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" /><!-- 设置ognl可以访问静态方法和静态属性 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.multipart.parser" value="jakarta" />
+    <constant name="struts.devMode" value="true" />
+      
+	<!-- 用于CRUD Action的parent package -->
+	<package name="crud-default" extends="convention-default,json-default">
+	
+	
+		<!-- 基于paramsPrepareParamsStack,
+			增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		
+		<interceptors>
+			<interceptor-stack name="customParamsPrepareParamsStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                	<param name="validateAnnotatedMethodOnly">true</param>
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="customParamsPrepareParamsStack" />
+			</interceptor-stack>
+			
+			<interceptor name="attachmentDownloadInterceptor" class="com.cndatacom.rbac.interceptor.AttachmentDownloadInterceptor">
+			</interceptor>
+		</interceptors>
+
+		<default-interceptor-ref name="crudStack" />
+		
+		<global-results>
+			<result name="serviceException" type="dispatcher">/common/service_exception.jsp</result>
+			<result name="actionException" type="dispatcher">/common/action_exception.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping result="actionException" exception="com.cndatacom.common.exception.ActionException"></exception-mapping>
+			<exception-mapping result="serviceException" exception="com.cndatacom.common.exception.ServiceException"></exception-mapping>
+		</global-exception-mappings>
+		
+	</package>
+</struts>

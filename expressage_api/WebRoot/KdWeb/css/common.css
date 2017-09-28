@@ -1,0 +1,27 @@
+/*
+ * create by yc 2017/4/20
+ * 此库用于此页面的共用的CSS模块
+ */
+
+@charset "utf-8";
+
+/*导航*/
+.kd-nav{width: 100%;height: 64px;background-color: #e7e7e8;overflow: hidden;position: fixed;z-index: 100}
+.kd-nav-navbar{width: 1200px;margin: 0 auto}
+.kd-logo{margin-top: 13px;width: 180px;float: left}
+.kd-nav-navbar-lists{float: left;height: 64px}
+.kd-nav-navbar-lists li{float: left;overflow: hidden}
+.kd-nav-navbar-lists li a{text-decoration: none;display: block;height: 64px;line-height: 62px;color: #474747;font-size: 24px;font-family: '微软雅黑'}
+.kd-nav-mg-230{margin-left: 230px}
+.kd-nav-navbar-active{color: #fc8d52!important;}
+.kd-nav-navbar-active b{width: 100%!important;border-bottom: 2px solid #fc8d52}
+
+.kd-nav-navbar-lists li a:hover{text-decoration: none;transition: all .3s ease-in;-webkit-transition: all .3s ease-in;-o-transition: all .3s ease-in;-moz-transition: all .3s ease-in;-mz-transition: all .3s ease-in;color:#fc8d52!important;}
+.kd-nav-navbar-lists li a:hover b{width: 100%;}
+.kd-nav-navbar-lists li a b{width: 0px;display: block;margin: 0 auto;transition: all .3s ease-in-out;-webkit-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;-mz-transition: all .3s ease-in-out;border-bottom: 2px solid #fc8d52;}
+/*导航结束*/
+
+
+/*侧滑的圆圈样式*/
+
+/*侧滑的圆圈样式结束*/

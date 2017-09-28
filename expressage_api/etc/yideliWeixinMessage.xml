@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Messages>
+	
+	<Message key="HZLX" type="text">
+		<Text>您对翼得利有什么想法和建议？您有什么话想对我们说？
+			  #n回复“TWM+你想说的话”，我们将热情为您解答！
+			  #n您也可以通过QQ：1711317368或邮箱：xiang_189@189.cn联系我们
+		</Text>
+	</Message>
+	
+	<Message key="TWM" type="text">
+		<Text>感谢您的意见，你的关注就是我们的进步！</Text>
+	</Message>
+	
+	<!-- <Message key="图片" type="pic">
+		<ArticleCount>3</ArticleCount>-->
+		<!-- 大图360*200，小图200*200 -->
+		<!--<Item>
+			<PicUrl>http://www.189xiang.com/web/images/cd/ios_opt.jpg</PicUrl>
+			<Url>http://www.189xiang.com/setup/chuangxiang.apk</Url>
+		</Item>
+		<Item>
+			<PicUrl>http://www.189xiang.com/web/images/cd/ios_opt.jpg</PicUrl>
+			<Url>http://www.189xiang.com/setup/chuangxiang.apk</Url>
+		</Item>
+		<Item>
+			<PicUrl>http://www.189xiang.com/web/images/cd/ios_opt.jpg</PicUrl>
+			<Url>http://www.189xiang.com/setup/chuangxiang.apk</Url>
+		</Item>
+	</Message> -->
+	
+	<Message key="SLL" type="picText" appendUrl="true">
+		<ArticleCount>1</ArticleCount>
+		<Item>
+			<Title>玩游戏，数流量，赢i6！</Title>
+			<Description>手机分等级，你是哪一级？在30秒内数得越多，手机等级越高！快来挑战，赢取iPhone6！</Description>
+			<PicUrl>http://14.29.1.119/cezdcp/flows/images/300.jpg</PicUrl>
+			<Url>http://14.29.1.119/cezdcp/flow/game0</Url>
+		</Item>
+	</Message>
+
+	<Message key="ZMS" type="pic" appendUrl="true">
+		<ArticleCount>1</ArticleCount>
+		<!-- 大图360*200，小图200*200 -->
+		<!-- 参数s代表公众号来源：1、翼得利微信，2、翼得利易信，3、爱赚钱微信，4、爱赚钱易信 -->
+		<Item>
+			<Title>功能提示</Title>
+			<PicUrl>https://mp.weixin.qq.com/cgi-bin/getimgdata?token=758884508&amp;msgid=&amp;mode=large&amp;source={source}&amp;fileId=200895064&amp;ow=-1</PicUrl>
+		</Item>
+	</Message>
+	
+	
+	<WelcomeMessage>您好！欢迎使用快递一哥微信服务！点击<a href="http://120.24.180.51:8088/expressage_api/express/problem.html">注册快递一哥会员</a>或<a href="http://120.24.180.51:8088/expressage_api/express/login.jsp">绑定快递一哥会员</a>，实时获知快件最新状态。首次注册送优惠券，优惠券一次可抵1-2元。
+	</WelcomeMessage>
+	
+	<AlertMsg>感谢您的意见，你的关注就是我们的进步！</AlertMsg>
+</Messages>

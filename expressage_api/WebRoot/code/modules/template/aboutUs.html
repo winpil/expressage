@@ -1,0 +1,16 @@
+
+    <div class="page aboutUs" ng-if="type==1">
+        <div>
+            <img src="./images/pic_about_us.png" height="322" width="750" alt="" />
+        </div>
+        <div class="text" ng-bind-html="contentData.content">
+        </div>
+    </div>
+    
+    
+ <div class="page issue" ng-if="type==2">
+       <div ng-bind-html="contentData.content" style="padding: 20px 10px"></div>
+ </div>
+ <div class="page" ng-if="type==3">
+      <div ng-bind-html="contentData.content"></div>
+ </div>

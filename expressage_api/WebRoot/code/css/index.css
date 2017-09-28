@@ -1,0 +1,1716 @@
+@charset "utf-8";
+body,html{height:100%;
+    -webkit-tap-highlight-color:transparent;
+}
+/*body{font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;}*/
+.header{
+    width: 100%;
+    height: 0.43rem;
+    text-align:center;
+    position:fixed;
+    top:0;
+    background-color: #161616;
+    font-size: 0.18rem;
+    line-height: 0.42rem;
+    z-index:6;
+    color: #fff;
+}
+.header .goBack{
+    position: absolute;
+    left: 0.15rem;
+    top: 0.1rem;
+    width: 0.17rem;
+    height: 0.24rem;
+    background: url("../images/icon_back.png") no-repeat center;
+    background-size: 0.17rem 0.24rem;
+    
+}
+.header .menu{
+    position: absolute;
+    right: 0.21rem;
+    top: 0.1rem;
+    width: 0.1rem;
+    height: 0.25rem;
+}
+.page{
+    width: 100%;
+    background-color: #f2f2f2;
+    min-height: 100%;
+}
+.registerPage{
+    padding-top: 0.1rem;
+}
+.cell{
+    width: 100%;
+    padding: 0 0.1rem;
+    margin-top: 0.15rem;
+}
+.cell input{
+    height: 0.45rem;
+    width: 100%;
+    padding-left: 0.25rem;
+    color: #666;
+    font-size: 0.15rem;
+}
+.inputPhone .phone{
+    width: 2.21rem;
+}
+.codeBtn{
+    position: absolute;
+    width: 1.16rem;
+    height: 0.45rem;
+    border: 0.01rem solid rgb(38, 159, 255);
+    right: 0.1rem;
+    top:0;
+    background-color: transparent;
+    font-size: 0.15rem;
+    color: rgb(38, 159, 255);
+}
+.inputIcon{
+    position: absolute;
+    width: 0.13rem;
+    height: 0.16rem;
+    top: 0.13rem;
+    left: 0.15rem;
+    
+}
+.inputPhone .inputIcon{
+    background: url("../images/icon_phone_num.png") no-repeat center;
+    background-size: 0.13rem 0.13rem;
+}
+.inputCode .inputIcon{
+    background: url("../images/icon_identifying-code.png") no-repeat center;
+    background-size: 0.13rem 0.13rem;
+}
+.inputPw .inputIcon{
+    background: url("../images/icon_keys.png") no-repeat center;
+    background-size: 0.13rem 0.13rem;
+}
+.cell .registerBtn{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.16rem;
+    color: #fff;
+    padding:0;
+    background: url("../images/btn_bg.png") no-repeat center;
+}
+
+/*棣栭〉*/
+.map{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 0.38rem;
+    text-align: center;
+    font-size: 0.18rem;
+    background-color: rgba(6,6,6,0.1);
+    line-height: 0.38rem;
+    box-shadow: 0 -4px 50px 2px rgba(6,6,6,0.1);
+}
+.map .nowAddress{
+	display: inline-block;
+	color: #666;
+}
+.map .positionIcon{
+    display: inline-block;
+    width: 0.12rem;
+    height: 0.16rem;
+    vertical-align: middle;
+    margin-top: -4px;
+    background: url("../images/icon_location.png") no-repeat center;
+    background-size: 0.12rem 0.16rem;
+}
+.mainBannerImg{
+    width: 100%;
+}
+.mainBannerImg img{
+    width: 100%;
+}
+.headPortrait{
+    width: 0.85rem;
+    height: 0.85rem;
+    top: 0.25rem;
+    left: 0.45rem;
+}
+.headPortrait a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #fff;
+}
+.headPortrait a img{
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+.baseMsg{
+    right: 0;
+    top:0;
+    width: 1.95rem;
+    font-size:  0.15rem;
+    color: #fff;
+    line-height: 0.29rem;
+}
+.baseMsg .newsNum{
+    position: absolute;
+    top: 0.18rem;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url("../images/icon_message.png") no-repeat center;
+    background-size: 0.2rem 0.2rem;
+    right: 60px;
+}
+.baseMsg .newsNum b{
+	position: absolute;
+	right:-0.04rem;
+	top:-0.08rem;
+	width: 0.12rem;
+	height: 0.12rem;
+	background-color: red;
+	font-size: 0.04rem;
+	color: #fff;
+	text-align: center;
+	line-height: 0.12rem;
+	   -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.baseMsg span{
+    display:inline-block;
+    margin: 20px 0;
+    font-size: 0.16rem;
+}
+.main .inputIcon{
+    width: 0.19rem;
+    height: 0.255rem;
+    top: 0.1rem;
+}
+.main .inputIcon a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.main .cell input{
+    padding-left: 60px;
+}
+.page .cell .nextBtn{
+    padding:0;
+    font-size: 0.16rem;
+    color: #fff;
+    margin-top: 0.58rem;
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+}
+.getAddress .inputIcon{
+    background: url("../images/icon_sent_location.png") no-repeat center;
+    background-size: 0.19rem 0.255rem;
+}
+.sendAddress .inputIcon{
+    background: url("../images/icon_pick_location.png") no-repeat center;
+    background-size: 0.19rem 0.255rem;
+}
+.weight{
+    width: 2.9rem;
+    height: 0.59rem;
+    margin: 0 auto;
+    margin-top: 0.24rem;
+}
+.weight .reduceIcon,
+.weight .addIcon{
+    height: 0.545rem;
+    width: 0.545rem;
+    vertical-align: middle;
+    
+}
+.weight .reduceIcon{
+    background: url("../images/icon_reduce.png") no-repeat center;
+    background-size: 0.2rem 0.035rem;
+    background-color: #fff;
+}
+.weight .addIcon{
+    background: url("../images/icon_plus.png") no-repeat center;
+    background-size: 0.2rem 0.2rem;
+    background-color: #fff;
+}
+.weight .weightNum{
+    width: 1.08rem;
+    height: 0.59rem;
+    margin: 0 0.2rem;
+    vertical-align: middle;
+    display: inline-block;
+    
+}
+.weight .weightNum input{
+	padding-right: 0.4rem;
+	padding-left: 0.2rem;
+	height: 100%;
+	width: 100%;	
+	  font-size: 0.15rem;
+    text-align: center;
+    color: black;
+}
+.weight .weightNum span{
+	right: 12px;
+	top: 50%;
+	margin-top: -0.075rem;	
+}
+/*涓嬪崟*/
+.kd_footer{
+    height: 0.5rem;
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    background-color: #fff;
+    padding: 0 0.3rem;
+    box-shadow: 0 1px 40px 4px #f2f2f2;
+}
+.kd_footer .submitFormBtn,
+.kd_footer .myBtn{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 0.15rem;
+}
+.kd_footer .submitFormBtn a,
+.kd_footer .myBtn a{
+    display: block;
+}
+.kd_footer span{
+    display: inline-block;
+    width: 0.16rem;
+    height: 0.16rem;
+    margin-top: 0.1rem;
+    
+}
+.submitFormBtn.active,
+.myBtn.active{
+    color: rgb(64,171,213);
+}
+.kd_footer .submitFormBtn span{
+    background: url("../images/icon_order_place_before.png") no-repeat center;
+    background-size: 0.16rem 0.16rem;
+}
+.kd_footer .submitFormBtn.active span{
+    background: url("../images/icon_order_place_later.png") no-repeat center;
+    background-size: 0.16rem 0.16rem;
+}
+.kd_footer .myBtn span{
+    background: url("../images/icon_mine_before.png") no-repeat center;
+    background-size: 0.16rem 0.16rem;
+}
+.kd_footer .myBtn.active span{
+    background: url("../images/icon_mine_later.png") no-repeat center;
+    background-size: 0.16rem 0.16rem;
+}
+.selfMenu{
+    background-color: #fff;
+    padding-bottom: 0.9rem;
+}
+.selfMenu ul{
+    padding: 0 0.2rem 0 0.34rem;
+    background-color: #fff;
+}
+.selfMenu ul li{
+    height: 0.47rem;
+    line-height: 0.47rem;
+    font-size: 0.13rem;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.selfMenu ul li a{
+    display: block;
+    position: relative;
+    padding-left: 20px;
+}
+.selfMenu .navIcon{
+    position: absolute;
+    width: 0.16rem;
+    height: 0.13rem;
+    left: -0.19rem;
+    top: 50%;
+    margin-top: -0.065rem;
+   	
+}
+.selfMenu .navNextIcon{
+    position: absolute;
+    right: 0;
+    top: 0.16rem;
+    width: 7px;
+    height: 12px;
+    background: url("../images/icon_enter.png") no-repeat center;
+    background-size: 7px 12px;
+}
+.menuNav1{
+    border-bottom: 30px solid #f2f2f2;
+}
+.menuNav1 .myForm .navIcon{
+    background:url("../images/icon_order.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav1 .myIntegral .navIcon{
+    background:url("../images/icon_search.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav1 .kuaidi .navIcon{
+    background:url("../images/icon_logistics.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav1 .myTicket .navIcon{
+    background:url("../images/icon_coupon.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav1 .myPrestige .navIcon{
+    background:url("../images/icon_credit.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav1 .myPrestige {
+    border: none;
+}
+.menuNav2 .priceForm .navIcon{
+    background:url("../images/icon_list_price.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav2 .issue .navIcon{
+    background:url("../images/icon_question.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav2 .fankui .navIcon{
+    background:url("../images/icon_suggestion.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav2 .complain .navIcon{
+    background:url("../images/icon_complain.png") no-repeat center;
+    background-size:0.16rem 0.13rem;
+}
+.menuNav2 .aboutUs .navIcon{
+    background:url("../images/icon_about_us.png") no-repeat center;
+    background-size:0.16rem 0.16rem;
+}
+.menuNav2 .layout .navIcon{
+    background:url("../images/icon_set_up.png") no-repeat center;
+    background-size:0.16rem 0.16rem;
+}
+.menuNav2 .layout{
+    border: none;
+}
+
+.myForm .myFormNav{
+    background-color: #fff;
+    height: 0.415rem;
+}
+.myForm .myFormNav li{
+    float: left;
+    width: 25%;
+    height: 0.42rem;
+    line-height: 0.42rem;
+}
+.myForm .myFormNav li.active{
+    border-bottom: 3px solid #1680f2;
+}
+.myForm .myFormNav li a{
+    display: block;
+    text-align: center;
+    font-size: 0.14rem;
+}
+.myForm .content{
+    margin-top: 0.15rem; 
+}
+.myForm .content li{
+    background-color: #fff;
+     padding-bottom: 0.05rem;
+     margin-top: 0.1rem;
+}
+.myForm .content li a{
+    display:block;
+   
+}
+.myForm .content li a>div{
+    padding-top: 0.13rem;
+    padding-bottom: 0.1rem;
+}
+.myForm .content li .sendPhone,
+.myForm .content li .getPhone{
+    font-size: 0.15rem;
+    color: #000;
+}
+.myForm .content li .sendAddress,
+.myForm .content li .getAddress{
+    font-size: 0.14rem;
+    color:#ccc;
+}
+.myForm .content li>div{
+	padding-top: 0.13rem;
+    padding-bottom: 0.05rem;
+}
+.myForm .content li a>div>div,
+.myForm .content li>div>div{
+    padding-left: 0.5rem;
+    line-height: 0.24rem;
+}
+.goods {
+    font-size: 0.15rem;
+    padding-bottom: 0.3rem;
+}
+.content li .titleIcon{
+    float: left;
+    width: 0.25rem;
+    height: 0.3rem;
+    margin-left: 0.1rem;
+    
+}
+.content li .send .titleIcon{
+    background: url("../images/icon_sent_location.png") no-repeat center;
+    background-size: 0.25rem 0.3rem;
+}
+.content li .get .titleIcon{
+    background: url("../images/icon_pick_location.png") no-repeat center;
+    background-size: 0.25rem 0.3rem;
+}
+.content li .goods .titleIcon{
+    background: url("../images/icon_goods.png") no-repeat center;
+    background-size: 0.25rem 0.3rem;
+}
+.content li .stars{
+    top: 2px;
+    right: 0.15rem;
+}
+.stars2 span,
+.content li .stars span{
+    display: inline-block;
+    width: 0.165rem;
+    height: 0.155rem;
+    background: url("../images/icon_star.png") no-repeat center center;
+    background-size: 0.165rem 0.155rem;
+}
+.stars2 .starNone,
+.content li .stars .starNone{
+    background: url("../images/icon_star_null.png") no-repeat center;
+     background-size: 0.165rem 0.155rem;
+}
+.content li .formStatus{
+   right: 0.15rem;
+   top: 0px;
+   font-size: 0.18rem;
+   color: #eb1212;
+}
+.sendName,
+.getName{
+    display: inline-block;
+    width: 0.625rem;
+}
+.content li .sureBtn{
+   right: 0.15rem;
+   bottom: 0.15rem;
+   font-size: 0.18rem;
+   width: 1rem;
+   height: 0.47rem;
+   background: url("../images/btn_bg_orange.png") no-repeat center;
+   text-align:center;
+   color: #fff;
+   -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+   line-height: 0.47rem;
+   background-size: 1rem 0.47rem;
+}
+.waitPay{
+    background-color: #fff;
+    padding-bottom: 750px;
+}
+.finished{
+    margin-top: 20px;
+}
+.finished li,
+.waitPay li{
+    height: 0.8rem;
+    padding:0;
+    background-color: #fff;
+}
+.finished a,
+.waitPay a{
+    display: block;
+    height: 100%;
+    color:#666;
+    font-size: 0.15rem;
+    padding-right: 0.28rem;
+}
+.finished li img,
+.waitPay li img{
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-top: 0.05rem;
+    margin-left: 0.16rem;
+}
+.finished .text,
+.waitPay .text{
+    padding-left: 0.1rem;
+    padding-top: 0.15rem;
+    height: 100%;
+    width: 2.6rem;
+    overflow: hidden;
+    line-height: 0.2rem;
+}
+.finished .text .titleText,
+.waitPay .text .titleText{
+    color: #494e6f;
+}
+.finished .text .integral,
+.waitPay .text .integral{
+    color: #979cba;
+}
+.finished .text>div
+.waitPay .text>div{
+    height: 100%;
+    border-bottom: 1px solid #c0c3d5;
+}
+/*涓汉涓績*/
+.selfCenter{
+    padding-top: 0.15rem;
+    font-size: 0.15rem;
+}
+.selfCenter input{
+    background-color: transparent;
+    font-size: 0.15rem;
+    vertical-align: middle;
+    width: 60%;
+    padding-left: 10px;
+    color: #717171;
+    height: 100%;
+    margin-top: -2px;
+}
+.selfCenter span{
+    display: inline-block;
+    width: 0.17rem;
+    height: 0.17rem;
+    vertical-align: middle;
+    margin-top: -0.02rem;
+}
+.selfCenter form>div{
+    margin-top:0;
+}
+.selfCenter form>div:first-child{
+    text-align:center;
+    margin-bottom: 20px;
+}
+.selfCenter form>div>div{
+    display: inline-block;
+    width: 80%;
+    padding-left: 10px;
+    border-bottom: 1px solid #d5d5d5;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    color: #717171;
+}
+.selfName span{
+    background: url('../images/icon_client.png') no-repeat center;
+    background-size: 0.17rem 0.17rem;
+}
+.selfPhone span{
+    background: url('../images/icon_phone_contact.png') no-repeat center;
+    background-size: 0.17rem 0.17rem;
+}
+.findPw span{
+    background: url('../images/icon_keys.png') no-repeat center;
+    background-size: 0.17rem 0.17rem;
+}
+.selfCenter .imgBox{
+	width: 0.78rem;
+	height: 0.78rem;
+	overflow: hidden;
+	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+.selfCenter img{
+	width: 0.78rem;
+	height: 0.78rem;
+	border: none;
+    
+}
+.selfCenter .editBtn{
+    position: absolute;
+    right: 0.15rem;
+    top:0.14rem;
+	width: 0.3rem;
+}
+.selfCenter .avatar{
+	position: absolute;
+    width: 0.78rem;
+	height: 0.78rem;
+    opacity: 0;
+    top: 0;
+    right: 50%;
+    margin-right: -0.39rem;
+    padding: 0;
+}
+
+
+.login{
+    padding-top: 0.5rem;
+}
+.login input{
+    padding-left: 0.475rem;
+    color: #000;
+    border: 1px solid #ccc;
+}
+.login .cell span{
+    position: absolute;
+    width: 0.135rem;
+    height: 0.165rem;
+    left: 0.24rem;
+    top: 0.13rem;
+    background-size: 0.135rem 0.165rem;
+}
+.selfPw span{
+    background: url("../images/icon_keys.png") no-repeat center;
+}
+.loginBtn input{
+    margin-top: 0.38rem;
+    padding: 0;
+    text-align: center;
+    background: url("../images/btn_bg.png") no-repeat center;
+    font-size: 0.16rem;
+    color: #fff;
+}
+.login .help a{
+    padding: 0.15rem 0.15rem;
+    font-size: 0.12rem;
+}
+.login .help .loginRegisterBtn{
+    float: left;
+}
+.login .help .loginFindPwBtn{
+    float: right;
+}
+
+
+.aboutUs img{
+	width: 100%;
+	height: 1.6rem;
+}
+.aboutUs .text{
+    padding: 0.17rem 0.47rem;
+    font-size: 0.14rem;
+    line-height: 0.29rem;
+}
+
+/*绉垎*/
+.jifen{
+    background-color: #fff;
+}
+.jifen .top{
+    width: 100%;
+    height: 1.74rem;
+    font-size: 0.15rem;
+    text-align: center;
+    color:#fff;
+    padding-top: 0.25rem;
+    background-size: 100% 1.74rem;
+    background: url("../images/bg_integral.png") no-repeat center;
+}
+.jifen .top .totalNum{
+    font-size: 0.32rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.15rem;
+}
+.jifen .exchangeBtn{
+    display: inline-block;
+    width: 1.04rem;
+    height: 0.3rem;
+    line-height: 0.27rem;
+    background-color: transparent;
+    border: 2px solid #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+.jifen .text{
+    padding: 0.15rem 0.15rem;
+    font-size: 0.15rem;
+    line-height: 0.24rem;
+}
+.jifen .text span{
+    float: right;
+    width: 0.5rem;
+}
+
+/*绉垎鍟嗗煄*/
+.jifenMall .top{
+    padding: 0.09rem 0.07rem;
+    width: 100%;
+}
+.jifenMall .top input{
+    width: 100%;
+    height: 0.29rem;
+    line-height: 0.28em;
+    padding-left: 0.31rem;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 0.14rem;
+}
+.top .searchIcon{
+    width: 0.15rem;
+    height: 0.15rem;
+    background:url("../images/icon_search_goods.png") no-repeat center;
+    left: 0.15rem;
+    top: 0.15rem;
+    background-size: 0.15rem 0.15rem;
+
+}
+.jifenMall .content{
+    padding: 0.05rem 0.1rem;
+
+}
+.jifenMall .content ul li{
+    float:left;
+    margin: 0.05rem 0.07rem;
+    width: 1.74rem;
+    height: 2.11rem;
+    text-align:center;
+    background-color: #fff;
+    padding: 0 0.15rem;
+    padding-top: 0.15rem;
+    font-size: 0.12rem;
+    
+    
+}
+.jifenMall .content ul li a{
+	width: 100%;
+	height: 100%;
+}
+.jifenMall .content ul li img{
+    width: 1.39rem;
+    height: 1.39rem;
+}
+.jifenMall .content ul li p{
+    margin-top: 0.1rem;
+    line-height: 0.21rem;
+    text-align: left;
+}
+.singleJiFen{
+    color: red;
+    text-align: left;
+    font-size: 0.13rem;
+}
+/*鍟嗗搧璇︽儏*/
+.productMsg img{
+	width: 100%;
+}
+.productMsg .productTitle{
+    padding: 0.1rem 0.125rem;
+    line-height: 0.225rem;
+    background-color: #fff;
+}
+.productMsg .productTitle p:first-child{
+    font-size: 0.17rem;
+    color: #000;
+}
+.productMsg .productTitle p:last-child{
+    color: red;
+    margin-top: 0.075rem;
+    font-size: 0.18rem;
+}
+.productContent{
+    background-color: #fff;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+.productContent .text{
+    padding: 0.1rem 0.1rem 0.05rem 0.1rem;
+}
+.productContent .text img{
+	height: auto;
+}
+.productContent .text h4{
+    font-size: 0.17rem;
+    color: #000;
+    padding-left: 0.15rem;
+    line-height: 0.3rem;;
+}
+.productContent .text h4 span{
+    position: absolute;
+    width: 6px;
+    left: 0;
+    top: 0.05rem;
+    height: 0.2rem;
+    background-color: #01cdfe;
+}
+.text_msg{
+    background-color: #f2f2f2;
+    padding: 0.1rem;
+}
+.text_msg>div{
+    width: 50%;
+    padding-left: 0.1rem;
+    font-size: 0.12rem;
+}
+.text_msg>div:first-child{
+    border-right: 2px solid #fff;
+}
+.text_msg .attribute{
+    display: inline-block;
+    /*width: 1.2rem;*/
+    color: #000;
+}
+
+/*鏀粯椤甸潰*/
+.pay{
+     font-size: 0.13rem;
+}
+.payTitle{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    padding-left: 0.14rem;
+    border-bottom: 1px solid #ccc;
+}
+.payType{
+    padding: 0.25rem;
+    border-bottom: 1px solid #ccc;
+}
+.payType p{
+    line-height: 0.3rem;
+}
+.payType>div{
+    width: 50%;
+    text-align: center;
+    float: left;
+}
+.payType .weixin span:first-child{
+    display:inline-block;
+    width: 0.445rem;
+    height: 0.445rem;
+    background: url("../images/icon_wechat.png") no-repeat center;
+    background-size: 0.445rem 0.445rem;
+}
+.payType .xianjin span:first-child{
+    display:inline-block;
+    width: 0.53rem;
+    height: 0.445rem;
+    background: url("../images/icon_money.png") no-repeat center;
+    background-size: 0.53rem 0.445rem;
+}
+.payType .clickIcon{
+    display:inline-block;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: url("../images/icon_unclick.png") no-repeat center;
+    background-size: 0.15rem 0.15rem;
+}
+.payType .clickIcon.active{
+    display:inline-block;
+    width: 0.15rem;
+    height: 0.15rem;
+    background: url("../images/icon_click.png") no-repeat center;
+    background-size: 0.15rem 0.15rem;
+}
+.payNum,
+.selectTicket{
+    line-height: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    padding-left: 30px;
+}
+.selectTicket sapn,
+.payNum span{
+    display: inline-block;
+    width: 20%;
+}
+.selectTicket .nextIcon{
+	display: inline-block;
+	width: 0.1rem;
+	height: 0.15rem;
+	background: url("../images/icon_enter.png") no-repeat center center;
+	background-size: 0.1rem 0.15rem;
+	margin-left: 0.1rem;
+	margin-right: 0.2rem;
+	vertical-align: middle;
+}
+.payNum input{
+    height: 0.5rem;
+    width: 75%;
+    background-color: transparent;
+}
+.payBtn{
+    padding: 0 0.1rem;
+    margin-top: 0.55rem;
+}
+.payBtn input{
+    width: 100%;
+    height: 0.43rem;
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+    font-size:  0.21rem;
+    color:#fff;
+    
+}
+.citySelect{
+    padding-top: 20px;
+}
+.citySelect>div{
+    padding-left: 0.05rem;
+}
+.citySelect div.pr{
+    float: left;
+    width: 0.78rem;
+    height: 0.305rem;
+    margin-left: 0.31rem;
+    margin-top: 0.1rem;
+    border: 0.01rem solid #ccc;
+}
+.citySelect input{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 0.305rem;
+    font-size: 0.14rem;
+    background-color: #fff;
+}
+.citySelect div.active{
+    border: 0.01rem solid #259efe;
+}
+.citySelect div.active span{
+    position: absolute;
+    right:-8px;
+    top: -8px;
+    width: 0.14rem;
+    height: 0.14rem;
+    background: url("../images/icon_check.png") no-repeat center;
+    background-size: 0.14rem 0.14rem;
+}
+
+.overplusTime{
+    line-height: 0.5rem;
+    font-size: 0.16rem;
+    text-align:center;
+    color: red;
+}
+.formMsg .content{
+    margin-top: 0;
+}
+.formMsg .goods{
+    color:#000;
+}
+.goodMsg>div{
+    float: left;
+    width: 50%;
+}
+.formMsg .fastMailMan{
+    margin-top: 0.12rem;
+    height: 0.85rem;
+    padding: 0.15rem 0.19rem;
+    background-color: #fff;
+    font-size: 0.14rem;
+    height: 100%;
+}
+.formMsg .fastMailMan>div{
+    padding: 0 0.46rem;
+}
+.formMsg .fastMailMan>div>div{
+    float: left;
+}
+.formMsg .fastMailMan .fastManPhoto{
+    width: 0.305rem;
+    height: 0.305rem;
+    background: url("../images/icon_small_head_sculpture.png") no-repeat center;
+    left:0;
+    top: 50%;
+    margin-top: -0.105rem;
+    background-size: 0.305rem 0.305rem;
+}
+.formMsg .fastMailMan .phoneIcon{
+    width: 0.23rem;
+    height: 0.23rem;
+    right: 0.215rem;
+    top: 50%;
+    margin-top: -0.11rem;
+    background: url("../images/icon_call.png") no-repeat center;
+    background-size: 0.23rem 0.23rem;
+}
+.formMsg .fastMailMan .enterIcon{
+    width: 0.07rem;
+    height: 0.105rem;
+    right:0;
+    top: 50%;
+    margin-top: -0.06rem;
+    background: url("../images/icon_enter.png") no-repeat center;
+    background-size: 0.07rem 0.105rem;
+}
+.orderTime,
+.price,
+.orderNo{
+    font-size: 0.12rem;
+    padding-left: 0.12rem;
+   line-height: 0.25rem;
+}
+.cancelBtn,
+.sureGet{
+    width: 1.58rem;
+    height: 0.36rem;
+    font-size: 0.14rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-left: 0.15rem;
+}
+.sureGet{
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+    color: #fff;
+
+}
+.btn{
+    margin-top: 0.5rem;
+}
+.shadow{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 999;
+    top:0;
+}
+.shadow>div{
+    width: 2.65rem;
+    height: 1.32rem;
+    left: 50%;
+    top: 50%;
+    margin-left: -1.3rem;
+    margin-top: -0.66rem;
+    background-color: #fff;
+    font-size: 0.16rem;
+    text-align: center;
+       -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.shadow .confimMsg{
+	padding: 0.2rem;
+	height: 0.84rem;
+}
+.confirmBtn{
+    border-top: 1px solid #ccc;
+}
+.confirmBtn div{
+    width: 50%;
+    height: 0.48rem;
+    line-height: 0.48rem;
+}
+.confirmBtn .sure{
+    color: #fff;
+    background-color: #fe7a28;
+}
+
+/*浠ｄ粯娆捐鎯�/
+.daifukMsg .waitPay{
+    padding:0;
+}
+.daifukMsg .waitPay li{
+    height: 1.125rem;
+}
+.daifukMsg .waitPay li img{
+    margin-top: 0.215rem;
+}
+.daifukMsg .waitPay li .text{
+    padding-top: 0.3rem;
+}
+.daifukMsg .getMsg{
+    background-color: #fff;
+    padding: 0.2rem 0;
+    line-height: 0.22rem;
+}
+.daifukMsg .textMsg >div{
+    float: left;
+    font-size: 0.14rem;
+	width: 100%;
+}
+.daifukMsg .getMsg .addressIcon {
+    width:  0.155rem;
+    height: 0.17rem;
+    top: 50%;
+    margin-top: -0.085rem;
+    left: 0.14rem;
+    background: url("../images/addressIcon.png") no-repeat center;
+    background-size: 0.155rem 0.17rem;
+}
+/*瀵勪欢鍦板潃*/
+.sendAddressPage .addressSearch input{
+    padding-left: 0.41rem;
+    height: 0.68rem;
+    width: 100%;
+    font-size: 0.18rem;
+    background-color: #f8f8f8;
+}
+.sendAddressPage .addressSearch span{
+    width: 0.185rem;
+    height: 0.185rem;
+    left: 0.15rem;
+    top: 50%;
+    margin-top:-0.09rem;
+    background: url("../images/icon_search_something.png") no-repeat center;
+    background-size: 0.185rem 0.185rem;
+}
+.kuiadiinquiry .cell input,
+.sendAddressPage .cell input{
+    padding: 0;
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+    color:#fff;
+    font-size: 0.21rem;
+}
+.sendAddressPage .currentAddress>div,
+.sendAddressPage .historyAddress>div{
+    padding-left: 0.43rem;
+    font-size: 0.17rem;
+    line-height: 0.25rem;
+    padding-top: 0.15rem;
+}
+.sendAddressPage .currentAddress>div{
+    color: #000;
+}
+.sendAddressPage .currentAddress>div span{
+    color: red;
+}
+.sendAddressPage .currentAddress>span{
+    position: absolute;
+    width: 0.15rem;
+    height: 0.205rem;
+    background: url("../images/icon_current_location.png") no-repeat center;
+    left: 0.15rem;
+    top: 0.18rem;
+    background-size: 0.15rem 0.205rem;
+}
+/*蹇�鏌ヨ*/
+.kuaidiinquiry .kuaidiName input,
+.kuaidiinquiry .kuaidiOrderNo input{
+    padding-left: 0.45rem;
+    border-bottom: 1px solid #ccc;
+    height: 0.55rem;
+    width: 100%;
+    background-color: #f8f8f8;
+    font-size: 0.17rem;
+}
+.kuaidiinquiry .kuaidiName span,
+.kuaidiinquiry .kuaidiOrderNo span{
+    position: absolute;
+        top: 50%;
+}
+.kuaidiinquiry .kuaidiName span{
+    width: 0.2rem;
+    height: 0.15rem;
+    background: url("../images/icon_logistics_biger.png") no-repeat center;
+    left: 0.14rem;
+    margin-top: -0.075rem;
+    background-size: 0.2rem 0.15rem;
+}
+.kuaidiinquiry .kuaidiOrderNo span{
+    width: 0.16rem;
+    height: 0.18rem;
+    background: url("../images/icon_tracking_number.png") no-repeat center;
+    left: 0.15rem;
+    margin-top: -0.09rem;
+    background-size: 0.16rem 0.18rem;
+}
+.kuaidiinquiry .cell input{
+    padding: 0;
+    font-size: 0.21rem;
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+    color: #fff;
+}
+.kuaidiinquiry .content li{
+	margin-top:0;
+	border-bottom: 1px solid #ccc;
+	height: 44px;
+}
+.kuaidiinquiry .content li span{
+	height: 100%;
+	width: 2px;
+	background-color: #FF7F00;
+	left: -15px;
+	top:0;
+}
+.kuaidiinquiry .content li b{
+	height: 10px;
+	width: 10px;
+	background: url("../images/wuliu.png") no-repeat center;
+	background-color: #fff;
+	background-size: 10px 10px;
+	left: -19px;
+	top:50%;
+	margin-top: -5px;
+}
+/*鎻愪氦璁㈠崟*/
+.submitForm .kuaidiName input,
+.submitForm .kuaidiOrderNo input{
+    padding-left: 0.4rem;
+    border-bottom: 1px solid #ccc;
+    height: 0.55rem;
+    width: 100%;
+    text-align: left;
+    background-color: #fefefe;
+    font-size: 0.17rem;
+}
+.submitForm .kuaidiName span,
+.submitForm .kuaidiOrderNo span{
+    position: absolute;
+    width: 0.19rem;
+    height: 0.255rem;
+    top: 50%;
+    margin-top: -0.125rem;
+    left: 0.14rem;
+   
+}
+.submitForm .kuaidiName span{
+    background: url("../images/icon_sent_location.png") no-repeat center;
+     background-size: 0.19rem 0.255rem;
+}
+.submitForm .kuaidiOrderNo span{
+    background: url("../images/icon_pick_location.png") no-repeat center;
+     background-size: 0.19rem 0.255rem;
+}
+.submitForm ul {
+    margin-top: 0.15rem;
+}
+.tousu .inputcell input,
+.submitForm .inputcell input{
+    padding-left: 0.9rem;
+    width: 100%;
+    height: 0.4rem;
+    background-color: #fefefe;
+    font-size: 0.12rem;
+    border-bottom: 1px solid #ccc;
+}
+.tousu .inputcell span,
+.submitForm .inputcell span{
+    position: absolute;
+    line-height: 0.4rem;
+    left: 0.14rem;
+    font-size: 0.12rem;
+}
+.submitForm .submitFormMsg{
+	padding-bottom: 1.5rem;
+}
+.submitForm .submitFormMsg>div>div{
+    padding-left: 0.43rem;
+    font-size: 0.14rem;
+    
+}
+.submitForm .submitFormMsg>div>span{
+    position:absolute;
+        left: 0.15rem;
+        top:50%;
+}
+ .submitFormMsg{
+    padding-top: 0.075rem;
+ }
+ .submitFormMsg>div{
+    line-height: 0.31rem;
+ }
+ .submitFormMsg .yujiweight>span{
+    width: 0.14rem;
+    height: 0.14rem;
+    background: url("../images/icon_predict_weight.png") no-repeat center;
+    margin-top: -0.07rem;
+    background-size: 0.14rem 0.14rem;
+}
+ .submitFormMsg .getTime>span{
+    width: 0.14rem;
+    height: 0.14rem;
+    margin-top: -0.07rem;
+    background: url("../images/icon_time_pickup.png") no-repeat center;
+    background-size: 0.14rem 0.14rem;
+}
+ .submitFormMsg .compony>span{
+    width: 0.2rem;
+    height: 0.15rem;
+    margin-top: -0.07rem;
+    background: url("../images/icon_logistics_biger.png") no-repeat center;
+    background-size: 0.2rem 0.15rem;
+}
+.getTime>div>div{
+    display: inline-block;
+    width: 0.8rem;
+    padding-left: 0.22rem;
+}
+.getTime .now{
+    position: absolute;
+    width: 0.125rem;
+    height: 0.125rem;
+    background: url("../images/icon_now_pickup.png") no-repeat center;
+    left: 0.05rem;
+    top: 50%;
+    margin-top: -0.06rem;
+    background-size: 0.125rem 0.125rem;
+}
+.getTime .now.active{
+    background: url("../images/icon_predict_pickup.png") no-repeat center;
+    background-size: 0.125rem 0.125rem;
+}
+.yujiweight>div>div{
+    display: inline-block;
+    margin-left: 0.25rem;
+}
+.compony .componys>li{
+    float: left;
+    margin-left: 0.3rem;
+    margin-top: 0.08rem;
+}
+.compony .componys>li div{
+     font-size: 0.14rem;
+     background-color: #fff;
+     width: 0.77rem;
+     height: 0.32rem;
+     text-align: center;
+     border: none;
+     text-align: center;
+     
+}
+
+.compony .componys>li{
+    border: 1px solid #ccc;
+}
+.compony .componys>li.active{
+    border: 1px solid #259efe;
+}
+.compony .componys>li.active span{
+     position: absolute;
+    right:-0.04rem;
+    top: -0.04rem;
+    width: 0.14rem;
+    height: 0.14rem;
+    background: url("../images/icon_check.png") no-repeat center;
+    background-size: 0.14rem 0.14rem;
+}
+.sureBtn{
+    width: 100%;
+    padding: 0 0.1rem;
+}
+.sureBtn input{
+    width: 100%;
+    height: 0.44rem;
+    font-size: 0.21rem;
+    color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: url("../images/btn_bg_orange.png") no-repeat center;
+}
+/*娑堟伅*/
+.news ul li{
+    position: relative;
+    font-size: 0.14rem;
+    background-color: #fefefe;
+    padding: 0.15rem 0.15rem 0.275rem 0.15rem;
+    margin-top: 0.15rem;
+}
+.news ul li:first-child{
+    margin:0;
+}
+.news ul li .date{
+    position:absolute;
+    right: 0.7rem;
+    bottom: 0;
+    line-height: 0.275rem;
+}
+.news ul li .time{
+    position:absolute;
+    right: 0.2rem;
+    bottom: 0;
+    line-height: 0.275rem;
+}
+/*鍙嶉*/
+.fankuipage{
+    padding: 0.15rem;
+}
+.tousu .inputBox,
+.fankuipage .inputBox{
+    background-color: #f7f7f7;
+    padding: 0.12rem;
+    width: 100%;
+    font-size: 0.16rem;
+    border: 1px solid #ccc;
+    height: 1.68rem;
+}
+.tousu .sureBtn,
+.fankuipage .sureBtn{
+    position: static;
+    padding: 0;
+    margin-top: .085rem;
+}
+.tousu .inputcell{
+    margin-bottom: 0.2rem;
+}
+.tousu .inputcell input{
+    background-color: #f7f7f7;
+    padding-left: 0.4rem;
+}
+.tousu .inputcell span{
+    width: 0.16rem;
+    height: 0.18rem;
+    background: url("../images/icon_tracking_number_gray.png") no-repeat center;
+    top: 50%;
+    margin-top: -0.09rem;
+    background-size: 0.16rem 0.18rem;
+}
+/*鍏ㄩ儴璁㈠崟*/
+.noForm{
+    position: absolute;
+    width: 1.53rem;
+    height: 1.65rem;
+    background: url("../images/icon_noform.png") no-repeat center;
+    background-size: 1.53rem 1.65rem;
+    left: 50%;
+    top: 30%;
+    margin-left: -0.765rem;
+    margin-top: -0.75rem;
+}
+
+#r-result{
+	width: 100%;
+	padding: 0 0.16rem;
+	position: absolute;
+	top:0;
+	background-color: #fff;
+	z-index: 6;
+	font-size: 0.14rem;
+}
+
+#r-result li{
+	line-height: 0.3rem;
+}
+#r-result li:first-child{
+	margin-top: 15px;
+}
+#r-result li:last-child{
+	margin-bottom: 15px;
+}
+.duiHuanBtn{
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.duiHuan{
+	
+	display: block;
+	margin: 20px auto;
+	left: 50%;
+	width: 80%;
+	height: 0.4rem;
+	text-align: center;
+	line-height: 0.4rem;
+	font-size: 0.16rem;
+	color: #fff;
+	background: url("../images/btn_bg_orange.png") no-repeat center;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.sureForm .sName,
+.sureForm .sPhone,
+.sureForm .sAddress{
+	width: 100%;
+	height: 0.4rem;
+	margin-bottom: 0.03rem;
+}
+.sureForm .sName input,
+.sureForm .sPhone input,
+.sureForm .sAddress input{
+	width: 100%;
+	height: 100%;
+	padding-left: 0.4rem;
+	background: #f9f9f9;
+}
+.sureForm .sName span,
+.sureForm .sPhone span,
+.sureForm .sAddress span{
+	position: absolute;
+	width: 0.19rem;
+	height: 0.19rem;
+	left: 0.1rem;
+	top: 0.08rem;
+}
+.sureForm .sName span{
+	background: url("../images/icon_client.png") no-repeat center;
+	background-size: 0.19rem 0.19rem;
+}
+.sureForm .sPhone span{
+	background: url("../images/icon_phone_contact.png") no-repeat center;
+	background-size: 0.19rem 0.19rem;
+}
+.sureForm .sAddress span{
+	background: url("../images/icon_receiving_address.png") no-repeat center;
+	background-size: 0.19rem 0.19rem;
+}
+.tickets{
+	width: 100%;
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	padding-bottom: 0.37rem;
+}
+.tickets .tickets_title{
+	height: 0.72rem;
+	text-align:center;
+	line-height: 0.72rem;
+	font-size: 0.14rem;
+}
+.tickets .tickets_title .tickets_closeIcon{
+	position: absolute;
+	right: 0.15rem;
+	top: 0.1rem;
+	width: 0.18rem;
+	height: 0.18rem;
+	background: url("../images/icon_cancel.png") no-repeat center;
+	background-size: 0.18rem 0.18rem;
+}
+.tickets ul{
+	padding: 0 0.15rem;
+}
+.tickets ul li{
+	border-bottom: 1px solid #ccc;
+	height: 0.37rem;
+	line-height: 0.37rem;
+	font-size: 0.14rem;
+}
+.tickets ul li:last-child{
+	border: none;
+}
+.tickets ul li span{
+	float: right;
+	width: 0.18rem;
+	height: 0.18rem;
+	background: url("../images/icon_unclick.png") no-repeat center;
+	background-size: 0.18rem 0.18rem;
+	margin-top: 0.1rem;
+}
+.tickets ul li span.active{
+	background: url("../images/icon_click.png") no-repeat center;
+	background-size: 0.18rem 0.18rem;
+}
+.ticketPage ul{
+	padding: 0.04rem 0.31rem;
+}
+.ticketPage ul li{
+	width: 100%;
+	height:1.02rem;
+	margin-top: 0.1rem;
+}
+.ticketPage ul li.able{
+	background: url("../images/pic_coupon_not_used.png") no-repeat center;
+	background-size: 100% 1.02rem; 
+}
+.ticketPage ul li.disable{
+	background: url("../images/pic_coupon_used.png") no-repeat center;
+	background-size: 100% 1.02rem; 
+}
+.ticketPage ul li.overTicket{
+	background: url("../images/coupon-expired.png") no-repeat center center;
+	background-size: 100% 1.02rem;
+}
+.ticketPage .denomination{
+	position: absolute;
+	left: 0.5rem;
+	font-size: 0.4rem;
+	color: #fff;
+	top: 50%;
+	margin-top: -0.3rem;
+}
+.unit{
+	display: inline-block;
+	font-size: 0.3rem;
+	vertical-align: top;
+	margin-top: 0.02rem;
+}
+.overdue{
+	position: absolute;
+	right: 0.12rem;
+	bottom: 0.16rem;
+	color:#C4C4C4;
+}
+.paySuccess{
+	padding-top: 50px;
+}
+.paySuccess .fenxiang{
+	width: 50%;
+	line-height: 0.4rem;
+	padding: 20px;
+	-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin: 0 auto;
+    background-color: green;
+    color: #fff;
+    font-size: 0.15rem;
+}
+.payMsg{
+	padding: 0.15rem;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 60%;
+}
+.allKuaiDi{
+	padding-top: 0.3rem;
+	background-color: #fff;
+	padding-bottom: 0.3rem;
+}
+.allKuaiDi li{
+	line-height: 0.4rem;
+	padding-left: 0.2rem;
+	border-bottom: 1px solid #ccc;
+	font-size: 0.16rem;
+}
+.stars2{
+	width: 1.2rem;
+	top: 0;
+	right: 0.3rem;
+}
+.shezhiPage>div .shezhiIcon{
+	position: absolute;
+	width: 0.12rem;
+	height: 0.17rem;
+	background: url("../images/icon_keys.png") no-repeat center center;
+	background-size: 0.12rem 0.17rem;
+	top: 50%;
+	margin-top: -0.08rem;
+	left: 0.2rem;
+}
+.shezhiPage>div>div {
+	padding-left: 0.4rem;
+	width: 100%;
+	height: 0.42rem;
+	line-height: 0.42rem;
+	border-bottom: 1px solid #ccc;
+}
+.shezhiPage>div>div a{
+	display: block;
+}
+.shezhiPage .zhuxiao{
+	display: block;
+	width: 80%;
+	margin: 0.3rem auto;
+	background: url("../images/btn_bg_orange.png") no-repeat center;
+	text-align: center;
+	font-size: 0.16rem;
+	color: #fff;
+	line-height: 0.4rem;
+}
+/*add by wyc 2017/8/25*/
+.inputPhone .phwo{width: 100%}
+.boderRadius5{border-radius: 5px}
+.pitCode {margin-bottom: 0.4rem!important;}
+.pitCode input{width: 2.21rem}
+.pit-con-pic{  position: absolute;  width: 1.16rem;  height: 0.45rem;  right: 0.1rem;  top: 0; }
+.pit-con-pic img{width: 1.16rem;  height: 0.45rem;}
+.pitBtn{ width: 1.16rem;position: absolute;top: 0.55rem;right: 0.1rem;color: #C9C9C9;background-color: transparent}
+.GetCode input{width: 2.21rem}
+
+

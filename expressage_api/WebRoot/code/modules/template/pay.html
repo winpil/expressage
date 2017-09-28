@@ -1,0 +1,53 @@
+
+    <div class="page pay">
+        <div class="payTitle">
+            支付方式
+        </div>
+        <div class="payType clearfix">
+            <div class="weixin tabPayType">
+                <span></span>
+                <p>微信支付</p>
+                <span class="clickIcon active" data-type="4" data-status="1"></span>
+            </div>
+            <div class="xianjin tabPayType">
+                <span></span>
+                <p>现金</p>
+                <span class="clickIcon" data-type="1" data-status="0"></span>
+            </div>
+        </div>
+        <div class="payNum pr">
+            <span>支付金额：</span>
+            <input type="input" ng-model="payOrderPrice" />
+            {{payOrderPrice}}
+        </div>
+        <div class="selectTicket pr">
+            <span>优惠券：</span>
+            <div class="fr" ng-click="toSelectTicket()">
+                <span>省{{favorableName}}元</span>
+                <span class="nextIcon"></span>
+            </div>
+
+            
+        </div>
+        <div class="payBtn">
+            <input type="button" ng-click="paying()"  value="支付"/>
+        </div>
+
+    </div>
+    <b ng-if="flag" style="display:none" onclick='paying({{data}})'></b>
+  <div class="tickets" style="display: none">
+  		<div class="tickets_title pr">
+  			优惠券选择	
+  			<span class="tickets_closeIcon" ng-click="closeTickets()"></span>
+  		</div>
+  		
+  		<ul>
+  			<li ng-repeat="item in ticketList" track by $index>
+  				{{item.favorableName}}元优惠券    
+  				<span ng-if="$index==0" class="active" ng-click="selectTicket($event,item.favorableName,item.favorableId)" data-status="1"></span>
+  				<span ng-if="$index!=0" ng-click="selectTicket($event,item.favorableName)"></span>
+  			</li>
+  		</ul>
+  
+  
+  </div>

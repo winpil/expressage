@@ -1,0 +1,34 @@
+
+    <div class="page selfCenter">
+		<form id="userFormId">
+		
+		<div class="pr">
+            <span class="editBtn" ng-click="editUserMsg()">保存</span>
+            <div class="pr imgBox">
+                 <img ng-src="{{userMsg.avatar}}" class="uploadFile" alt="" ng-if="userMsg.avatar!=''&&userMsg.avatar!=null"/>
+                 <img src="./images/icon_head_sculpture.png" class="uploadFile" alt="" ng-if="userMsg.avatar==''||userMsg.avatar==null"/>
+                 <input type="file"  name="avatar" class="avatar PaymentVoucherImg" value="小明" />
+            </div>
+            
+        </div>
+        <div class="cell selfName pr">
+            <span></span>
+            <div>
+                用户:
+                <input type="text" name="userName" class="phone" ng-model="userMsg.userName" />
+            </div>
+            
+        </div>
+        <div class="cell selfPhone pr">
+            <span></span>
+            <div>
+                电话:
+                <input type="text" disabled ng-model="userMsg.phone"/>
+            </div>
+            
+        </div>
+		
+		</form>
+        
+       
+    </div>

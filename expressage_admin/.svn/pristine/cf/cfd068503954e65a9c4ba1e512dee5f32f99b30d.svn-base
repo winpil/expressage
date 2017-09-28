@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+	<http access-denied-page="/access_denied.jsp" use-expressions="true" >
+		<intercept-url pattern="/login.jsp" filters="none" />
+		<intercept-url pattern="/skip.jsp" filters="none" />
+		<intercept-url pattern="/tickets/concert/*.jsp" filters="none" />
+		<intercept-url pattern="/express/**" filters="none" />
+		
+		<!-- 上海访问权限 -->
+		<intercept-url pattern="/shanghai/*.jsp" filters="none" />
+		<intercept-url pattern="/shanghai/**" filters="none" />
+		
+		<!-- wap访问权限 -->
+		<intercept-url pattern="/wap/*.jsp" filters="none" />
+		<intercept-url pattern="/wap/**" filters="none" />
+		
+		<!-- web访问权限 -->
+		<intercept-url pattern="/web/*.jsp" filters="none" />
+		<intercept-url pattern="/web/**" filters="none" />
+		
+		<!-- 300w访问权限 -->
+		<intercept-url pattern="/tickets/300wPage/*.jsp" filters="none" />
+		
+		<!-- APK下载权限 -->
+		<intercept-url pattern="/APK/**" filters="none" />
+		
+		<intercept-url pattern="/css/**" filters="none" />
+		<intercept-url pattern="/style/**" filters="none" />
+		<intercept-url pattern="/images/**" filters="none" />
+		<intercept-url pattern="/js/**" filters="none" />
+		<intercept-url pattern="/extjs/**" filters="none" />
+		<intercept-url pattern="/javascript/**" filters="none" />
+		<intercept-url pattern="/common/**" filters="none" />
+		<intercept-url pattern="/dwr/**" filters="none" />
+		<intercept-url pattern="/service/**" filters="none" />
+		<intercept-url pattern="/image.jsp**" filters="none" />
+		<intercept-url pattern="/iptv/epg/**" filters="none" />
+		<intercept-url pattern="/iptv/ws/**" filters="none" />
+		<intercept-url pattern="/upload/contents/**" filters="none" />
+		<intercept-url pattern="/webservice/**" filters="none" />
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		
+		<form-login login-page="/login.jsp" default-target-url="/frame.jsp" always-use-default-target="true"/>
+		
+		<logout invalidate-session="true" logout-success-url="/login.jsp"/>
+		
+		<session-management invalid-session-url="/login.jsp">
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="false"/>
+		</session-management>
+		
+		<custom-filter ref="customSecurityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		
+	</http>
+	
+	<global-method-security secured-annotations="enabled" jsr250-annotations="enabled"></global-method-security>
+	
+	<beans:bean id="customSecurityFilter"
+		class="com.cndatacom.rbac.filter.CustomSecurityFilter">
+		<beans:property name="accessDecisionManager" ref="customAccessDecisionManager"></beans:property>
+		<beans:property name="authenticationManager" ref="customAuthenticationManager"></beans:property>
+		<beans:property name="securityMetadataSource"
+			ref="customFilterInvocationSecurityMetadataSource"></beans:property>
+		<beans:property name="messageSource" ref="messageSource" />
+	</beans:bean>
+	
+	<beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="classpath:messages" />
+	</beans:bean>
+	
+	<authentication-manager alias="customAuthenticationManager">
+		<authentication-provider user-service-ref="tsysUserService">
+			<password-encoder hash="md5" />
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

@@ -1,0 +1,472 @@
+package com.cndatacom.rbac.system.web.action;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+
+import jxl.Workbook;
+import jxl.format.UnderlineStyle;
+import jxl.write.Colour;
+import jxl.write.Label;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
+import com.cndatacom.common.orm.Page;
+import com.cndatacom.common.service.IBaseService;
+import com.cndatacom.common.web.action.SimpleActionSupport;
+import com.cndatacom.rbac.pojo.ExpressageCompany;
+import com.cndatacom.rbac.pojo.ExpressageCourier;
+import com.cndatacom.rbac.pojo.ExpressageOrder;
+import com.cndatacom.rbac.pojo.ExpressageProduct;
+import com.cndatacom.rbac.system.service.ExpressageCompanyService;
+import com.cndatacom.rbac.system.service.ExpressageCourierService;
+import com.cndatacom.rbac.system.service.ExpressageFavorableService;
+import com.cndatacom.rbac.system.service.ExpressageMessageService;
+import com.cndatacom.rbac.system.service.ExpressageOrderLogService;
+import com.cndatacom.rbac.system.service.ExpressageOrderService;
+import com.cndatacom.rbac.system.service.ExpressagePayLogService;
+import com.cndatacom.rbac.system.service.ExpressageProductService;
+import com.cndatacom.rbac.system.service.ExpressageTokenService;
+import com.cndatacom.rbac.system.service.ExpressageUserService;
+
+/**
+ * 
+ * 类名: ExpressageOrderAction.java</br> 
+ * 包名：com.cndatacom.rbac.system.web.action</br> 
+ * 描述: 订单action</br> 
+ * 发布版本号：</br> 
+ * 开发人员：莫志明</br>  
+ * 创建时间： 2015-7-29
+ */
+@Controller
+@Action("expressageOrder")
+@Scope("prototype")
+@Namespace("/rbac/sys")
+@Results( {
+	  	@Result(name = "list", location = "/rbac/sys/expressage/order/expressageOrderList.jsp", type = "dispatcher"),
+	  	@Result(name = "list1", location = "/rbac/sys/expressage/order/expressageOrderList1.jsp", type = "dispatcher"),
+	  	@Result(name = "input", location = "/rbac/sys/expressage/order/expressageOrderEdit.jsp", type = "dispatcher"),
+	  	@Result(name = "input1", location = "/rbac/sys/expressage/order/expressageOrderEdit1.jsp", type = "dispatcher"),
+		@Result(name = "reload", location = "expressageOrder!list.action", type = "redirect"),
+		@Result(name = "reload1", location = "expressageOrder!list1.action", type = "redirect"),
+		@Result(name = "status", type = "json", params = { "root","validateInfo" }),
+})
+
+public class ExpressageOrderAction extends SimpleActionSupport{
+	
+	private static final long serialVersionUID = 1L;
+	@Resource
+    private ExpressageUserService expressageUserService;
+	@Resource
+    private ExpressageTokenService expressageTokenService;
+	@Resource
+    private ExpressageCourierService expressageCourierService;
+	@Resource
+    private ExpressageOrderService expressageOrderService;
+	@Resource
+    private ExpressageOrderLogService expressageOrderLogService;
+	@Resource
+    private ExpressageFavorableService expressageFavorableService;
+	@Resource
+    private ExpressageMessageService expressageMessageService;
+	@Resource
+    private ExpressagePayLogService expressagePayLogService;
+	@Resource
+    private ExpressageProductService expressageProductService;
+	@Resource
+    private ExpressageCompanyService expressageCompanyService;
+	
+	private ExpressageOrder expressageOrder;
+	private String auName;//搜索框内容
+	private String searchName;//搜索名
+	private String type;//下单方式
+	private String status;//快递状态
+	private String orderId;
+	Page<ExpressageOrder> page = new Page<ExpressageOrder>();
+	
+
+	
+	
+	/**
+     * 查询列表
+     * @return "list"
+     * @throws Exception
+     */
+	@Override
+	public String list() throws Exception {
+		page.setStart(start);
+		page.setLimit(limit);
+		StringBuffer sb = new StringBuffer("from ExpressageOrder where type = '1' ");
+		
+		if(StringUtils.isNotBlank(searchName)){
+			sb.append(" and "+searchName+" like '%"+auName+"%'");
+		}
+		
+		if(StringUtils.isNotBlank(type)){
+			sb.append("and type = "+type);
+		}
+		if(StringUtils.isNotBlank(status)){
+			sb.append("and status = "+status);
+		}
+		sb.append(" order by createDate desc");
+		page = expressageOrderService.findPage(page, sb.toString());
+		List<ExpressageOrder> eoList = page.getResult();
+		List<ExpressageOrder> eList = new ArrayList<ExpressageOrder>();
+		for (int i = 0; i < eoList.size(); i++) {
+			expressageOrder = eoList.get(i);
+			if(expressageOrder.getFavorableId()!=null&&!expressageOrder.getFavorableId().equals("全部")){
+				String[] str = expressageOrder.getFavorableId().split(",");
+				StringBuffer sb1 = new StringBuffer();
+				for (int j = 0; j < str.length; j++) {
+					ExpressageCompany ec = expressageCompanyService.findUniqueBy("companyId", str[j]);
+					if(ec!=null){
+						if(j==0){
+							sb1.append(ec.getCompanyName());
+						}else{
+							sb1.append(","+ec.getCompanyName());
+						}
+					}
+				}
+				expressageOrder.setFavorableId(sb1.toString());
+			}
+			eList.add(expressageOrder);
+		}
+		page.setResult(eList);
+		
+		setPage(page);
+		return "list";
+	}
+	
+	public String list1() throws Exception {
+		page.setStart(start);
+		page.setLimit(limit);
+		StringBuffer sb = new StringBuffer("from ExpressageOrder where type = '2' ");
+		
+		if(StringUtils.isNotBlank(searchName)){
+			sb.append(" and "+searchName+" like '%"+auName+"%'");
+		}
+		
+		if(StringUtils.isNotBlank(type)){
+			sb.append("and type = "+type);
+		}
+		if(StringUtils.isNotBlank(status)){
+			sb.append("and status = "+status);
+		}
+		sb.append(" order by createDate desc");
+		page = expressageOrderService.findPage(page, sb.toString());
+		List<ExpressageOrder> eoList = page.getResult();
+		List<ExpressageOrder> eList = new ArrayList<ExpressageOrder>();
+		for (int i = 0; i < eoList.size(); i++) {
+			expressageOrder = eoList.get(i);
+			if(expressageOrder.getFavorableId()!=null&&!expressageOrder.getFavorableId().equals("全部")){
+				String[] str = expressageOrder.getFavorableId().split(",");
+				StringBuffer sb1 = new StringBuffer();
+				for (int j = 0; j < str.length; j++) {
+					ExpressageCompany ec = expressageCompanyService.findUniqueBy("companyId", str[j]);
+					if(ec!=null){
+						if(j==0){
+							sb1.append(ec.getCompanyName());
+						}else{
+							sb1.append(","+ec.getCompanyName());
+						}
+					}
+				}
+				expressageOrder.setFavorableId(sb1.toString());
+			}
+			eList.add(expressageOrder);
+		}
+		page.setResult(eList);
+		
+		setPage(page);
+		return "list1";
+	}
+	
+	/**
+     * 保存、增加实体
+     * @return "reload"
+     * @throws Exception
+     */
+	@Override
+	public String save() throws Exception {
+		
+		super.save();
+		return "reload";
+	}
+	
+	public String save1() throws Exception {
+		
+		super.save();
+		return "reload1";
+	}
+	
+	
+	/**
+     * 删除实体
+     * @return "reload"
+     * @throws Exception
+     */
+	@Override
+	public String delete() throws Exception {
+		
+		super.delete();
+		return "reload";
+	}
+	
+	public String delete1() throws Exception {
+		
+		super.delete();
+		return "reload1";
+	}
+	
+	
+	public void exportOrders(){
+		StringBuffer sb = new StringBuffer("from ExpressageOrder where 1=1");
+		
+		if(StringUtils.isNotBlank(searchName)){
+			sb.append(" and "+searchName+" like '%"+auName+"%'");
+		}
+		
+		if(StringUtils.isNotBlank(type)){
+			sb.append("and type = "+type);
+		}
+		if(StringUtils.isNotBlank(status)){
+			sb.append("and status = "+status);
+		}
+		sb.append(" order by createDate desc");
+  		List<ExpressageOrder> orderList = expressageOrderService.find(sb.toString());
+  		if(orderList!=null){
+  			try {
+  				HttpServletResponse response = ServletActionContext.getResponse();
+  				String fileName = "订单列表";
+  				response.addHeader("Content-Disposition","attachment;filename="+ new String(fileName.getBytes("GB2312"),"iso-8859-1") + ".xls");
+  				response.setContentType("application/vnd.ms-excel");
+  
+  				// 打开文件
+  				WritableWorkbook wbook = Workbook.createWorkbook(response.getOutputStream());
+  				// //生成名为“第一页”的工作表，参数0表示这是第一页
+  				WritableSheet wsheet = wbook.createSheet("result", 0);
+  				WritableFont wfont = new WritableFont(WritableFont.ARIAL, 10,
+  						WritableFont.BOLD, false, UnderlineStyle.NO_UNDERLINE,Colour.BLACK);
+  				
+  				String[] titles = {"序号","订单类型","用户名称","快递员名称","产品名称","包裹类型","重量","收件人","收件地址","收件人电话","订单状态","创建时间"}; // 表格列名
+  				WritableCellFormat titleFormat = new WritableCellFormat(wfont);
+  			//		DownLoadUtils.downLoadExcel(allBusinessList, titles, wsheet,titleFormat);
+  				for (int i = 0; i < titles.length; i++) {
+  					Label excelTitle = new Label(i, 0, titles[i], titleFormat);
+  					wsheet.addCell(excelTitle);
+  				}
+  				int cell = 1;
+  				Iterator<ExpressageOrder> it = orderList.iterator();
+  				
+  				while (it.hasNext()) {
+  					ExpressageOrder or = (ExpressageOrder) it.next();
+  					Label con1 = new Label(0, cell, cell+ "");
+  					Label con2 = null;
+  					if(or.getType().equals("1")){
+  						con2 = new Label(1, cell, "快递下单");
+  					}else{
+  						con2 = new Label(1, cell, "积分下单");
+  					}
+  					
+  					Label con3 = new Label(2, cell, or.getUserId().getUserName());
+  					
+  					Label con4 = null;
+  					if(or.getCourierId()==null||or.getCourierId().getCourierId()==null){
+  						con4 = new Label(3, cell, "");
+  					}else{
+  						ExpressageCourier ec =expressageCourierService.findUniqueBy("courierId", or.getCourierId().getCourierId());
+  						if(ec==null){
+  							con4 = new Label(3, cell, "");
+  						}else{
+  							con4 = new Label(3, cell, ec.getCourierName());
+  						}
+  					}
+  					
+  					
+  					
+  					Label con5 = null;
+  					if(or.getProductId()==null||or.getProductId().getProductId()==null||or.getProductId().getProductId()==""){
+  						con5 = new Label(4, cell, "");
+  					}else{
+  						String pId = or.getProductId().getProductId();
+  						ExpressageProduct ep =expressageProductService.findUniqueBy("productId", pId);
+  						if(ep==null){
+  							con5 = new Label(4, cell, "");
+  						}else{
+  							con5 = new Label(4, cell, ep.getProductName());
+  						}
+  						
+  					}
+  					
+  					Label con6 = new Label(5, cell, or.getPackType());
+  					Label con7 = new Label(6, cell, or.getPackWeight());
+  					Label con8 = new Label(7, cell, or.getSName());
+  					Label con9 = new Label(8, cell, or.getSAddress());
+  					Label con10 = new Label(9, cell, or.getSPhone());
+  					
+  					Label con11 = null;
+  					if(or.getStatus().equals("1")){
+  						con11 = new Label(10, cell, "待接单/待发货");
+  					}else if(or.getStatus().equals("2")){
+  						con11 = new Label(10, cell, "待支付/待签收");
+  					}else if(or.getStatus().equals("3")){
+  						con11 = new Label(10, cell, "完成");
+  					}else if(or.getStatus().equals("4")){
+  						con11 = new Label(10, cell, "用户取消");
+  					}else if(or.getStatus().equals("5")){
+  						con11 = new Label(10, cell, "已举报");
+  					}else{
+  						con11 = new Label(10, cell, "");
+  					}
+  					
+  					SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+  					Label con12 = null;
+  					if(or.getCreateDate()!=null){
+  						con12 = new Label(11, cell, df.format(or.getCreateDate()));
+  					}else {
+  						con12 = new Label(11, cell, "");
+					}
+  					
+  					
+  					wsheet.addCell(con1);
+  					wsheet.addCell(con2);
+  					wsheet.addCell(con3);
+  					wsheet.addCell(con4);
+  					wsheet.addCell(con5);
+  					wsheet.addCell(con6);
+  					wsheet.addCell(con7);
+  					wsheet.addCell(con8);
+  					wsheet.addCell(con9);
+  					wsheet.addCell(con10);
+  					wsheet.addCell(con11);
+  					wsheet.addCell(con12);
+  					cell++;
+  				}
+  				wbook.write();
+  				wbook.close();
+  				response.getOutputStream().close();
+  			}catch (Exception e) {
+  				e.printStackTrace();
+  			}
+  		}
+  	}
+	
+	/**
+     * 编辑实体
+     * @return "input"
+     * @throws Exception
+     */
+	@Override
+	public String input() throws Exception {
+		
+		if(orderId != null){
+			expressageOrder = expressageOrderService.findUniqueBy("orderId", orderId);
+			
+		}
+		return INPUT;
+		
+	}
+	
+	public String input1() throws Exception {
+		
+		if(orderId != null){
+			expressageOrder = expressageOrderService.findUniqueBy("orderId", orderId);
+			
+		}
+		return "input1";
+		
+	}
+	
+	
+
+	@Override
+	protected IBaseService getManager() {
+		
+		return expressageOrderService;
+	}
+
+	@Override
+	protected Object createNewInstance() {
+		
+		return expressageOrder;
+	}
+
+	@Override
+	public Object getModel() {
+		
+		return getExpressageOrder();
+	}
+
+	@Override
+	public void setModel(Object obj) {
+		setExpressageOrder((ExpressageOrder)obj);
+		
+	}
+
+	public ExpressageOrder getExpressageOrder() {
+		return expressageOrder;
+	}
+
+	public void setExpressageOrder(ExpressageOrder expressageOrder) {
+		this.expressageOrder = expressageOrder;
+	}
+
+	public String getAuName() {
+		return auName;
+	}
+
+	public void setAuName(String auName) {
+		this.auName = auName;
+	}
+
+	public String getSearchName() {
+		return searchName;
+	}
+
+	public void setSearchName(String searchName) {
+		this.searchName = searchName;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+	
+	
+
+	
+}

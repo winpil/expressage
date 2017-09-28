@@ -1,0 +1,75 @@
+/*
+ create by wyc 2017/4/20
+ �˿�����index.html
+*/
+@charset "utf-8";
+
+/* ���ݿ�ʼ*/
+/*��һ������*/
+.kd-con-bg-1{background: url("../img/banner_1.png") no-repeat center;background-size:cover;  background-attachment: fixed;  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/banner_1.png", sizingMethod=scale);}
+.kd-con-container-l{width: 845px;position: relative;float: left;text-align: left;}
+
+.kd-con-container-r{width: 265px;float: right}
+
+.kd-con-container-r-wm{width:93%;background: url("../img/bg-er_03.png") center no-repeat;margin: 0 auto;margin-top: 20%;}
+.kd-con-container-r-wm img{margin-top: 13px;width: 90%}
+
+@media screen and (max-width:1366px) {
+ .kd-con-container-r-wm{width:75%;background: url("../img/bg-er_03.png") center no-repeat;margin: 0 auto;margin-top: 2%;background-size: 74%}
+ .kd-con-container-r-wm img{margin-top: 13px;width: 66%}
+}
+
+
+.kd-con-r-p{margin-top: 5%;font-size: 22px;color: #f2f2f2}
+.kd-con-container-r-type p{cursor: pointer;text-align: left;height: 68px;width: 265px;background: url("../img/bg-1-r-1_10.png") no-repeat center;margin-top: 7%;font-size: 30px;color: #0364a4;line-height: 68px}
+.kd-con-container-r-type p img{display: inline-block;vertical-align: middle;padding-left: 7%}
+
+/*�ڶ�������*/
+.kd-con-bg-2{background: url("../img/bg-2-bg.png") center no-repeat;background-size:cover;   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/bg-2-bg.png", sizingMethod=scale);}
+
+
+/*����������*/
+.kd-con-bg-3{background: url("../img/bg-3-bg.png") center no-repeat;background-size:cover;   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/bg-3-bg.png", sizingMethod=scale);}
+
+/*����������*/
+.kd-con-bg-4{background: url("../img/bg-4-bg.png") center no-repeat;background-size:cover;   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/bg-4-bg.png", sizingMethod=scale);}
+
+/*����������*/
+.kd-con-bg-5{background: url("../img/bg-5-5.png") center no-repeat;background-size:cover;   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/bg-4-bg.png", sizingMethod=scale);}
+
+/*����������*/
+.kd-con-bg-6{position: relative;background: url("../img/bg-6-bg_02.png")  no-repeat;background-size:cover;   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/bg-6-bg_02.png", sizingMethod=scale);}
+.kd-con-six-container{width: 880px;overflow: hidden;margin: 0 auto;}
+.kd-con-six-container-list{margin-top: 100px}
+.kd-con-six-container-list-f{width: 420px;text-align: center;float: left}
+.kd-con-six-container-list-f p{display: none;margin-top: 34px;background: url("../img/bg-6-img_13.png") no-repeat center;font-size: 24px;width: 420px;height: 56px;line-height: 56px}
+.kd-con-six-container-list-r{width: 320px;float: right}
+.kd-con-six-container-list-r p{display: none;margin-top: 34px;background: url("../img/bg-6-img_10.png") no-repeat center;font-size: 24px;width: 320px;height: 56px;line-height: 56px}
+
+/* ���ݿ�ʼ ����*/
+
+/*һЩ���õ���ʽ*/
+
+.kd-con-460w{width: 460px;height: 480px;background: url("../img/bg-img_03.png") no-repeat center;}
+.kd-con-container-1200{width: 1200px;margin:0 auto;margin-top:11.5%;overflow: hidden}
+.kd-con-fl{float: left}
+.kd-con-fl p{width: 352px;margin: 0 auto;text-align: right;color: #ffffff;font-family: serif!important;}
+.kd-con-fl p.kd-con-sec-con-1{margin-top: 103px;font-size: 78px;}
+.kd-con-fl p.kd-con-sec-con-2{margin-top: 22px;font-size: 28px}
+.kd-con-fl p.kd-con-sec-con-3{margin-top: 75px;font-size: 34px}
+.kd-con-fl p.kd-con-sec-con-4{margin-top: 32px;font-size: 34px}
+.kd-con-fr-707w{width: 50%;float: right}
+.kd-con-fr-707w img{width: 95%}
+.kd-con-636w{width:636px;height: 540px;background: url("../img/bg-4img-4_06.png") no-repeat center;}
+.kd-con-636w p{width: 526px;}
+
+.mar8{margin-top: 8%!important;}
+.kd-con-fr-390w{float: right;width: 390px}
+.kd-con-fr-390w img{width: 75%}
+.kd-con-596w{width: 596px;height:481px;background: url("../img/bg-5-img-5_06.png") no-repeat center;margin-top: 3%}
+.kd-footer{width: 100%;height: 78px;background-color: #000;position: absolute;z-index: 230;font-size: 12px;line-height: 78px;bottom: 0px;left: 0px;margin-bottom: 2px}
+.kd-footer a{color: #ffffff;text-decoration: none}
+.kd-con-596w p{width: 488px}
+.kd-con-fr-537w{width: 537px;float: right}
+.kd-con-fr-537w img{width: 77%}
+/*һЩ���õ���ʽ ����*/

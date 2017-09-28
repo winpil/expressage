@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 定时任务总列表 
+	<bean id="taskFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="accessTokenTask"/>
+			</list>
+		</property>
+	</bean>
+	-->
+	<!-- 每隔一小时更新一次公众平台接口访问凭证 
+	<bean id="accessTokenTask" 
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression" value="0 0 0/1 * * ?" />
+		<property name="jobDetail" ref="accessTokenTaskDetail" />
+	</bean>
+	<bean id="accessTokenTaskDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="getAccessTokenSchedule" />
+		<property name="targetMethod" value="executeSchedule" />
+		<property name="concurrent" value="false" />
+	</bean> 
+	-->
+</beans>

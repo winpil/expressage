@@ -1,0 +1,1299 @@
+@charset "utf-8";
+
+html {
+	height: 100%;
+}
+
+body {
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+img {
+	border: none;
+}
+
+.ZB_Font {
+	color: #000;
+	font-size: 14px;
+	font-family: "微软雅黑"
+}
+
+.ZB_Font2 {
+	color: #ffff00;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.ZB_Font3 {
+	color: #FF0000;
+}
+
+.ZB_Font4 {
+	color: #FFff00;
+}
+
+a:link,a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover,a:active {
+	color: #FF6600;
+	text-decoration: none;
+}
+
+a.ZB_blueDown:link,a.ZB_blueDown:visited {
+	background: url(images/icon_26.gif) right 2px no-repeat;
+	text-decoration: underline;
+	color: #0030ff;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+a.ZB_blueDown:hover,a.ZB_blueDown:active {
+	background: url(images/icon_26.gif) right 2px no-repeat;
+	text-decoration: underline;
+	color: #ff6600;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+a.ZB_blueUp:link,a.ZB_blueUp:visited {
+	background: url(images/icon_25.gif) right 2px no-repeat;
+	text-decoration: underline;
+	color: #0030ff;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+a.ZB_blueUp:hover,a.ZB_blueUp:active {
+	background: url(images/icon_25.gif) right 2px no-repeat;
+	text-decoration: underline;
+	color: #ff6600;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+/******************TOP样式**************************/
+.ZB_HeaderBox1 {
+	border-left: 2px #0069af solid;
+	border-top: 2px #0069af solid;
+	border-right: 2px #0069af solid;
+	margin: 0px auto;
+	background: #2CA3F5;
+	padding-left: 1px;
+}
+
+.ZB_HeaderBg {
+	height: 100px;
+	text-align: left;
+}
+
+.ZB_HeaderLogo {
+	background: url(images/index_03.gif) right top no-repeat;
+	background-color: #37ADFF;
+	width: 100%;
+	height: 52px;
+	float: left;
+}
+
+.ZB_HeaderSystem {
+	width: 332px;
+	height: 52px;
+	float: right;
+}
+
+.ZB_HeaderLink {
+	width: 195px;
+	float: right;
+	color: #fff;
+	text-align: right;
+	padding: 0px 11px 0px 0px;
+}
+
+.ZB_HeaderLink ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.ZB_HeaderLink li {
+	float: left;
+	line-height: 28px;
+	text-align: left;
+}
+
+.ZB_HeaderLink span.setup {
+	background: url(images/icon_07.gif) 10px 6px no-repeat;
+	padding-left: 25px;
+	color: #fff;
+	display: block;
+	width: 50px;
+}
+
+.ZB_HeaderLink span.help {
+	background: url(images/tool_ico4.gif) 10px 6px no-repeat;
+	padding-left: 28px;
+	color: #fff;
+	display: block;
+	width: 30px;
+}
+
+.ZB_HeaderLink span.refresh {
+	background: url(images/icon_18.gif) 10px 6px no-repeat;
+	padding-left: 25px;
+	color: #fff;
+	display: block;
+	width: 30px;
+}
+
+.ZB_HeaderLink span.exit {
+	background: url(images/icon_19.gif) 10px 5px no-repeat;
+	padding-left: 28px;
+	color: #fff;
+	display: block;
+	width: 30px;
+}
+
+.ZB_HeaderLink a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.ZB_HeaderLink a:hover,.ZB_HeaderLink a:hover,.ZB_HeaderLink a:visited,.ZB_HeaderLink a:active
+	{
+	color: #fff;
+	text-decoration: none;
+}
+
+.ZB_HeaderInfor {
+	color: #fff;
+	clear: both;
+	padding: 5px 11px 0px 0px;
+	text-align: right;
+}
+
+.ZB_NavBox {
+	border-bottom: 1px #36ADFF solid;
+	clear: both;
+	margin: 0px 2px 0px 1px;
+}
+
+.ZB_NavBox2 {
+	border-bottom: 1px #a4c4ea solid;
+	height: 33px;
+	text-align: left;
+}
+
+.ZB_Nav {
+	height: 33px;
+}
+
+.ZB_Nav ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.ZB_Nav li {
+	width: 130px;
+	float: left;
+	background: url(images/nav_3.gif) left top no-repeat;
+	color: #fff;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+}
+
+.ZB_Nav li.C {
+	background: url(images/nav_1.gif) left top no-repeat;
+	color: #000;
+}
+
+.ZB_Nav li.C a:link,.ZB_Nav li.C a:hover,.ZB_Nav li.C a:active,.ZB_Nav li.C a:visited
+	{
+	color: #000;
+	text-decoration: none;
+}
+
+.ZB_Nav li.CR {
+	background: url(images/nav_2.gif) left top no-repeat;
+	color: #fff;
+}
+
+.ZB_Nav li.CL {
+	background: url(images/nav_6.gif) left top no-repeat;
+	color: #fff;
+}  /*当首页不是选中状态时，标签使用的样式*/
+.ZB_Nav li.Last {
+	background: url(images/nav_4.gif) left top no-repeat;
+	color: #fff;
+}
+
+.ZB_Nav li.Last2 {
+	background: url(images/nav_5.gif) left top no-repeat;
+	color: #fff;
+}  /*当最后一个标签是选中状态时，标签尾使用的样式*/
+.ZB_Nav a:link,.ZB_Nav a:hover,.ZB_Nav a:active,.ZB_Nav a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+/*******二级单菜样式********/
+.ZB_SubNavBox {
+	background: url(images/subNav_2.gif) left top repeat-x;
+	height: 33px;
+	width: 890px;
+	margin: 0px auto;
+}
+
+.ZB_SubNavBoxL {
+	background: url(images/subNav_1.gif) left top no-repeat;
+	height: 33px;
+}
+
+.ZB_SubNavBoxR {
+	background: url(images/subNav_4.gif) right top no-repeat;
+	height: 33px;
+	text-align: left;
+}
+
+.ZB_SubNav {
+	margin-left: 20px;
+}
+
+.ZB_SubNav ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.ZB_SubNav li {
+	background: url(images/subNav_3.gif) left 9px no-repeat;
+	height: 33px;
+	font-size: 12px;
+	color: #fff;
+	padding-right: 15px;
+	float: left;
+	list-style: none;
+	line-height: 33px;
+	padding-left: 17px;
+}
+
+/*********************Mid样式**************************/
+.ZB_MidBox1 {
+	background: #fff url(images/index2_08.gif) left top repeat-x;
+	border-right: 0px #0069af solid;
+	margin: 0px auto;
+	height: 100%;
+	padding: 0px 2px;
+}
+
+/*模块样式*/
+.ZB_ModuleBox {
+	padding: 0px 0px 0px 0px;
+	clear: both;
+}
+
+.ZB_ModuleBoxL {
+	width: 49.2%;
+	float: left;
+}
+
+.ZB_ModuleTitle {
+	background: url(images/index2_68.gif) left top repeat-x;
+	height: 26px;
+	text-align: left;
+}
+
+.ZB_ModuleTitleR {
+	background: url(images/index2_71.gif) right top no-repeat;
+	height: 26px;
+}
+
+.ZB_ModuleTitleL {
+	background: url(images/index2_67.gif) left top no-repeat;
+	height: 26px;
+	width: 166px;
+	float: left;
+}
+
+.ZB_ModuleTitleL span {
+	background: url(images/icon_23.gif) 10px 1px no-repeat;
+	display: block;
+	padding-left: 42px;
+	color: #003466;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 26px;
+}
+
+.ZB_ModuleMore {
+	width: 60px;
+	float: right;
+	line-height: 26px;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.ZB_ModuleMore a:link,.ZB_ModuleMore a:hover,.ZB_ModuleMore a:active,.ZB_ModuleMore a:visited
+	{
+	font-weight: normal;
+	background: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.ZB_ModuleContent {
+	background: #e1ecfa;
+	padding: 0px 2px 2px 0px;
+	text-align: left;
+}
+
+.ZB_ModuleContent2 {
+	border: 1px #78bce3 solid;
+	background: #f3f6fd;
+	height: auto;
+	padding: 7px;
+}
+
+.ZB_ModuleList,.ZB_ModuleList ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.ZB_ModuleList li {
+	background: url(images/index2_55.gif) left bottom repeat-x;
+	height: 25px;
+	clear: right;
+}
+
+.ZB_ModuleList span.text {
+	background: url(images/icon_22.gif) 2px 10px no-repeat;
+	padding: 6px 0px 1px 15px;
+	width: 78%;
+	float: left;
+	line-height: 18px;
+}
+
+.ZB_ModuleList span.text2 {
+	background: url(images/icon_22.gif) 2px 10px no-repeat;
+	padding: 3px 0px 1px 15px;
+	line-height: 18px;
+	width: 78%;
+	float: left;
+}
+
+.ZB_ModuleList span.data {
+	color: #a0a2a2;
+	text-align: right;
+	line-height: 25px;
+	width: 20%;
+}
+
+.ZB_ModuleBoxR {
+	width: 49.2%;
+	float: right;
+}
+
+.ZB_ModuleList2 {
+	background: url(images/index2_21.gif) left top repeat-x;
+	height: 28px;
+	clear: both;
+	margin-right: 2px;
+}  /*标签页*/
+.ZB_ModuleList2 ul {
+	width: 70%;
+	overflow: hidden;
+	margin: 0px;
+	list-style: none;
+	padding: 0px;
+	float: left;
+}
+
+.ZB_ModuleList2 li {
+	background: url(images/index2_22.gif) left top no-repeat;
+	float: left;
+	margin-right: 2px;
+	height: 28px;
+	text-indent: 9px;
+	line-height: 28px;
+}
+
+.ZB_ModuleList2 a {
+	display: block;
+	padding-right: 9px;
+	background: url(images/index2_23.gif) right top no-repeat;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.ZB_ModuleList2 a:hover,.ZB_ModuleList2 a:active,.ZB_ModuleList2 a:visited,.ZB_ModuleList2 a:link
+	{
+	color: #000;
+	text-decoration: none;
+}
+
+.ZB_ModuleList2 li.c {
+	background: url(images/index2_19.gif) left top no-repeat;
+	height: 28px;
+}
+
+.ZB_ModuleList2 li.c a {
+	background: url(images/index2_20.gif) right top no-repeat;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.ZB_ModuleList2 li.c a:visited {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/*******列表页面********/
+.ZB_ListBox {
+	padding-top: 3px;
+}
+
+.ZB_List {
+	font-size: 12px;
+	color: #000;
+	border: 1px #D0D0D0 solid;
+	width: 100%;
+}  /*------gdcn_grid_table------*/
+.ZB_List thead td {
+	BORDER-RIGHT: #D0D0D0 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-BOTTOM: #F9F9F9 1px solid;
+	FONT-FAMILY: "Arial";
+	TEXT-ALIGN: left;
+	BACKGROUND: url(images/bg_03.gif) left top repeat-x;
+	height: 23px;
+	line-height: 23px;
+	padding: 0px 2px;
+	color: #000;
+}
+
+.ZB_List tbody td {
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #e1e1e1 0px solid;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	FONT-FAMILY: "Arial";
+	line-height: 16px;
+	text-align: left;
+	padding: 2px 2px;
+	color: #474747;
+}
+
+.ZB_List td.CNumber {
+	background: #ebecee url(images/listBG_03.gif) left top repeat-y;
+	text-align: left;
+	padding-right: 3px;
+	line-height: 23px;
+	BORDER-RIGHT: #e1e1e1 1px solid;
+	BORDER-LEFT: #e1e1e1 0px solid;
+	BORDER-BOTTOM: #e1e1e1 1px solid;
+	padding-left: 3px;
+	width: 20px;
+}
+
+.imagethumb {
+	width: 50px;
+	height: 30px;
+}
+
+/*******表单页面********/
+.ZB_BtnBox {
+	height: 21px;
+	padding: 5px 0px;
+	text-align: centen;
+}
+
+.ZB_Btn {
+	width: 51px;
+	height: 21px;
+	background: url(images/ListBtn_15.gif) left top repeat-x;
+	border: none;
+	font-size: 12px;
+	text-align: center;
+	color: #000;
+}
+
+.ZB_FormTitle {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 10px;
+	clear: both;
+}
+
+.ZB_FormFlow {
+	width: 300px;
+	margin: 10px 3px 0px 0px;
+	clear: both;
+	float: right;
+	text-align: right;
+	height: 20px;
+}
+
+.ZB_FormWarp {
+	border: 1px #fff solid;
+	margin-right: 0px;
+}  /*标签外套*/
+.ZB_FormWarp2 {
+	border-left: 1px #8eb6e4 solid;
+	border-right: 1px #8eb6e4 solid;
+	border-bottom: 1px #8eb6e4 solid;
+	padding: 2px;
+}  /*标签外套*/
+.ZB_FormNav {
+	background: url(images/form_55.gif) left top repeat-x;
+	height: 28px;
+	clear: both;
+	border-left: 1px #8eb6e4 solid;
+	border-right: 1px #8eb6e4 solid;
+}  /*二级标签页*/
+.ZB_FormNav ul {
+	width: 80%;
+	overflow: hidden;
+	margin: 0px 0px 0px 4px;
+	list-style: none;
+	padding: 0px;
+	float: left;
+}
+
+.ZB_FormNav li {
+	background: url(images/form_56.gif) left top no-repeat;
+	float: left;
+	margin-right: 2px;
+	height: 28px;
+	text-indent: 9px;
+	height: 28px;
+	line-height: 28px;
+}
+
+.ZB_FormNav a {
+	display: block;
+	padding-right: 9px;
+	background: url(images/form_57.gif) right top no-repeat;
+	color: #000;
+	text-decoration: none;
+}
+
+.ZB_FormNav a:hover,.ZB_FormNav a:active,.ZB_FormNav a:visited,.ZB_FormNav a:link
+	{
+	color: #000000;
+	text-decoration: none;
+}
+
+.ZB_FormNav li.c {
+	background: url(images/form_53.gif) left top no-repeat;
+	height: 28px;
+}
+
+.ZB_FormNav li.c a {
+	background: url(images/form_54.gif) right top no-repeat;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.ZB_FormNav li.c a:visited {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.ZB_FormNav li.c span {
+	background: url(images/icon_17.gif) 8px 8px no-repeat;
+	display: block;
+	padding-left: 15px;
+}
+
+.ZB_FormTable {
+	font-size: 12px;
+	color: #000;
+	width: 100%;
+	background: #cccccc;
+}  /*默认表单表格*/
+.ZB_FormTable td.gridtitle {
+	text-align: right;
+	padding: 3px 2px 3px 0px;
+	line-height: 17px;
+	color: #474747;
+	background: #f8f8f8;
+	border-top: 1px #fff solid;
+	border-left: 1px #fff solid;
+}
+
+.ZB_FormTable td.gridbody {
+	text-align: left;
+	padding: 3px 0px 3px 2px;
+	height: 40px;
+	color: #474747;
+	background: #fff;
+}
+
+.ZB_FormTable td.gridtip {
+	text-align: left;
+	padding: 3px 2px 3px 0px;
+	line-height: 17px;
+	color: #474747;
+	background: #f8f8f8;
+	border-top: 1px #fff solid;
+	border-left: 1px #fff solid;
+}
+
+.ZB_FormTable2 {
+	font-size: 12px;
+	color: #000;
+	width: 100%;
+}  /*默认表单表格2*/
+.ZB_FormTable2 td.gridtitle {
+	text-align: right;
+	padding: 3px 2px 3px 0px;
+	line-height: 17px;
+	color: #000;
+}
+
+.ZB_FormTable2 td.gridbody {
+	text-align: left;
+	padding: 3px 0px 3px 2px;
+	height: 20px;
+	color: #474747;
+}
+
+.ZB_FormTextfield {
+	border: 1px #ACB2C2 solid;
+	background: #fff url(images/bg_61.gif) left top repeat-x;
+	text-align: left;
+	height: 15px;
+	font-size: 12px;
+	padding-top: 2px;
+	color: #343434;
+}  /*输入框*/
+.ZB_FormTextfield_Disabled {
+	background-color: #f0f0f0;
+	border: 1px #ACB2C2 solid;
+	text-align: left;
+	height: 15px;
+	font-size: 12px;
+	padding-top: 2px;
+	color: #343434;
+}  /*输入框（disabled状态）*/
+.ZB_Formtextarea {
+	width: 90%;
+	height: 80px;
+	border: 1px #ACB2C2 solid;
+	background: url(images/bg_61.gif) left top repeat-x;
+	text-align: left;
+	font-size: 12px;
+	padding: 2px;
+	color: #343434;
+	LINE-HEIGHT: 17px;
+	overflow: auto;
+	scrollbar-face-color: #B0BBC8;
+	scrollbar-base-color: #F5F5F5;
+	scrollbar-arrow-color: #fff;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-shadow-color: #F5F9FF;
+	scrollbar-highlight-color: #F9F9F9;
+	scrollbar-3dlight-color: #E0E0E0;
+	scrollbar-darkshadow-Color: #CCCCCC;
+}  /*文本域*/
+.ZB_FormSelect {
+	height: 20px;
+	background: #fff url(images/bg_61.gif) -2px -2px repeat-x;
+	border: 1px #ACB2C2 solid;
+	color: #343434;
+}  /*下拉框*/
+.inp {
+	width: 90%;
+	padding: 2px;
+	height: 18px;
+	border-width: 1px;
+	border-style: solid;
+	vertical-align: middle;
+	line-height: 18px;
+	font-size: 12px;
+	padding-top: 4px;
+}
+
+input.ipt-normal {
+	border-color: #A0B4C5;
+	background-color: #FFF
+}
+
+.tip {
+	line-height: 25px;
+	width: 250px;
+	float: left;
+	font-size: 12px;
+	padding-left: 4px;
+	padding-right: 26px;
+	padding-top: 4px;
+}
+
+.tip-focus {
+	border-width: 1px;
+	border-style: solid;
+	font-size: 12px;
+	padding-left: 8px;
+	padding-right: 22px;
+	padding-top: 4px;
+	border-color: #ECECD5;
+	background-color: #FFFCEB;
+	float: left;
+	width: 250px;
+	line-height: 25px;
+}
+
+.tip-right {
+	background: url(images/right_icon.gif) 5px 5px no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	font-size: 12px;
+	padding-left: 30px;
+	padding-top: 4px;
+	border-color: #009900;
+	background-color: #E9FDE9;
+	float: left;
+	width: 250px;
+	line-height: 25px;
+}
+
+.tip-error {
+	background: url(images/error_icon.gif) 5px 5px no-repeat;
+	border-width: 1px;
+	border-style: solid;
+	font-size: 12px;
+	padding-left: 30px;
+	padding-top: 4px;
+	border-color: #D5060D;
+	background-color: #FEF5F5;
+	float: left;
+	width: 250px;
+	line-height: 25px;
+}
+
+.editField {
+	float: left;
+	width: 50%;
+	margin: 0px 10px 0px 2px;
+	padding-top: 4px;
+}
+
+.normal_icon {
+	color: red;
+	float: left;
+	width: 8px;
+	margin: 5px 2px 5px 2px;
+	line-height: 25px;
+}
+
+.sort-n {
+	width: 100%;
+	height: 100%;
+	cursor: pointer
+}
+
+.sort-asc {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background: url(images/arrow_a.gif) right no-repeat;
+}
+
+.sort-desc {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background: url(images/arrow_d.gif) no-repeat right;
+}
+
+.ZB_FormCalendar {
+	width: 130px;
+}  /*日历组合框*/
+.ZB_FormCalendarInput {
+	float: left;
+	background: url(images/form_69.gif) left top no-repeat;
+	border: 0;
+	height: 20px;
+	width: 108px;
+	text-indent: 2px;
+	line-height: 20px;
+	color: #343434;
+}
+
+.ZB_FormCalendarSearch {
+	float: left;
+	background: url(images/form_70.gif) left top no-repeat;
+	border: 0;
+	height: 20px;
+	width: 18px;
+	cursor: pointer
+}
+
+.dateField {
+	border: #999 1px solid;
+	height: 20px;
+	background: #fff url(images/datePicker.gif) no-repeat right !important;
+}
+
+.dateFieldFmtErr {
+	font-weight: bold;
+	color: red;
+}
+
+.btn40 {
+	width: 82px;
+	height: 30px;
+	background: url("images/btn40.jpg") repeat-x left top;
+	padding-bottom: 2px;
+	color: #FFF;
+	border: #000;
+	border-style: none;
+}
+
+.ZB_Btn_Edit {
+	width: 16px;
+	height: 16px;
+	background: url(images/icon_45.gif) left top repeat-x;
+	border: none;
+	font-size: 12px;
+	text-align: center;
+	color: #000;
+	cursor: pointer;
+}
+
+.ZB_Btn_Config {
+	width: 16px;
+	height: 16px;
+	background: url(images/tool_ico2.gif) left top repeat-x;
+	border: none;
+	font-size: 12px;
+	text-align: center;
+	color: #000;
+	cursor: pointer;
+}
+
+.ZB_FormFunctionBox {
+	background: #dae6f4 url(images/List_19.gif) left bottom repeat-x;
+	height: 26px;
+	clear: both;
+	border-left: 1px #8eb6e4 solid;
+	border-right: 1px #8eb6e4 solid;
+	border-top: 1px #fff solid;
+}
+
+.ZB_FormFunctionBox2 {
+	background: #dae6f4 url(images/List_19.gif) left bottom repeat-x;
+	height: auto;
+	clear: both;
+	border-left: 1px #8eb6e4 solid;
+	border-right: 1px #8eb6e4 solid;
+	border-top: 1px #fff solid;
+	height: 80px;
+}
+
+.ZB_FormFunctionBox2 input {
+	border: 1px #ACB2C2 solid;
+	background: #fff url(images/bg_61.gif) left top repeat-x;
+	text-align: left;
+	height: 15px;
+	font-size: 12px;
+	padding-top: 2px;
+	color: #343434;
+}  /*输入框*/
+.ZB_FormFunction {
+	background: url(images/fuctionLine.gif) right 7px no-repeat;
+	width: auto;
+	float: left;
+	display: block;
+	padding: 0px 0px 0px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	line-height: 26px;
+}
+
+.ZB_FormFunction div.add {
+	background: url(images/icon_16.gif) left 5px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormFunction div.delete {
+	background: url(images/icon_15.gif) left 7px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormFunction div.btnActive {
+	background: url(images/icon_active.gif) left 5px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormFunction div.btnStop {
+	background: url(images/icon_stop.gif) left 5px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormFunction div.btnNoApprove {
+	background: url(images/icon_noapprove.gif) left 5px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormFunction div.btnDisabled {
+	background: url(images/icon_disabled.gif) left 5px no-repeat;
+	display: block;
+	padding-left: 17px;
+	padding-right: 15px;
+	width: auto;
+	float: left;
+}
+
+.ZB_FormSearch {
+	width: 800px;
+	float: left;
+	text-align: left;
+	padding-top: 2px;
+}
+
+.ZB_FormSearch label {
+	display: block;
+	float: left;
+	width: 120px;
+	text-align: left;
+	line-height: 22px;
+}
+
+/******************Left样式**************************/
+.MIS_LeftBox {
+	background: url(images/List_07.gif) left top repeat-y;
+	width: 168px;
+	height: 100%;
+	border-left: 3px #0069af solid;
+}
+
+.MIS_LeftM {
+	padding: 11px 3px 0px 5px;
+	color: #fff;
+	font-size: 12px;
+	text-align: left;
+	height: 95%;
+	float: left;
+	width: 150px;
+}
+
+.MIS_LeftTitle {
+	background: url(images/index_37.gif) left top no-repeat;
+	width: 105px;
+	height: 28px;
+	color: #003466;
+	font-weight: bold;
+	line-height: 28px;
+	padding-left: 45px;
+	padding-bottom: 2px;
+}
+
+.MIS_LeftTitle a {
+	display: block;
+	text-decoration: none;
+	color: #003466;
+}
+
+.MIS_LeftTitle a:hover {
+	text-decoration: none;
+	color: #003466;
+}
+
+ul.MIS_LeftNav {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	height: 200px;
+}
+
+ul.MIS_LeftNav li {
+	background: url(images/List_11.gif) 35px 8px no-repeat;
+	line-height: 25px;
+	font-size: 12px;
+	color: #000;
+	padding-left: 50px;
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px
+}
+
+/******************收缩扩展样式**************************/
+.MIS_ShrinkTopBox {
+	background: url(images/shrink_02.gif) left top repeat-x;
+	height: 6px;
+}
+
+.MIS_ShrinkTopL {
+	background: url(images/shrink_01.gif) left top no-repeat;
+	height: 6px;
+}
+
+.MIS_ShrinkTopR {
+	background: url(images/shrink_03.gif) right top no-repeat;
+	height: 6px;
+}
+
+.MIS_ShrinkTopArrow {
+	width: 28px;
+	height: 7px;
+	margin: 0px auto;
+	padding-top: 1px;
+}
+
+.MIS_ShrinkLeftBox {
+	background: url(images/shrink_05.gif) left top repeat-y;
+	width: 7px;
+	height: 100%;
+	float: left;
+}
+
+.MIS_ShrinkLeftArrow {
+	width: 7px;
+	height: 28px;
+	padding-top: 50%;
+	padding-left: 1px;
+}
+
+#ShrinkLeftArrow {
+	height: 0px;
+	width: 0px;
+	top: 50%;
+	left: 161px;
+	position: absolute;
+}
+
+#ShrinkLeftArrowContent {
+	width: 7px;
+	height: 28px;
+	position: absolute;
+	margin: -14px 0 0 0px;
+}
+
+/*翻页样式*/
+.ZB_PageBox {
+	background: url(images/pageBG61.gif) left top repeat-x;
+	height: 26px;
+	text-align: left;
+	line-height: 20px;
+	border: 1px #7caabf solid;
+	color: #666
+}
+
+.ZB_PageL {
+	width: 200px;
+	float: left;
+	padding-left: 5px;
+	text-align: center;
+	padding-top: 3px;
+}
+
+.ZB_PageL img {
+	padding: 0px 5px;
+}
+
+.ZB_PageR {
+	width: 350px;
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 3px;
+}
+
+.ZB_PageLine {
+	background: url(images/Page_03.gif) right 4px no-repeat;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.ZB_PageGo {
+	background: url(images/btnGo01.gif) right 4px no-repeat;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/******************Bottom样式**************************/
+.ZB_FooterBox1 {
+	border-left: 1px #0069af solid;
+	border-bottom: 1px #0069af solid;
+	border-right: 1px #0069af solid;
+	background: #4a89d6;
+	margin: 0px auto;
+}
+
+.ZB_FooterBox2 {
+	border-left: 1px #0069af solid;
+	border-bottom: 1px #0069af solid;
+	border-right: 1px #0069af solid;
+	background: url(images/index_53.gif) left top repeat-x;
+	height: 28px;
+	text-align: center;
+	line-height: 29px;
+	color: #fff;
+	padding: 0px 3px;
+}
+
+.ZB_FooterBox3 {
+	border-top: 1px #0069af solid;
+}
+
+.ZB_FooterBox4 {
+	border-top: 1px #a4c4ea solid;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	color: #fff;
+	margin: 0px -1px;
+}
+
+/******************登录页面样式**************************/
+.ZB_LoginBox {
+	font-size: 12px;
+	padding: 0px;
+	margin: 0px;
+	background: #A3C4DC url(images/login_02.jpg) left top repeat-x;
+	text-align: center;
+}
+
+#ZB_LoginContent {
+	background: url(images/login_bg.gif) left top no-repeat;
+	width: 520px;
+	height: 300px;
+	text-align: center;
+	padding-top: 160px;
+	margin: 83px auto 0px auto;
+}
+
+form div.Login {
+	clear: left;
+	display: block;
+	width: 300px;
+	zoom: 1;
+	margin: 0px auto 0 auto;
+	padding: 6px 7px;
+	text-align: left;
+}
+
+form div.Login label {
+	display: block;
+	float: left;
+	width: 56px;
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+
+form div.BtnBox {
+	text-align: center;
+	height: 35px;
+	width: 255px;
+	margin: 0px auto;
+	padding-top: 20px;
+}
+
+.ZB_LoginCopyright {
+	padding-top: 70px;
+	padding-top: 42px;
+	text-align: center;
+}
+
+/******************注册页面样式**************************/
+.ZB_RegisterBox {
+	width: 750px;
+	margin: 0px auto;
+}
+
+.ZB_RegisterTitle {
+	background: url(images/TitleLogo.gif) left top no-repeat;
+	width: 750px;
+	height: 54px;
+}
+
+.ZB_RegisterContentBox {
+	background: url(images/Bg01.gif) left top no-repeat;
+	width: 654px;
+	height: 350px;
+	padding: 60px 48px 0px 48px;
+}
+
+.ZB_RegisterTable {
+	width: 100%;
+}
+
+.ZB_RegisterTable td {
+	line-height: 30px;
+	text-align: left;
+}
+
+.ZB_RegisterTable td.title {
+	text-align: right;
+	font-size: 12px;
+	color: #000;
+}
+
+.ZB_RegisterLine {
+	background: url(images/lineBg.gif) left top no-repeat;
+	width: 620px;
+	height: 2px;
+	margin-top: 25px;
+}
+
+.ZB_RegisterBtnBox {
+	height: 34px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+/*路径样式*/
+.ZB_PathBox {
+	background: url(images/PathLine.gif) left top repeat-x;
+	height: 26px;
+	text-align: left;
+	line-height: 26px;
+	padding-left: 10px;
+}
+
+.ZB_PathBox span {
+	background: url(images/icon_14.gif) left 6px no-repeat;
+	color: #666;
+	padding-left: 20px;
+	display: block;
+}

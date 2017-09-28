@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/kuaidi.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/kuaidihistory.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+        	
+        	
+        	function getCookie(name)
+			{
+			    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+			    if(arr=document.cookie.match(reg))
+			        return (arr[2]);
+			    else
+			        return null;
+			}
+			var openId = getCookie("openId");
+        	if(openId == null||openId==''||openId=='undefined'){
+        		window.location.href="login.jsp";
+        	}else{
+        		submitBD();
+        	} 
+			
+			function GetRequest() {
+			  var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+			         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+			      }
+			   }
+			   return theRequest;
+			}
+			var Request = new Object();
+			Request = GetRequest();
+			var tphone = Request["phone"];
+			
+			function submitBD(){
+        		$.ajax( {
+					url : "/expressage_api/rbac/sys/expressageUser/getUserIdByOpenid",
+					data : "openId="+openId,
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						if(data.code!='000000'){
+							alert(data.message);
+						}else{
+							$.ajax( {
+								url : "/expressage_api/rbac/sys/sysBase/testBase",
+								data : "baseId=getOrdersByUserId&paramenter1="+data.response.userId+"&paramenter2=1&paramenter3=2",
+								type : "post",
+								dataType : "json",
+								success : function(data1) {
+									if(data1.code!='000000'){
+										alert(data1.message);
+									}else{
+										var htmlStr = "";
+				        				for(var i=0;i<data1.response.length;i++){
+				        					htmlStr+="<div class='history-xdan'  onclick='history_jsjr(this)'><div class='content-ck'>";
+				        					htmlStr+="<div class='history-dingdan-tt'>下单时间:</div><div class='history-date'>";
+				        					htmlStr+=" "+data1.response[i].jDate+"</div><div class='history-right-icon'>";
+				        					htmlStr+="<img src='img/arrow-up.png'/></div></div></div><div class='linea'></div>";
+				        					htmlStr+="<div class='his-jsjr'><div class='jjr-mess'><div class='jjr-content'>";
+				        					htmlStr+="<div class='jsjr2'><寄件人></div><div class='hsjr-name2'>"+data1.response[i].jName+"</div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data1.response[i].jPhone+"</div>";
+				        					htmlStr+="<div class='his-dizhi'>"+data1.response[i].jAddress+"</div>";
+				        					htmlStr+="</div></div><div class='linea'></div><div class='jjr-mess'><div class='jjr-content'>";
+				        					htmlStr+="<div class='jsjr2'><收件人></div><div class='hsjr-name2'>"+data1.response[i].sName+"</div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data1.response[i].sPhone+"</div>";
+				        					htmlStr+="<div class='his-dizhi'>"+data1.response[i].sAddress+"</div>";
+				        					htmlStr+="</div></div></div><div class='linea'></div>";
+				        				}	
+				        				$('#shoujians').html(htmlStr);
+									}
+								},error : function() {
+									//alert("错误");
+								}
+							});
+							$.ajax( {
+								url : "/expressage_api/rbac/sys/sysBase/testBase",
+								data : "baseId=getOrdersByUserId&paramenter1="+data.response.userId+"&paramenter2=3&paramenter3=4",
+								type : "post",
+								dataType : "json",
+								success : function(data2) {
+									if(data2.code!='000000'){
+										alert(data2.message);
+									}else{
+										var htmlStr = "";
+				        				for(var i=0;i<data2.response.length;i++){
+				        					htmlStr+="<div class='history-xdan'  onclick='history_jsjr(this)'><div class='content-ck'>";
+				        					htmlStr+="<div class='history-dingdan-tt'>运单号:"+data2.response[i].orderNumber+"</div><div class='history-date'>";
+				        					htmlStr+=" "+data2.response[i].jDate+"</div><div class='history-right-icon'>";
+				        					htmlStr+="<img src='img/arrow-up.png'/></div></div></div><div class='linea'></div>";
+				        					htmlStr+="<div class='his-jsjr'><div class='jjr-mess'><div class='jjr-content'>";
+				        					htmlStr+="<div class='jsjr2'><寄件人></div><div class='hsjr-name2'>"+data2.response[i].jName+"</div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data2.response[i].jPhone+"</div>";
+				        					htmlStr+="<div class='his-dizhi'>"+data2.response[i].jAddress+"</div>";
+				        					htmlStr+="</div></div><div class='linea'></div><div class='jjr-mess'><div class='jjr-content'>";
+				        					htmlStr+="<div class='jsjr2'><收件人></div><div class='hsjr-name2'>"+data2.response[i].sName+"</div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data2.response[i].sPhone+"</div>";
+				        					htmlStr+="<div class='his-dizhi'>"+data2.response[i].sAddress+"</div>";
+				        					htmlStr+="</div></div></div><div class='linea'></div>";
+				        				}	
+				        				$('#shoujians1').html(htmlStr);
+									}
+								},error : function() {
+									//alert("错误");
+								}
+							});
+							$.ajax( {
+								url : "/expressage_api/rbac/sys/sysBase/testBase",
+								data : "baseId=getHistoryOrder&paramenter1="+tphone,
+								type : "post",
+								dataType : "json",
+								success : function(data3) {
+									if(data3.code!='000000'){
+										alert(data3.message);
+									}else{
+										var htmlStr = "";
+				        				for(var i=0;i<data3.response.length;i++){
+				        					htmlStr+="<div class='history-shoujian'><div class='history-xdan'>";
+				        					htmlStr+="<div class='content-ck' style='margin-bottom: 2.5%;'><div class='history-dingdan-number'>";
+				        					htmlStr+="运单号:"+data3.response[i].orderNumber+"</div><div class='history-date'>"+data3.response[i].jDate+" ";
+				        					htmlStr+="</div></div></div><div class='linea'></div><div class='history-xdan'>";
+				        					htmlStr+="<div class='content-ck2'>本人签收</div></div><div class='linea'></div>";
+				        					htmlStr+="<div class='jjr-mess'><div class='jjr-content'><div class='jsjr2'><寄件人></div>";
+				        					htmlStr+="<div class='hsjr-name2'>"+data3.response[i].jName+" </div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data3.response[i].jPhone+"</div>";
+				        					htmlStr+="<div class='his-dizhi'>"+data3.response[i].jAddress+"</div></div>";
+				        					htmlStr+="</div><div class='linea'></div><div class='jjr-mess'><div class='jjr-content'>";
+				        					htmlStr+="<div class='jsjr2'><收件人></div><div class='hsjr-name2'>"+data3.response[i].sName+" </div>";
+				        					htmlStr+="<div class='hsjr-tel2'>"+data3.response[i].sPhone+"</div><div class='his-dizhi'>"+data3.response[i].sAddress+" ";
+				        					htmlStr+="</div></div></div></div>";
+				        					
+				        				}	
+				        				$('#history-sj').html(htmlStr);
+									}
+								},error : function() {
+									//alert("错误");
+								}
+							});
+						}
+					},error : function() {
+						//alert("错误");
+					}
+				});
+			}
+        	
+        	function lskj(){
+        		//window.location.href="/expressage_api/rbac/sys/expressageOrder/saveOrderByweixin?courierId="+courierId+"&type=2&openId="+openId;
+        		window.location.href="kdydata.html?courierId="+courierId+"&latitude="+latitude+"&longitude="+longitude;
+        	}
+        	
+        </script>
+	</head>
+	<body>
+		<div class="history-kd-top">
+			<div id="history-zfj"><div class="chuizhi-jzh">历史发件</div></div>
+			<div id="history-zsj"><div class="chuizhi-jzh">历史收件</div></div>
+		</div>
+		
+		<div id="history-fj1" style="display: block;">
+			<div class="history-sj-top">
+				<div class="history-fj" style="color: orange;"><div class="chuizhi-jzh">未完成下单</div></div>
+				<div class="history-fj"><div class="chuizhi-jzh">已完成下单</div></div>
+			</div>
+		
+			<div id="history-fj1-text">
+				<div class="history-shoujian" id="shoujians">
+					
+				</div>
+			</div>	
+		</div>
+		
+		<div id="history-fj2" style="display: none;">
+		
+			<div id="history-fj2-text">
+				<div class="history-shoujian" id="shoujians1">
+					
+				</div>
+			</div>
+		</div>	
+	
+		<div id="history-sj" style="display: none;">
+			<div class="history-shoujian">
+				
+			</div>
+		
+		</div>
+	</body>
+</html>

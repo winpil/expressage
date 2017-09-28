@@ -1,0 +1,134 @@
+<div class="page myForm">
+       <ul class="myFormNav clearfix">
+           <li class="active"><a  href="javascript:;" ng-click="getMyForm(1,$event)">待抢单<span style='color: red;'>{{num1}}</span></a></li>
+           <li><a href="javascript:;" ng-click="getMyForm(2,$event)">待付款<span style='color: red;'>{{num2}}</span></a></li>
+           <li><a href="javascript:;" ng-click="getMyForm(3,$event)">待签收<span style='color: red;'>{{num3}}</span></a></li>
+           <li><a href="javascript:;" ng-click="getMyForm(4,$event)">已完成<span style='color: red;'>{{num4}}</span></a></li>
+       </ul>
+        <ul class="content" ng-if="type==1||type==2||type==4">
+            <!-- 待抢单 -->
+            <li ng-if="type==1" ng-repeat="item in dataList" track by $index>
+                <a href="#/formMsg/1/{{item.orderId}}">
+                    <div class="send">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div class="sendPhone"><span class="sendName" ng-bind="item.jName"></span> <span class="sendPhone" ng-bind="item.jPhone"></span></div>
+                            <div class="sendAddress">地址：{{item.jAddress}}</div>
+                            <div class="stars pa">
+                                <span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="get">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div class="getPhone"><span class="getName" ng-bind="item.sName">张先生</span> <span class="getPhone" ng-bind="item.sPhone"></span></div>
+                            <div class="getAddress">地址：{{item.sAddress}}</div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <span class="titleIcon"></span>
+                        <div class="pr">
+                            <div>物品：{{item.packType}} 预计重量{{item.packWeight}}KG</div>
+                            <span class="formStatus pa">待抢单</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        <!-- 待付款 -->
+         	<li ng-if="type==2" class="pr" ng-repeat="item in dataList" track by $index>
+            	<a href="#/formMsg/2/{{item.orderId}}">
+                	<div class="send">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div class="sendPhone"><span class="sendName" ng-bind="item.jName"></span> <span class="sendPhone" ng-bind="item.jPhone"></span></div>
+                        	<div class="sendAddress">地址：{{item.jAddress}}</div>
+                        	<div class="stars pa">
+                            	<span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                        	</div>
+                    	</div>
+                	</div>
+                	<div class="get">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div class="getPhone"><span class="getName" ng-bind="item.sName"></span> <span class="getPhone" ng-bind="item.sPhone"></span></div>
+                        	<div class="getAddress">地址：{{item.sAddress}}</div>
+                    	</div>
+                	</div>
+                	<div class="goods" style="padding-bottom:0.3rem">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div>物品：{{item.packType}} 预计重量{{item.packWeight}}KG</div>
+                    	</div>
+                	</div>
+            	</a>
+				<span class="sureBtn  pa" ng-click="sureGet(2,item.orderId,item.orderPrice)">确认收件</span>
+         	</li>
+         	<!-- 已完成 -->
+         	<li ng-if="type==4" ng-repeat = "item in dataList">
+            	<a href="#/formMsg/4/{{item.orderId}}">
+                	<div class="send">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div class="sendPhone"><span class="sendName" ng-bind="item.jName"></span> <span class="sendPhone" ng-bind="item.jPhone"></span></div>
+                        	<div class="sendAddress">地址：{{item.jAddress}}</div>
+                        	<div class="stars pa">
+                            	<span ng-repeat = "item1 in starsArr"></span>
+                            	<span class="starNone" ng-repeat="item2 in noStarsArr"></span>
+                        	</div>
+                    	</div>
+                	</div>
+                	<div class="get">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div class="getPhone"><span class="getName" ng-bind="item.sName"></span> <span class="getPhone" ng-bind="item.sPhone"></span></div>
+                        	<div class="getAddress">地址：{{item.sAddress}}</div>
+                    	</div>
+                	</div>
+                	<div class="goods">
+                    	<span class="titleIcon"></span>
+                    	<div class="pr">
+                        	<div>物品：{{item.packType}} 预计重量{{item.packWeight}}KG</div>
+                    	</div>
+                	</div>
+            	</a>
+
+        	</li>
+
+         	
+         	
+       </ul>
+       <!-- 待签收 -->
+       <ul class="content waitPay" ng-if="type==3" >
+        	<li class="clearfix" ng-repeat="item in dataList" track by $index>
+            	<a href="#/formMsg/3/{{item.orderId}}">
+                	<img ng-src="{{item.img1}}" alt="" class="fl"/>
+                	<div class="text">
+                    	<div>
+                        	<p class="titleText" ng-bind="item.productName"></p>
+                        	<p class="integral">积分<span ng-bind="item.integral"></span></p>
+                    	</div>
+
+                	</div>
+           	 	</a>
+        	</li>
+
+    </ul>
+    
+    
+   
+    </div>
+<div class="shadow" style="display:none">
+    <div class="pa">
+        <div class="confimMsg">
+            快递是否已收件？
+        </div>
+        <div class="confirmBtn clearfix">
+            <div class="cancel fl" ng-click="hideShow(0)">取消</div>
+            <div class="sure fr" ng-click="hideShow(1)">确定</div>
+        </div>
+    </div>
+</div>

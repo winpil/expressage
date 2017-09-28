@@ -1,0 +1,61 @@
+.user {
+    background-image:url(../images/rbac/administrator1_16x16.gif) !important; }
+.userAdd {
+    background-image:url(../images/rbac/administrator1_add_16x16.gif) !important; }
+.userDelete {
+    background-image:url(../images/rbac/administrator1_delete_16x16.gif) !important; }
+.userEdit {
+    background-image:url(../images/rbac/administrator1_edit_16x16.gif) !important; }
+
+.group {
+    background-image:url(../images/rbac/database_field_16x16.gif) !important; }
+.groupAdd {
+    background-image:url(../images/rbac/database_field_add_16x16.gif) !important; }
+.groupEdit {
+    background-image:url(../images/rbac/database_field_edit_16x16.gif) !important; }
+.groupSave {
+    background-image:url(../images/rbac/database_field_save_16x16.gif) !important; }
+.groupDetail {
+	background-image:url(../images/rbac/database_field_detail_16x16.gif) !important; }
+.groupRecommend {
+	background-image:url(../images/rbac/database_field_recommend_16x16.gif) !important; }
+.groupUnRecommend {
+	background-image:url(../images/rbac/database_field_unrecommend_16x16.gif) !important; }
+.groupPass {
+	background-image:url(../images/rbac/database_field_pass_16x16.gif) !important; }
+.groupNotPass {
+	background-image:url(../images/rbac/database_field_notpass_16x16.gif) !important; }
+.groupOpen {
+	background-image:url(../images/rbac/database_field_open_16x16.gif) !important; }
+.groupClose {
+	background-image:url(../images/rbac/database_field_close_16x16.gif) !important; }
+.groupDelete {
+    background-image:url(../images/rbac/database_field_delete_16x16.gif) !important; }
+.groupMusic {
+    background-image:url(../images/rbac/database_field_music_16x16.gif) !important; }
+.save {
+    background-image:url(../images/rbac/save.gif) !important;
+}
+.back {
+    background-image:url(../images/rbac/forward1.gif) !important;
+}
+.btnLeft {
+    background-image:url(../images/rbac/forward.gif) !important;
+}
+.btnSearch{
+    background-image:url(../images/rbac/search-16x16.gif) !important;    
+}
+.roleSet{
+    background-image:url("../images/rbac/unordered_list_16x16.gif")!important; 
+}
+.roleView{
+    background-image:url("../images/rbac/profile-16x16.gif")!important;
+}
+.imageCusor{
+    cursor:pointer
+}
+.role_forward{
+    background-image:url("../images/rbac/forward.gif")!important;
+}.role_backward{
+    background-image:url("../images/rbac/backward.gif")!important;
+}

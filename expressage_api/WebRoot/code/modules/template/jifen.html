@@ -1,0 +1,14 @@
+
+    
+    
+    <div class="page jifen">
+        <div class="top">
+            <p>总积分</p>
+            <p class="totalNum">{{validIntegral}}</p>
+            <a href="#/jifenmall" class="exchangeBtn">兑换</a>
+        </div>
+        <div class="text">
+            <p ng-repeat="item in dataList">{{item.content}} <span ng-bind="item.integralNum"></span></p>
+        </div>
+        
+    </div>
